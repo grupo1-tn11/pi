@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>getdev</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/stylesheets/base.css" />
+  </head>
+  <body>
+    <%- include('./parts/header') %>
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    <main>
+      <section>
+        <div class="conteudo-main">
+          <h1>Procurando um Freela ou um Dev?</h1>
+          <p>Aqui, você encontra o que há de melhor!</p>
+          <div class="banners">
+            <img id="bn1" src="./img/banner-1.svg" alt="banner home" />
+            <img src="./img/banner-2.svg" alt="banner home 2" />
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="conteudo-main">
+          <h2>Os principais serviços da web, de forma fácil e intuitiva</h2>
+          <p>Navegue por nossas categorias e descubra!</p>
+
+          <div class="cards">
+            <a class="link-card" href="#">
+              <div class="card">
+                <p>
+                  Busca Geral <span><i class="bi bi-search"></i></span>
+                </p>
+                <div class="card-img">
+                  <img src="./img/card-1.svg" alt="Card 1" />
+                </div>
+              </div>
+            </a>
+            <a class="link-card" href="#">
+              <div class="card">
+                <p>
+                  Busca Geral <span><i class="bi bi-search"></i></span>
+                </p>
+                <div class="card-img">
+                  <img src="./img/card-2.svg" alt="Card 1" />
+                </div>
+              </div>
+            </a>
+            <a class="link-card" href="#">
+              <div class="card">
+                <p>
+                  Busca Geral <span><i class="bi bi-search"></i></span>
+                </p>
+                <div class="card-img">
+                  <img src="./img/card-3.svg" alt="Card 1" />
+                </div>
+              </div>
+            </a>
+            <a class="link-card" href="#">
+              <div class="card">
+                <p>
+                  Busca Geral <span><i class="bi bi-search"></i></span>
+                </p>
+                <div class="card-img">
+                  <img src="./img/card-4.svg" alt="Card 1" />
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <%- include('./parts/footer') %>
+  </body>
+</html>

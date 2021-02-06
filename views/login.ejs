@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>getdev - Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/stylesheets/base.css" />
+  </head>
+  <body>
+    <%- include('./parts/header') %> 
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+    <main>
+      <div class="box-back">
+        <h1>Realize seu login</h1>
+        <div class="left-right">
+          <form class="box-left" action="/logado" method="GET">
+            <img src="/img/logo_dentro.svg" alt="get{dev}" />
+            <label for="login">Login</label>
+            <input type="email" name="login" id="login" />
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="senha" />
+            <div class="esqueci-senha">
+              <a href="#">Esqueci minha senha</a>
+              <a href="#">Ainda não sou cadastrado</a>
+            </div>
+            <input
+              class="btn-login"
+              type="submit"
+              value="ENTRAR"
+              name="entrar"
+            />
+          </form>
+          <div class="box-right">
+            <img src="/img/undraw_authentication.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include('./parts/footer') %> 
+  </body>
+</html>
