@@ -15,6 +15,12 @@ const controller = {
   },
   pesquisar: (req, res)=> {
     return res.render('pesquisa')
+  },
+  prestador: (req, res)=> {
+    return res.render('prestador')
+  },
+  resumo: (req, res)=> {
+    return res.render('resumo')
   }
 }
 

@@ -8,5 +8,6 @@ router.get('/login', indexController.login)
 router.get('/cadastro', indexController.cadastro)
 router.get('/logado', indexController.logado)
 router.get('/pesquisar', indexController.pesquisar)
-
+router.get('/prestador', indexController.prestador)
+router.get('/resumo', indexController.resumo)
 module.exports = router
