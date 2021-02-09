@@ -11,8 +11,9 @@ main {
   align-items: center;
   padding: 40px 60px;
   border-radius: 72px;
-  width: 98%;
+  width: 100%;
   max-width: 1200px;
+  margin: 60px 0px;
 }
 
 .left-right {
