@@ -1,75 +1,55 @@
-section {
-  width: 100%;
-  border-bottom: 1px solid #3c3c3c;
-  box-shadow: 0px 4px 4px -4px rgba(0, 0, 0, 0.25);
-}
-
-.conteudo-main {
-  width: 80%;
-  margin: 0 auto;
-
-  color: white;
-
-  text-align: center;
-
-  padding-top: 20px;
-  padding-bottom: 40px;
-}
-
-.conteudo-main h1 {
-  font-size: 2.5em;
-}
-
-.conteudo-main p {
-  font-size: 1.8em;
-  margin-bottom: 40px;
-}
-
-.conteudo-main h2 {
-  font-size: 2em;
-}
-
-.banners img {
-  margin: 0 30px;
-}
-
-#bn1 {
-  width: 210px;
-}
-
-.cards {
+main {
   display: flex;
-  justify-content: center;
+  width: 100%;
+  flex-direction: column;
   align-items: center;
 }
 
-.link-card {
-  margin-right: 50px;
-  text-decoration: none;
-  color: white;
+.slogan {
+  display: flex;
+  font-size: 16px;
+  font-family: "Courier Prime", monospace;
+  width: 100%;
+  justify-content: center;
+  margin-top: 100px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.box {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px 0px;
+}
+
+.b-inside {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.b-inside img {
+  height: 170px;
+}
+
+.legenda {
+  margin-top: 30px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.get {
+  color: #a36bff;
   font-weight: 600;
 }
 
-.card {
-  background-color: #67a3ab;
-  border: 6px solid #999999;
-  border-radius: 60px;
-  padding: 10px;
-
-  max-width: 200px;
-  min-height: 250px;
+.dev {
+  color: #45adce;
+  font-weight: 600;
 }
-
-.card p {
-  font-size: 1.1em;
-  background-color: #c4c4c4;
-  padding: 10px;
-  border-radius: 50px;
-  margin-top: 10px;
-}
-
-.card-img {
-  max-width: 167px;
-  min-width: 167px;
-}
-
