@@ -3,14 +3,14 @@ footer {
   height: 110px;
   background-color: black;
   color: #b2b2b2;
-  margin-top:auto;
+  /* margin-top: auto; */
 }
 
 footer a {
   text-decoration: none;
 }
 
-footer a:hover{
+footer a:hover {
   color: white;
 }
 
@@ -40,7 +40,6 @@ footer .redes-sociais img {
 }
 
 footer .institucional {
-
   display: flex;
   flex-direction: column;
   align-items: center;
