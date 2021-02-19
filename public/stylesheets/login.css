@@ -6,7 +6,7 @@ main {
 
 .box-back {
   display: flex;
-  background-color: #414141;
+  background-color: #373539;
   flex-direction: column;
   align-items: center;
   /* width: 95%; */
@@ -47,7 +47,7 @@ main {
 
 h1 {
   color: white;
-  font-size: 30px;
+  font-size: 36px;
   margin-bottom: 40px;
 }
 
