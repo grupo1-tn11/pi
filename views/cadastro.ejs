@@ -1,94 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>getdev - Login</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
-    />
-    <link rel="stylesheet" href="/stylesheets/base.css" />
+    <%- include('./parts/head') %>
   </head>
   <body>
-    <%- include('./parts/header') %> 
+    <%- include('./parts/header') %>
     <link rel="stylesheet" href="/stylesheets/cadastro.css" />
     <main>
-      <div class="box-back">
-        <h1>Cadastre-se</h1>
-        <form class="left-right" action="#" method="POST">
-          <div class="box-left">
-            <img src="/img/logo_dentro.svg" alt="get{dev}" />
+      <h1>Cadastro</h1>
+      <form>
+        <label for="nome">nome</label>
+        <input type="text" name="nome" id="nome" />
 
-            <div class="each-line">
-              <span class="each-input">
-                <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" />
-              </span>
-            </div>
+        <label for="email">e-mail</label>
+        <input type="email" name="email" id="email" />
 
-            <div class="each-line">
-              <span class="each-input">
-                <label for="email">e-mail</label>
-                <input type="email" name="email" id="email" />
-              </span>
-              <span class="each-input">
-                <label for="senha">Senha</label>
-                <input type="password" name="senha" id="senha" />
-              </span>
-            </div>
+        <label for="senha">senha</label>
+        <input type="password" name="senha" id="senha" />
 
-            <div class="each-line">
-              <span class="each-input">
-                <label for="cpf">CPF</label>
-                <input type="text" name="cpf" id="cpf" />
-              </span>
-              <span class="each-input">
-                <label for="tel">Telefone</label>
-                <input type="tel" name="tel" id="tel" />
-              </span>
-            </div>
+        <label for="cpf">CPF</label>
+        <input type="text" name="cpf" id="cpf" />
 
-            <div class="each-line">
-              <span class="each-input">
-                <label for="resumo">Resumo profissional</label>
-                <textarea
-                  name="resumo"
-                  id="resumo"
-                  cols="30"
-                  rows="10"
-                ></textarea>
-              </span>
-            </div>
+        <label for="tel">telefone</label>
+        <input type="tel" name="tel" id="tel" />
 
-            <div class="each-line">
-              <span class="radios">
-                <input type="radio" name="soudev" id="dev" value="dev" />
-                <label for="dev">Sou Dev</label>
-              </span>
-              <span class="radios">
-                <input
-                  type="radio"
-                  name="soudev"
-                  id="contratante"
-                  value="contratante"
-                />
-                <label for="contratante">Sou Contratante</label>
-              </span>
-            </div>
-          </div>
-          <div class="box-right">
-            <img src="/img/icone-pessoa-gd.svg" alt="foto" />
-            <input
-              class="btn-cadastrar"
-              type="submit"
-              value="CADASTRAR"
-              name="cadastrar"
-            />
-          </div>
-        </form>
-      </div>
+        <label for="endereco">endereço</label>
+        <input type="text" name="endereco" id="">
+
+        <input type="submit" value="enviar">
+      </form>
     </main>
-    <%- include('./parts/footer') %> 
+
   </body>
 </html>

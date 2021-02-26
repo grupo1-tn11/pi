@@ -1,75 +1,120 @@
-section {
-  width: 100%;
-  border-bottom: 1px solid #3c3c3c;
-  box-shadow: 0px 4px 4px -4px rgba(0, 0, 0, 0.25);
-}
-
-.conteudo-main {
-  width: 80%;
-  margin: 0 auto;
-
+h1 {
   color: white;
-
-  text-align: center;
-
-  padding-top: 20px;
-  padding-bottom: 40px;
+  font-weight: bold;
+  font-size: 4em;
+  flex-wrap: wrap;
 }
 
-.conteudo-main h1 {
-  font-size: 2.5em;
+h3 {
+  color: white;
+  font-weight: lighter;
+  font-size: 2.9em;
+  flex-wrap: wrap;
+  margin-bottom: 0.5em;
 }
 
-.conteudo-main p {
-  font-size: 1.8em;
-  margin-bottom: 40px;
-}
-
-.conteudo-main h2 {
+p {
+  color: white;
+  font-weight: lighter;
   font-size: 2em;
+  flex-wrap: wrap;
 }
 
-.banners img {
-  margin: 0 30px;
+.break {
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  height: 0px;
 }
 
-#bn1 {
-  width: 210px;
-}
-
-.cards {
+.inner-top {
+  background-image: url(/IMAGES/Prancheta\ 1.png);
+  height: 135vh;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   align-items: center;
+  justify-content: center;
 }
 
-.link-card {
-  margin-right: 50px;
-  text-decoration: none;
+.inner-mid {
+  background-image: url(/IMAGES/Prancheta\ 2.png);
+  height: 135vh;
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner-bot {
+  background-image: url(/IMAGES/Prancheta\ 3.png);
+  height: 119vh;
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid aqua;
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  padding: 5px;
+  background-color: aqua;
+  color: dimgray;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+}
+
+.busca {
+  padding-bottom: 55vh;
+}
+
+.devs {
+  padding-bottom: 35vh;
+}
+
+.negocio {
+  padding-bottom: 35vh;
+}
+
+.devs h2 {
+  color: black;
+  font-weight: bold;
+  font-size: 45px;
+}
+
+.devs p {
+  color: grey;
+  font-weight: lighter;
+  font-size: 30px;
+}
+
+.negocio h2 {
   color: white;
-  font-weight: 600;
+  font-weight: bold;
+  font-size: 45px;
 }
 
-.card {
-  background-color: #67a3ab;
-  border: 6px solid #999999;
-  border-radius: 60px;
-  padding: 10px;
-
-  max-width: 200px;
-  min-height: 250px;
+.negocio p {
+  color: white;
+  font-weight: lighter;
+  font-size: 30px;
 }
-
-.card p {
-  font-size: 1.1em;
-  background-color: #c4c4c4;
-  padding: 10px;
-  border-radius: 50px;
-  margin-top: 10px;
-}
-
-.card-img {
-  max-width: 167px;
-  min-width: 167px;
-}
-
