@@ -1,0 +1,117 @@
+
+
+h1{
+    color: white;
+    font-weight: bold;
+    font-size: 60px;
+    flex-wrap: wrap;
+}
+
+p{
+    color: white;
+    font-weight: lighter;
+    font-size: 40px;
+    flex-wrap: wrap;
+}
+
+.break{
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    height: 0px;
+}
+
+.inner-top {
+    background-image: url(/IMAGES/Prancheta\ 1.png);
+    height: 135vh;
+    display: flex;
+    flex-wrap: wrap;
+    background-repeat: no-repeat ;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    justify-content: center;
+
+}
+.inner-mid {
+    background-image: url(/IMAGES/Prancheta\ 2.png);
+    height: 135vh;
+    display: flex;
+    background-repeat: no-repeat ;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    justify-content: center;
+
+}
+.inner-bot {
+    background-image: url(/IMAGES/Prancheta\ 3.png);
+    height: 119vh;
+    display: flex;
+    background-repeat: no-repeat ;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    justify-content: center;
+
+}
+
+input{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid aqua;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    padding: 5px;
+    background-color: aqua;
+    color: grey;
+    border:none;
+    border-radius: 5px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.busca{
+    padding-bottom: 55vh;
+}
+.devs {
+    padding-bottom: 35vh;
+
+}
+
+.negocio {
+    padding-bottom: 35vh;
+}
+
+.devs h2{
+    color: black;
+    font-weight: bold;
+    font-size: 45px;
+
+}
+
+.devs p{
+    color: grey;
+    font-weight: lighter;
+    font-size: 30px;
+
+}
+
+.negocio h2{
+    color: white;
+    font-weight: bold;
+    font-size: 45px;
+
+}
+
+.negocio p{
+    color: white;
+    font-weight: lighter;
+    font-size: 30px;
+
+}

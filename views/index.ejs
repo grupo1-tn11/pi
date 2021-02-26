@@ -4,75 +4,72 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>getdev</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
-    />
-    <link rel="stylesheet" href="/stylesheets/base.css" />
-  </head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    </head>
   <body>
     <%- include('./parts/header') %>
-    <link rel="stylesheet" href="/stylesheets/home.css">
     <main>
-      <section>
-        <div class="conteudo-main">
-          <h1>Procurando um Freela ou um Dev?</h1>
-          <p>Aqui, você encontra o que há de melhor!</p>
-          <div class="banners">
-            <img id="bn1" src="./img/banner-1.svg" alt="banner home" />
-            <img src="./img/banner-2.svg" alt="banner home 2" />
-          </div>
-        </div>
-      </section>
-      <section>
-        <div class="conteudo-main">
-          <h2>Os principais serviços da web, de forma fácil e intuitiva</h2>
-          <p>Navegue por nossas categorias e descubra!</p>
+      <div class="container-fluid p-0">
+        <div class="inner-top">
 
-          <div class="cards">
-            <a class="link-card" href="#">
-              <div class="card">
-                <p>
-                  Busca Geral <span><i class="bi bi-search"></i></span>
-                </p>
-                <div class="card-img">
-                  <img src="./img/card-1.svg" alt="Card 1" />
+            <div class="container">
+                <div class="row">
+                        <section class="busca">
+                            <div class="col-12 d-flex flex-wrap justify-content-center">
+                                <h1>Encontre um Dev para o seu projeto</h1>
+                                <p>Nosso sistema te ajuda a encontrar a melhor solução</p>
+                            </div>
+
+                            <div class="col-12 d-flex flex-wrap justify-content-center">
+                                <input placeholder="O que você precisa?"/>
+                                <button>Pesquisar</button>
+                            </div>
+                        </section>
                 </div>
-              </div>
-            </a>
-            <a class="link-card" href="#">
-              <div class="card">
-                <p>
-                  Busca Geral <span><i class="bi bi-search"></i></span>
-                </p>
-                <div class="card-img">
-                  <img src="./img/card-2.svg" alt="Card 1" />
-                </div>
-              </div>
-            </a>
-            <a class="link-card" href="#">
-              <div class="card">
-                <p>
-                  Busca Geral <span><i class="bi bi-search"></i></span>
-                </p>
-                <div class="card-img">
-                  <img src="./img/card-3.svg" alt="Card 1" />
-                </div>
-              </div>
-            </a>
-            <a class="link-card" href="#">
-              <div class="card">
-                <p>
-                  Busca Geral <span><i class="bi bi-search"></i></span>
-                </p>
-                <div class="card-img">
-                  <img src="./img/card-4.svg" alt="Card 1" />
-                </div>
-              </div>
-            </a>
-          </div>
+            </div>
         </div>
-      </section>
+    </div>
+    
+   
+    <div class="container-fluid p-0">
+        <div class="inner-mid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 b-0 m-0 p-0 d-flex flex-wrap justify-content-right align-items-right">
+                        <section class="devs">
+                            <h2>Já são mais de 1 milhão de desenvolvedores prontos para te ajudar</h2>
+                            <p>E você pode acompanhar as avaliações de cada um desses desenvolvedores para escolher o que melhor atende as suas necessidades</p>
+
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        
+    </div>
+
+    <div class="container-fluid p-0">
+        <div class="inner-bot">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 b-0 m-0 p-0 ml-auto d-flex flex-wrap justify-content-right align-items-right">
+                        <section class="negocio">
+                            <h2>Somos uma plataforma para unir desenvolvedores e clientes</h2>
+                            <p>Não são apenas os clientes que se beneficiam da nossa plataforma, você, desenvolvedor, pode conseguir mais clientes com a gente!</p>
+
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
     </main>
     <%- include('./parts/footer') %>
   </body>
