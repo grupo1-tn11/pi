@@ -27,8 +27,8 @@ p {
 }
 
 .inner-top {
-  background-image: url(/IMAGES/Prancheta\ 1.png);
-  height: 135vh;
+  background-image: url(/IMAGES/botimg.svg);
+  height: 80vh;
   display: flex;
   flex-wrap: wrap;
   background-repeat: no-repeat;
@@ -38,9 +38,15 @@ p {
   justify-content: center;
 }
 
+.bottom-img{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 .inner-mid {
-  background-image: url(/IMAGES/Prancheta\ 2.png);
-  height: 135vh;
+  height: 100vh;
   display: flex;
   background-repeat: no-repeat;
   background-size: cover;
@@ -50,8 +56,8 @@ p {
 }
 
 .inner-bot {
-  background-image: url(/IMAGES/Prancheta\ 3.png);
-  height: 119vh;
+  background-image: url(/IMAGES/botimginv.svg);
+  height: 130vh;
   display: flex;
   background-repeat: no-repeat;
   background-size: cover;
@@ -63,7 +69,7 @@ p {
 input {
   padding: 5px;
   border-radius: 5px;
-  border: 1px solid aqua;
+  border: 1px solid #acda98;
   width: 50vw;
   display: flex;
   align-items: center;
@@ -72,7 +78,7 @@ input {
 
 button {
   padding: 5px;
-  background-color: aqua;
+  background-color: #acda98;
   color: dimgray;
   border: none;
   border-radius: 5px;
@@ -84,15 +90,16 @@ button {
 }
 
 .busca {
-  padding-bottom: 55vh;
+  
 }
 
 .devs {
-  padding-bottom: 35vh;
+    padding-top: 10vh;
+  
 }
 
 .negocio {
-  padding-bottom: 35vh;
+  
 }
 
 .devs h2 {
@@ -117,4 +124,145 @@ button {
   color: white;
   font-weight: lighter;
   font-size: 30px;
+}
+
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 768px){
+  .busca h1{
+    font-size:25px;
+    
+  }
+  .busca h3{
+    font-size: 15px;
+
+  }
+  .devs h2 {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .devs p {
+    color: grey;
+    font-weight: lighter;
+    font-size: 15px;
+  }
+  
+  .negocio h2 {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .negocio p {
+    color: white;
+    font-weight: lighter;
+    font-size: 15px;
+  }
+ }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) { 
+  .busca h1{
+    font-size:30px;
+    
+  }
+  .busca h3{
+    font-size: 20px;
+
+  }
+  .devs h2 {
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+  }
+  
+  .devs p {
+    color: grey;
+    font-weight: lighter;
+    font-size: 10px;
+  }
+  
+  .negocio h2 {
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+  }
+  
+  .negocio p {
+    color: white;
+    font-weight: lighter;
+    font-size: 10px;
+  }
+ }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) { 
+  .busca h1{
+    font-size:40px;
+    
+  }
+  .busca h3{
+    font-size: 30px;
+
+  }
+  .devs h2 {
+    color: black;
+    font-weight: bold;
+    font-size: 22px;
+  }
+  
+  .devs p {
+    color: grey;
+    font-weight: lighter;
+    font-size: 15px;
+  }
+  
+  .negocio h2 {
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+  }
+  
+  .negocio p {
+    color: white;
+    font-weight: lighter;
+    font-size: 15px;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) { 
+  .busca h1{
+    font-size:50px;
+    
+  }
+  .busca h3{
+    font-size: 40px;
+
+  }
+  .devs h2 {
+    color: black;
+    font-weight: bold;
+    font-size: 45px;
+  }
+  
+  .devs p {
+    color: grey;
+    font-weight: lighter;
+    font-size: 30px;
+  }
+  
+  .negocio h2 {
+    color: white;
+    font-weight: bold;
+    font-size: 45px;
+  }
+  
+  .negocio p {
+    color: white;
+    font-weight: lighter;
+    font-size: 30px;
+  }
 }
