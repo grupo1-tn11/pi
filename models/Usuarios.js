@@ -9,13 +9,13 @@ module.exports = (sequelize, DataTypes) => {
       },
       senha: DataTypes.STRING,
       cpf: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         unique: true,
       },
       resumo: DataTypes.STRING,
       foto: DataTypes.STRING,
       telefone: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         unique: true,
       },
       cidade: DataTypes.STRING,

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/stylesheets/cadastro.css" />
     <main>
       <h1>Cadastro</h1>
-      <form action="/logado" method="GET">
+      <form action="/users/store" method="POST">
         <label for="nome">nome</label>
         <input type="text" name="nome" id="nome" />
 
@@ -24,8 +24,11 @@
         <label for="tel">telefone</label>
         <input type="tel" name="tel" id="tel" />
 
-        <label for="endereco">endereço</label>
-        <input type="text" name="endereco" id="">
+        <label for="cidade">cidade</label>
+        <input type="text" name="cidade" id="">
+
+        <label for="estado">estado</label>
+        <input type="text" name="estado" id="">
 
         <input type="submit" value="enviar">
       </form>
