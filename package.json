@@ -12,7 +12,9 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.7"
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
+    "sequelize": "^6.5.0"
   },
   "main": "app.js",
   "repository": {
@@ -25,6 +27,8 @@
     "url": "https://github.com/grupo1-tn11/pi/issues"
   },
   "homepage": "https://github.com/grupo1-tn11/pi#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
+  },
   "description": ""
 }
