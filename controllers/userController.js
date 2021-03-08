@@ -16,7 +16,7 @@ const controller = {
       cidade: cidade,
       estado: estado,
     })
-    req.sessuion.usuario = usuarios
+    req.session.usuario = usuarios
     res.redirect("/")
   },
 
