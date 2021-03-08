@@ -1,7 +1,6 @@
-const bcrypt = require("bcrypt")
-const session = require("express-session")
-const { Usuarios } = require("../models")
-
+const bcrypt = require('bcrypt')
+const session = require('express-session')
+const { Usuarios } = require('../models')
 
 const controller = {
   store: async (req, res) => {
@@ -17,7 +16,7 @@ const controller = {
       estado: estado,
     })
     req.session.usuario = usuarios
-    res.redirect("/")
+    res.redirect('/')
   },
 
   auth: async (req, res) => {
@@ -41,7 +40,7 @@ const controller = {
   logout: (req, res) => {
     req.session.usuario = null
     res.redirect('/')
-  }
+  },
 }
 
 module.exports = controller

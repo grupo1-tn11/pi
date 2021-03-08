@@ -2,15 +2,15 @@ const express = require('express');
 const router = express.Router();
 const indexController = require('../controllers/indexController');
 const testController = require('../controllers/testController');
-const islogged = require('../middlewares/islogged')
+const loggedController = require('../controllers/loggedController')
+const notLogged = require('../middlewares/notLogged')
+const isLogged = require('../middlewares/isLogged')
 
-/* GET home page. */
-router.get('/', islogged.toIndex, indexController.index)
-router.get('/pesquisar', indexController.pesquisar)
-router.get('/prestador', indexController.prestador)
-router.get('/resumo', indexController.resumo)
-router.get('/login', indexController.login)
-router.get('/cadastro', indexController.cadastro)
+
+// Se usuário não-logado, indexController
+router.get('/', notLogged, indexController.index)
+router.get('/login', notLogged, indexController.login)
+router.get('/cadastro', notLogged, indexController.cadastro)
 
 
 router.get('/test', testController.test)
