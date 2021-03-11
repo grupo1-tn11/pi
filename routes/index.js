@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const indexController = require('../controllers/indexController');
+const usersController = require('../controllers/usersController')
+const authcontroller = require('../controllers/authController')
 const testController = require('../controllers/testController');
-const notLogged = require('../middlewares/notLogged')
+const auth = require('../middlewares/auth')
 
-router.get('/', notLogged, indexController.index)
-router.get('/login', notLogged, indexController.login)
-router.get('/cadastro', notLogged, indexController.cadastro)
-
+router.get('/', auth.notLogged, indexController.index)
+router.get('/login', auth.notLogged, authcontroller.create)
+router.get('/cadastro', auth.notLogged, usersController.create)
+router.get('/logado', auth.isLogged, indexController.loggedIndex)
 
 router.get('/test', testController.test)
 

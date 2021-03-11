@@ -20,11 +20,15 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, "public")))
-app.use(session({secret:'Mais vale um passaro na mao do que 1 real'}))
+app.use(session({
+  secret:'shhhhhhhhhhhh!',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}))
 
 app.use("/", indexRouter)
 app.use("/users", usersRouter)
-app.use('/logado', loggedRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

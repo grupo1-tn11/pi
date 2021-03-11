@@ -1,12 +1,11 @@
 const controller = {
-  index: (req, res) => {
+  index: (_req, res) => {
     return res.render('index')
   },
-  login: (req, res) => {
-    return res.render('login')
-  },
-  cadastro: (req, res) => {
-    return res.render('cadastro')
+
+  loggedIndex: (req, res) => {
+    res.locals.username = req.session.user.nome
+    return res.render('./arealogada/index')
   },
 }
 
