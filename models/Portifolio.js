@@ -15,5 +15,12 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     }
   )
+
+  portifolio.associate = (models) => {
+    portifolio.belongsTo(models.Usuarios, {
+      foreignKey: 'usuarios_id',
+    })
+  }
+
   return portifolio
 }
