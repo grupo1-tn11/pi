@@ -4,7 +4,7 @@ const verificaAutenticacao = (req, res, next) => {
   if(!usuario){
     return res.redirect('/login')
   }
-
+  
   next()
 }
 

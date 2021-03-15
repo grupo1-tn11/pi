@@ -26,11 +26,6 @@ const userController = {
     return res.json({ message: 'Falha ao criar usuário'})
   }
 
-  req.session.usuario = {
-    id: usuario.id,
-    nome: usuario.nome
-  }
-
   return res.json(usuario)
 
 },

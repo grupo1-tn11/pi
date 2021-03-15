@@ -29,7 +29,9 @@ const authController = {
       nome: usuario.nome
     }
 
-    console.log(req.session.usuario);
+    res.locals.usuario = {
+      nome: usuario.nome
+    }
 
     return res.redirect('/')  
   }
