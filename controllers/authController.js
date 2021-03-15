@@ -30,8 +30,8 @@ const authController = {
     }
 
     console.log(req.session.usuario);
-    
-    return res.send('Usuário autenticado com sucesso!')
+
+    return res.redirect('/')  
   }
 
 }
