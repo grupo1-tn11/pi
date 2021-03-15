@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("./parts/head") %>
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+  <% linguagens.forEach(element => { %>
+    <li>
+      <%= element.nome %>
+    </li>
+  <% }); %>
+  </ul>
+</body>
+</html>

@@ -1,40 +1,61 @@
 footer {
   width: 100%;
-  height: 130px;
-  background-color: #c4c4c4;
-  color: #333333;
-  margin-top:auto;
+  display: flex;
+  background-color: #2c2c32;
+  color: white;
+  margin-top: auto;
+}
+
+.suphr {
+  color: white;
+  width: 80%;
+}
+
+.infhr {
+  color: white;
+  width: 60%;
 }
 
 footer a {
   text-decoration: none;
-  color: #333333;
+  color: white;
 }
 
-.conteudos-footer {
+footer a:hover {
+  color: #acda98;
+  text-decoration: none;
+}
+
+/*.conteudo-footer {
   width: 80%;
   height: 100%;
-
   margin: 0 auto;
-
   display: flex;
   align-content: center;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 .conteudo-footer {
   text-align: center;
   height: 100%;
   padding: 30px;
-}
+}*/
 
-.conteudo-footer h3 {
-  font-size: 1.5em;
-  text-transform: uppercase;
-}
-
-.conteudo-footer p {
+p {
   font-size: 1.2em;
+}
+
+hr {
+  background: #fff;
+  margin: auto;
+  opacity: 50%;
+  margin-bottom: 3%;
+  margin-top: 3%;
+}
+
+.getdev {
+  margin: auto;
+  margin-bottom: 3%;
 }
 
 .redes-sociais img {
