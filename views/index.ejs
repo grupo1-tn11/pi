@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <%- include('./parts/head') %>
+    <title>getdev</title>
+    <link rel="stylesheet" href="/stylesheets/home.css" />
+  </head>
+  <body>
+    <%- include('./parts/header') %>
+
+    <main>
+      <section>
+        <div class="container-fluid p-0">
+          <div class="inner-top">
+            <div class="container">
+              <div class="row">
+                <section class="busca">
+                  <div class="col-12 d-flex flex-wrap justify-content-center">
+                    <h1>Encontre um Dev para o seu projeto</h1>
+                    <h3>Nosso sistema te ajuda a encontrar a melhor solução</h3>
+                  </div>
+
+                  <div class="col-12 d-flex flex-wrap justify-content-center">
+                    <input placeholder="O que você precisa?" />
+                    <button>Pesquisar</button>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container-fluid p-0">
+          <div class="inner-mid">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4 col-sm-12 order-sm-2 order-xs-2">
+                  <section class="devs">
+                    <h2>
+                      Já são mais de 1 milhão de desenvolvedores prontos para te
+                      ajudar
+                    </h2>
+                    <p>
+                      E você pode acompanhar as avaliações de cada um desses
+                      desenvolvedores para escolher o que melhor atende as suas
+                      necessidades
+                    </p>
+                  </section>
+                </div>
+
+                <div class="col-md-8 col-sm-12 order-sm-1 order-xs-1">
+                  <img
+                    src="IMAGES/devblue.svg"
+                    class="img-fluid"
+                    alt="devblue"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container-fluid p-0">
+          <div class="inner-bot">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 col-sm-12">
+                  <img src="IMAGES/devred.svg" class="img-fluid" alt="devred" />
+                </div>
+
+                <div class="col-md-4 col-sm-12">
+                  <section class="negocio">
+                    <h2>
+                      Somos uma plataforma para unir desenvolvedores e clientes
+                    </h2>
+                    <p>
+                      Não são apenas os clientes que se beneficiam da nossa
+                      plataforma, você, desenvolvedor, pode conseguir mais
+                      clientes com a gente!
+                    </p>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include('./parts/footer.ejs') %>
+  </body>
+</html>

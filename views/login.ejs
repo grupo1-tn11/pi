@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <%- include('./parts/head') %>
+    <title>getdev - login</title>
+  </head>
+  <body>
+    <%- include('./parts/header') %>
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+    <main>
+      <h1>Login</h1>
+
+      <form action="/users/auth" method="POST">
+        <label for="email">e-mail</label>
+        <input type="email" name="email" id="email" />
+        <label for="senha">Senha</label>
+        <input type="password" name="senha" id="senha" />
+        <input type="submit" value="entrar" name="entrar" />
+
+        <a href="#">Esqueci minha senha</a>
+        <a href="/cadastro">Ainda não sou cadastrado</a>
+      </form>
+    </main>
+
+  </body>
+</html>

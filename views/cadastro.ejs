@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <%- include('./parts/head') %>
+  </head>
+  <body>
+    <%- include('./parts/header') %>
+    <link rel="stylesheet" href="/stylesheets/cadastro.css" />
+    <main>
+      <h1>Cadastro</h1>
+      <form action="/users/store" method="POST">
+        <label for="nome">nome</label>
+        <input type="text" name="nome" id="nome" />
+
+        <label for="email">e-mail</label>
+        <input type="email" name="email" id="email" />
+
+        <label for="senha">senha</label>
+        <input type="password" name="senha" id="senha" />
+
+        <label for="cpf">CPF</label>
+        <input type="text" name="cpf" id="cpf" />
+
+        <label for="tel">telefone</label>
+        <input type="tel" name="tel" id="tel" />
+
+        <label for="cidade">cidade</label>
+        <input type="text" name="cidade" id="">
+
+        <label for="estado">estado</label>
+        <input type="text" name="estado" id="">
+
+        <input type="submit" value="enviar">
+      </form>
+    </main>
+
+  </body>
+</html>
