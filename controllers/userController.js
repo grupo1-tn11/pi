@@ -6,27 +6,27 @@ const userController = {
     res.render('cadastro')
   },
   criar: async (req, res) => {
-  const { nome, email, senha, cpf, resumo, foto, telefone, cidade, estado, curriculo, repositorio } = req.body
+  const { nome, email, senha, cpf, tel, cidade, estado } = req.body
 
   const usuario = await Usuarios.create({
-    nome: nome,
-    email: email,
+    nome,
+    email,
     senha: bcrypt.hashSync(senha,10),
-    cpf: cpf,
-    resumo: resumo,
-    foto: foto,
-    telefone: telefone,
-    cidade: cidade,
-    estado: estado,
-    curriculo: curriculo,
-    repositorio_link: repositorio
+    cpf,
+    resumo: null,
+    foto: null,
+    telefone: tel,
+    cidade,
+    estado,
+    curriculo: null,
+    repositorio_link: null
   })
 
   if(!usuario){
-    return res.json({ message: 'Falha ao criar usuário'})
+    return res.send('Falha ao criar usuário')
   }
 
-  return res.json(usuario)
+  return res.redirect('/login')
 
 },
   encontrar: async (req, res) => {
