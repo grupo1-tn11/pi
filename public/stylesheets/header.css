@@ -37,3 +37,9 @@ nav a:hover {
   color: #acda98;
   text-decoration: none;
 }
+
+nav span {
+  color: #acda98;
+  margin-left: 20px;
+  font-size: 1.3em;
+}
