@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const userController = require("../controllers/userController");
 
-const bloqueioLogin = require('../middlewares/bloqueiologin')
+const autenticar = require('../middlewares/autenticar')
 
-router.get("/cadastrar", bloqueioLogin, userController.exibir);
+router.get("/cadastrar", autenticar.naoLogadoNext, userController.exibir);
 router.post("/cadastrar", userController.armazenar);
 router.get("/ver/:id", userController.encontrar);
 router.put("/editar/:id", userController.atualizar);
