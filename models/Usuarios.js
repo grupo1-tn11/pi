@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       estado: DataTypes.STRING,
       curriculo: DataTypes.STRING,
       repositorio_link: DataTypes.STRING,
+      admin: DataTypes.BOOLEAN
     },
     {
       tablename: "usuarios",
