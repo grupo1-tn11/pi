@@ -58,9 +58,31 @@ li {
 
 .hamburguer {
   width: 40px;
-  height:40px;
+  height: 38px;
   border-radius: 50%;
   background-color: #fff;
+  display: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.hamburguer-menu-1,
+.hamburguer-menu-2,
+.hamburguer-menu-3 {
+  height: 2px;
+  width: 20px;
+  background-color: black;
+  position: absolute;
+  right: 0;
+  margin-right: 58px;
+  top: 23px;
+}
+
+.hamburguer-menu-2 {
+  top: 31px;
+}
+
+.hamburguer-menu-3 {
+  top: 39px;
 }
 
 .menu a {
@@ -93,27 +115,6 @@ li {
   margin-top: 2rem;
   justify-content: center;
 }
-
-/* .grid {
-  border-collapse: collapse;
-  min-width: 60vw;
-}
-
-.grid tr:nth-child(even) {background-color: #e8e8e8;}
-
-.titulos {
-  background-color: #3b44ff;
-  color: white;
-}
-
-.conteudo {
-  background: white
-}
-
-.grid, th, td {
-  padding: 10px;
-  text-align: center;
-} */
 
 .grid {
   border-collapse: collapse;
@@ -197,4 +198,33 @@ li {
 .excluir:hover {
   background-color: rgb(202, 45, 60);
   transition: .2s
+}
+
+@media (max-width:860px) {
+  .menu ul {
+    display: none;
+  }
+
+  .hamburguer {
+    display: block;
+  }
+
+  .titulonav a {
+    font-size: 1.2rem
+  }
+}
+
+@media (max-width:650px) {
+  .conteudo td {
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+  }
+
+  .conteudo td a button {
+    margin-bottom: 5px;
+  }
+
+  .grid {
+    min-width: 0;
+  }
 }
