@@ -29,9 +29,11 @@ const authController = {
       nome: usuario.nome
     }
 
-    console.log(req.session.usuario);
-    
-    return res.send('Usuário autenticado com sucesso!')
+    res.locals.usuario = {
+      nome: usuario.nome
+    }
+
+    return res.redirect('/')  
   }
 
 }
