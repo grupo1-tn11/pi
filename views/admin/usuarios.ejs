@@ -1,32 +1,40 @@
-<%- include('./parts/starthtml') %> <%- include('./parts/header') %>
+<html>
+  <%- include('./parts/head') %>
 
-<div class="container">
-  <table class="grid">
-    <thead>
-      <tr class="titulos">
-        <th>Nome</th>
-        <th>Email</th>
-        <th colspan="3">Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% usuarios.forEach(usuario => { %>
-      <tr class="conteudo">
-        <td><%= usuario.nome %></td>
-        <td><%= usuario.email %></td>
-        <td>
-          <a href="/ver/<%= usuario.id %>/"><button class="ver">Ver</button></a>
-          <a href="/editar/<%= usuario.id %>"
-            ><button class="editar">Editar</button></a
-          >
-          <a href="/excluir/<%= usuario.id %>"
-            ><button class="excluir">Excluir</button></a
-          >
-        </td>
-      </tr>
-      <% }) %>
-    </tbody>
-  </table>
-</div>
+  <body>
+    <%- include('./parts/header') %>
 
-<%- include('./parts/footer') %> <%- include('./parts/endhtml') %>
+    <div class="container">
+      <table class="grid">
+        <thead>
+          <tr class="titulos">
+            <th>Nome</th>
+            <th>Email</th>
+            <th colspan="3">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% usuarios.forEach(usuario => { %>
+          <tr class="conteudo">
+            <td><%= usuario.nome %></td>
+            <td><%= usuario.email %></td>
+            <td>
+              <a href="/ver/<%= usuario.id %>/"
+                ><button class="ver">Ver</button></a
+              >
+              <a href="/editar/<%= usuario.id %>"
+                ><button class="editar">Editar</button></a
+              >
+              <a href="/excluir/<%= usuario.id %>"
+                ><button class="excluir">Excluir</button></a
+              >
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
+    <%- include('./parts/footer') %> 
+  </body>
+</html>

@@ -1,9 +1,13 @@
-<%- include('./parts/starthtml') %>
-<%- include('./parts/header') %>
+<html>
+  <%- include('./parts/head') %>
 
-<div class="container">
-  <img class="background" src="/img/undrawdata.svg">
-</div>
+  <body>
+    <%- include('./parts/header') %>
 
-<%- include('./parts/footer') %>
-<%- include('./parts/endhtml') %>
+    <div class="container">
+      <img class="background" src="/img/undrawdata.svg" />
+    </div>
+
+    <%- include('./parts/footer') %>
+  </body>
+</html>
