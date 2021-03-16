@@ -15,7 +15,7 @@ const authController = {
     })
 
     if(!usuario){
-      return res.send('Usuário não encontrado')
+      return res.send('Usuário não encontrado.')
     }
 
     const resultado = bcrypt.compareSync(senha, usuario.senha)

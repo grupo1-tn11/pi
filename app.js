@@ -1,18 +1,18 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const session = require('express-session');
 const methodOverride = require('method-override')
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 const languagesRouter = require('./routes/languages')
 const authRouter = require('./routes/auth')
 const adminRouter = require('./routes/admin')
 
-var app = express();
+const app = express();
 
 // view engine setup
 // eslint-disable-next-line no-undef
@@ -45,7 +45,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-consts
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;

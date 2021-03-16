@@ -9,5 +9,12 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     }
   )
+
+  competencias.associate = (models) => {
+    competencias.hasMany(models.Usuarios_competencias, {
+      foreignKey: 'competencias_id',
+    })
+  }
+
   return competencias
 }

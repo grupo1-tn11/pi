@@ -14,5 +14,12 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     }
   )
+
+  formacao.associate = (models) => {
+    formacao.belongsTo(models.Usuarios, {
+      foreignKey: 'usuarios_id',
+    })
+  }
+
   return formacao
 }

@@ -10,7 +10,20 @@ module.exports = (sequelize, DataTypes) => {
     {
       tablename: "avaliacoes",
       timestamps: false,
-    }
+    } 
   )
+
+  avaliacoes.associate = (models) => {
+    avaliacoes.belongsTo(models.Usuarios, {
+      foreignKey: 'avaliador',
+    })
+  }
+
+  avaliacoes.associate = (models) => {
+    avaliacoes.belongsTo(models.Usuarios, {
+      foreignKey: 'avaliado',
+    })
+  }
+
   return avaliacoes
 }

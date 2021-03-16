@@ -9,5 +9,12 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     }
   )
+
+  redes_sociais.associate = (models) => {
+    redes_sociais.hasMany(models.Usuarios_redes, {
+      foreignKey: 'redes_id',
+    })
+  }
+
   return redes_sociais
 }
