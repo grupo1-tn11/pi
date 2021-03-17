@@ -15,7 +15,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 3rem;
+  padding: 0 30px;
 }
 
 body {
@@ -28,6 +28,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  height: 70%;
+  width: 90%;
 }
 
 footer {
@@ -64,6 +66,10 @@ li {
   display: none;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   cursor: pointer;
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  right: 30px;
 }
 
 .hamburguer-menu-1,
@@ -74,16 +80,30 @@ li {
   background-color: black;
   position: absolute;
   right: 0;
-  margin-right: 58px;
-  top: 23px;
+  margin-right: 10px;
+  top: 11px;
+
+  transition-duration: 0.3s
+}
+
+.menu.is-active .hamburguer-menu-1 {
+  transform: rotate(45deg) translate(5px, 6px)
+}
+
+.menu.is-active .hamburguer-menu-2 {
+  opacity: 0
+}
+
+.menu.is-active .hamburguer-menu-3 {
+  transform: rotate(-45deg) translate(4.5px, -5px)
 }
 
 .hamburguer-menu-2 {
-  top: 31px;
+  top: 18px;
 }
 
 .hamburguer-menu-3 {
-  top: 39px;
+  top: 25px;
 }
 
 .menu a {
@@ -201,30 +221,8 @@ li {
   transition: .2s
 }
 
-.menuopen {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
-}
-
-.menuout {
-  width: 40%;
-  height: 100%;
-  background-color: black;
-  opacity: 0.9;
-}
-
-.menuin {
-  width: 60%;
-  height: 100%;
-  background-color: #3b44ff;
-  position: absolute;
-  left: 40%;
-  top: 0;
+.menu .menuin {
+  display:none;
 }
 
 @media (max-width:860px) {
@@ -239,7 +237,55 @@ li {
   .titulonav a {
     font-size: 1.2rem
   }
+
+  .menu.is-active {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+  }
+
+  .menu.is-active .menuout {
+    width: 40%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.9;
+  }
+  
+  .menu.is-active .menuin {
+    width: 60%;
+    height: 100%;
+    background-color: #3b44ff;
+    position: absolute;
+    left: 40%;
+    top: 0;
+    display:block;
+  }
+  
+  .menu.is-active ul {
+    display: block;
+    margin-top: 50%;
+  }
+  
+  .menu.is-active .menuin ul li {
+    margin-top: 50px;
+    text-align: center;
+    margin-left: 0;
+  }
+  
+  .menu.is-active .menuin ul li a {
+    padding: 0;
+    background: 0;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: normal;
+  }
 }
+
+
 
 @media (max-width:650px) {
   .conteudo td {
