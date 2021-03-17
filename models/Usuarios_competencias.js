@@ -14,10 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   usuarios_competencias.associate = (models) => {
     usuarios_competencias.belongsTo(models.Usuarios, {
       foreignKey: 'usuarios_id',
-    })
-  }
-
-  usuarios_competencias.associate = (models) => {
+    }),
     usuarios_competencias.belongsTo(models.Competencias, {
       foreignKey: 'competencias_id',
     })

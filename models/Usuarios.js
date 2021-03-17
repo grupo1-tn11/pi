@@ -30,46 +30,25 @@ module.exports = (sequelize, DataTypes) => {
   usuarios.associate = (models) => {
     usuarios.hasMany(models.Avaliacoes, {
       foreignKey: 'avaliador',
-    })
-  }
-
-  usuarios.associate = (models) => {
+    }),
     usuarios.hasMany(models.Avaliacoes, {
       foreignKey: 'avaliado',
-    })
-  }
-
-  usuarios.associate = (models) => {
+    }),
     usuarios.hasMany(models.Experiencia_pro, {
       foreignKey: 'usuarios_id',
-    })
-  }
-
-  usuarios.associate = (models) => {
+    }),
     usuarios.hasMany(models.Formacao, {
       foreignKey: 'usuarios_id',
-    })
-  }
-
-  usuarios.associate = (models) => {
+    }),
     usuarios.hasMany(models.Portifolio, {
       foreignKey: 'usuarios_id',
-    })
-  }
-
-  usuarios.associate = (models) => {
+    }),
     usuarios.hasMany(models.Usuarios_competencias, {
       foreignKey: 'usuarios_id',
-    })
-  }
-
-  usuarios.associate = (models) => {
+    }),
     usuarios.hasMany(models.Usuarios_linguagens, {
       foreignKey: 'usuarios_id',
-    })
-  }
-
-  usuarios.associate = (models) => {
+    }),
     usuarios.hasMany(models.Usuarios_redes, {
       foreignKey: 'usuarios_id',
     })

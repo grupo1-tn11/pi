@@ -16,10 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   avaliacoes.associate = (models) => {
     avaliacoes.belongsTo(models.Usuarios, {
       foreignKey: 'avaliador',
-    })
-  }
-
-  avaliacoes.associate = (models) => {
+    }),
     avaliacoes.belongsTo(models.Usuarios, {
       foreignKey: 'avaliado',
     })
