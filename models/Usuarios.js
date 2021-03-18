@@ -43,14 +43,20 @@ module.exports = (sequelize, DataTypes) => {
     usuarios.hasMany(models.Portifolio, {
       foreignKey: 'usuarios_id',
     }),
-    usuarios.hasMany(models.Usuarios_competencias, {
-      foreignKey: 'usuarios_id',
+    usuarios.belongsToMany(models.Competencias, {
+      through: 'Usuarios_competencias',
+      foreignKey: 'competencias_id',
+      as: 'competencias'
     }),
-    usuarios.hasMany(models.Usuarios_linguagens, {
-      foreignKey: 'usuarios_id',
+    usuarios.belongsToMany(models.Linguagens, {
+      through: 'Usuarios_linguagens',
+      foreignKey: 'linguagens_id',
+      as: 'linguagens'
     }),
-    usuarios.hasMany(models.Usuarios_redes, {
-      foreignKey: 'usuarios_id',
+    usuarios.belongsToMany(models.Redes_sociais, {
+      through: 'Usuarios_redes',
+      foreignKey: 'redes_id',
+      as: 'redes_sociais'
     })
   }
 

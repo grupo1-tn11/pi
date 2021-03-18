@@ -2,15 +2,45 @@
 <html lang="en">
 <head>
   <%- include('./parts/head') %>
-  <title>Fulano de Tal - perfil</title>
+  <title> <%= usuario.nome %> - perfil</title>
 </head>
 <body>
   <div>
     <img src="" alt="Foto do perfil">
   </div>
   <div>
-    <h1>Fulano de Tal</h1>
+    <h1>Perfil de <%= usuario.nome %> </h1>
     
+    <div>
+      <p><%= usuario.cidade %>/<%= usuario.estado %></p>
+    </div>
+
+    <div>
+      <p>Resumo:</p>
+      <div>
+        <%= usuario.resumo %> 
+      </div>
+    </div>
+
+    <div>
+      <a href="../base/curriculo/<%= usuario.curriculo %>">Currículo</a>
+    </div>
+
+    <div>
+      <p>Repositório:</p> 
+      <div>
+        <a href="<%= usuario.repositorio %>"><%= usuario.repositorio %></a>
+      </div>
+    </div>
+
+    <div>
+      <p>Redes sociais:</p>
+    </div>
+
+    <div>
+      <a href="">Portifolio:</a>
+    </div>
+
   </div>
 </body>
 </html>

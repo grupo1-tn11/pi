@@ -11,8 +11,10 @@ module.exports = (sequelize, DataTypes) => {
   )
 
   competencias.associate = (models) => {
-    competencias.hasMany(models.Usuarios_competencias, {
+    competencias.belongsToMany(models.Usuarios, {
+      through: 'Usuarios_competencias',
       foreignKey: 'competencias_id',
+      as: 'usuarios'
     })
   }
 

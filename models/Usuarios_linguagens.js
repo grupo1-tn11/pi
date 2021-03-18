@@ -11,14 +11,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   )
 
-  usuarios_linguagens.associate = (models) => {
-    usuarios_linguagens.belongsTo(models.Usuarios, {
-      foreignKey: 'usuarios_id',
-    })
-    usuarios_linguagens.belongsTo(models.Linguagens, {
-      foreignKey: 'linguagens_id',
-    })
-  }
-
   return usuarios_linguagens
 }

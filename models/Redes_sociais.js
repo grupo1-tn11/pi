@@ -11,8 +11,10 @@ module.exports = (sequelize, DataTypes) => {
   )
 
   redes_sociais.associate = (models) => {
-    redes_sociais.hasMany(models.Usuarios_redes, {
+    redes_sociais.belongsToMany(models.Usuarios, {
+      through: 'Usuarios_redes',
       foreignKey: 'redes_id',
+      as: 'usuarios'
     })
   }
 
