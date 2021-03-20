@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       linguagens_id: DataTypes.INTEGER,
     },
     {
-      tablename: "usuarios_linguagens",
+      tableName: "usuarios_linguagens",
       timestamps: false,
     }
   )

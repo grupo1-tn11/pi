@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
       nome: DataTypes.STRING,
     },
     {
-      tablename: "linguagens",
+      tableName: "linguagens",
       timestamps: false,
     }
   )

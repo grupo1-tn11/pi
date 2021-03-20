@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const formacao = sequelize.define(
-    "Formacao",
+    'Formacao',
     {
       curso: DataTypes.STRING,
       instituicao: DataTypes.STRING,
@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       usuarios_id: DataTypes.INTEGER,
     },
     {
-      tablename: "formacao",
+      tableName: 'formacao',
       timestamps: false,
     }
   )

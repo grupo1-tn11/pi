@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       link: DataTypes.STRING,
     },
     {
-      tablename: "usuarios_redes",
+      tableName: "usuarios_redes",
       timestamps: false,
     }
   )

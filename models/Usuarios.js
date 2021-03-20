@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       admin: DataTypes.BOOLEAN
     },
     {
-      tablename: "usuarios",
+      tableName: "usuarios",
       timestamps: false,
     }
   )
@@ -33,19 +33,22 @@ module.exports = (sequelize, DataTypes) => {
     }),
     usuarios.hasMany(models.Avaliacoes, {
       foreignKey: 'avaliado',
+      as: 'avaliacoes'
     }),
     usuarios.hasMany(models.Experiencia_pro, {
       foreignKey: 'usuarios_id',
+      as: 'experiencia_pro'
     }),
     usuarios.hasMany(models.Formacao, {
       foreignKey: 'usuarios_id',
+      as: 'formacao'
     }),
     usuarios.hasMany(models.Portifolio, {
       foreignKey: 'usuarios_id',
+      as: 'portifolio'
     }),
-    usuarios.belongsToMany(models.Competencias, {
-      through: 'Usuarios_competencias',
-      foreignKey: 'competencias_id',
+    usuarios.hasMany(models.Competencias, {
+      foreignKey: 'usuarios_id',
       as: 'competencias'
     }),
     usuarios.belongsToMany(models.Linguagens, {

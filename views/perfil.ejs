@@ -1,46 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <%- include('./parts/head') %>
-  <title> <%= usuario.nome %> - perfil</title>
-</head>
-<body>
-  <div>
-    <img src="" alt="Foto do perfil">
-  </div>
-  <div>
-    <h1>Perfil de <%= usuario.nome %> </h1>
-    
+  <head>
+    <%- include('./parts/head') %>
+    <title><%= perfil.nome %> - perfil</title>
+  </head>
+  <body>
+    <% if(!usuario) { %> <%- include('./parts/header') %> <% } else { %> <%-
+    include('./parts/header-logado') %> <% } %>
+   
     <div>
-      <p><%= usuario.cidade %>/<%= usuario.estado %></p>
-    </div>
-
-    <div>
-      <p>Resumo:</p>
+      <h1>Perfil de <%= perfil.nome %></h1>
       <div>
-        <%= usuario.resumo %> 
+        <img src="../uploads/foto_perfil/<%= perfil.foto %>" alt="Foto do perfil" />
+      </div>
+
+      <div>
+        <p><%= perfil.cidade %>/<%= perfil.estado %></p>
+      </div>
+
+      <div>
+        <b>Resumo:</b>
+        <div><%= perfil.resumo %></div>
+      </div>
+
+      <div>
+        <a href="/perfil/curriculo/<%= perfil.id %>">Currículo</a>
+      </div>
+
+      <div>
+        <b>Formacao:</b>
+        <% perfil.formacao.forEach((formacao, index) => { %>
+          <ul>
+        <li><%= index+1 %></li>
+        <li>curso: <%= formacao.curso %></li>
+        <li>grau: <%= formacao.grau %></li>
+        <li>instituicao: <%= formacao.instituicao %></li>
+        <li>início: <%= formacao.inicio %></li>
+        <li>término: <%= formacao.termino %></li>
+        </ul>
+        <% }) %>
+      </div>
+
+      <div>
+        <b>Linguagens que domina:</b>
+        <ul>
+          <% perfil.linguagens.forEach(linguagem => { %>
+          <li><%= linguagem.nome %></li>
+          <% }) %>
+        </ul>
+      </div>
+
+      <div>
+        <b>Competências:</b>
+        <ul>
+          <% perfil.competencias.forEach(competencia => { %>
+          <li><%= competencia.nome %></li>
+          <% }) %>
+        </ul>
+      </div>
+
+      <div>
+        <b>Repositório:</b>
+        <div>
+          <a href="<%= perfil.repositorio_link %>">
+            <%= perfil.repositorio_link %> </a>
+        </div>
+      </div>
+
+      <div>
+        <b>Redes sociais:</b>
+        <ul>
+          <% perfil.redes_sociais.forEach(rede => { %>
+          <li>
+            <a href="#"><%= rede.nome %></a>
+          </li>
+          <% }) %>
+        </ul>
+      </div>
+
+      <div>
+        <a href="/perfil/portifolio/<%= perfil.id %>"> <b>Ver portifolio</b></a>
       </div>
     </div>
-
-    <div>
-      <a href="../base/curriculo/<%= usuario.curriculo %>">Currículo</a>
-    </div>
-
-    <div>
-      <p>Repositório:</p> 
-      <div>
-        <a href="<%= usuario.repositorio %>"><%= usuario.repositorio %></a>
-      </div>
-    </div>
-
-    <div>
-      <p>Redes sociais:</p>
-    </div>
-
-    <div>
-      <a href="">Portifolio:</a>
-    </div>
-
-  </div>
-</body>
+  </body>
 </html>

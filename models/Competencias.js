@@ -1,20 +1,19 @@
 module.exports = (sequelize, DataTypes) => {
   const competencias = sequelize.define(
-    "Competencias",
+    'Competencias',
     {
       nome: DataTypes.STRING,
+      usuarios_id: DataTypes.INTEGER,
     },
     {
-      tablename: "competencias",
+      tableName: 'competencias',
       timestamps: false,
     }
   )
 
   competencias.associate = (models) => {
-    competencias.belongsToMany(models.Usuarios, {
-      through: 'Usuarios_competencias',
-      foreignKey: 'competencias_id',
-      as: 'usuarios'
+    competencias.belongsTo(models.Usuarios, {
+      foreignKey: 'usuarios_id',
     })
   }
 
