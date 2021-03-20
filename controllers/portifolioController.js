@@ -1,4 +1,3 @@
-//const path = require('path')
 const { Usuarios } = require('../models')
 
 const controller = {
@@ -15,7 +14,9 @@ const controller = {
       ],
     })
 
-    res.render('perfil', { perfil })
+    const portifolio = perfil.portifolio
+
+    res.render('portifolio', { perfil, portifolio })
   },
 
   // editar: async (req, res) => {},
