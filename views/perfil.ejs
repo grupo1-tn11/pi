@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <%- include('./parts/head') %>
+    <link rel="stylesheet" href="/stylesheets/perfil.css">
     <title><%= perfil.nome %> - perfil</title>
   </head>
   <body>
@@ -12,7 +13,7 @@
       <h1>Perfil de <%= perfil.nome %></h1>
       <div>
         <img
-          src="../uploads/foto_perfil/<%= perfil.foto %>"
+          src="../foto_perfil/<%= perfil.foto %>"
           alt="Foto do perfil"
         />
       </div>
@@ -27,7 +28,7 @@
       </div>
 
       <div>
-        <a href="/perfil/<%= perfil.id %>/curriculo">Currículo</a>
+        <a href="../curriculo/<%= perfil.curriculo %>">Currículo</a>
       </div>
 
       <div>

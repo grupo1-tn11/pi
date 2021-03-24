@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const usuarios = sequelize.define(
-    "Usuarios",
+    'Usuarios',
     {
       nome: DataTypes.STRING,
       email: {
@@ -19,10 +19,10 @@ module.exports = (sequelize, DataTypes) => {
       estado: DataTypes.STRING,
       curriculo: DataTypes.STRING,
       repositorio_link: DataTypes.STRING,
-      admin: DataTypes.BOOLEAN
+      admin: DataTypes.BOOLEAN,
     },
     {
-      tableName: "usuarios",
+      tableName: 'usuarios',
       timestamps: false,
     }
   )
@@ -31,36 +31,38 @@ module.exports = (sequelize, DataTypes) => {
     usuarios.hasMany(models.Avaliacoes, {
       foreignKey: 'avaliador',
     }),
-    usuarios.hasMany(models.Avaliacoes, {
-      foreignKey: 'avaliado',
-      as: 'avaliacoes'
-    }),
-    usuarios.hasMany(models.Experiencia_pro, {
-      foreignKey: 'usuarios_id',
-      as: 'experiencia_pro'
-    }),
-    usuarios.hasMany(models.Formacao, {
-      foreignKey: 'usuarios_id',
-      as: 'formacao'
-    }),
-    usuarios.hasMany(models.Portifolio, {
-      foreignKey: 'usuarios_id',
-      as: 'portifolio'
-    }),
-    usuarios.hasMany(models.Competencias, {
-      foreignKey: 'usuarios_id',
-      as: 'competencias'
-    }),
-    usuarios.belongsToMany(models.Linguagens, {
-      through: 'Usuarios_linguagens',
-      foreignKey: 'linguagens_id',
-      as: 'linguagens'
-    }),
-    usuarios.belongsToMany(models.Redes_sociais, {
-      through: 'Usuarios_redes',
-      foreignKey: 'redes_id',
-      as: 'redes_sociais'
-    })
+      usuarios.hasMany(models.Avaliacoes, {
+        foreignKey: 'avaliado',
+        as: 'avaliacoes',
+      }),
+      usuarios.hasMany(models.Experiencia_pro, {
+        foreignKey: 'usuarios_id',
+        as: 'experiencia_pro',
+      }),
+      usuarios.hasMany(models.Formacao, {
+        foreignKey: 'usuarios_id',
+        as: 'formacao',
+      }),
+      usuarios.hasMany(models.Portifolio, {
+        foreignKey: 'usuarios_id',
+        as: 'portifolio',
+      }),
+      usuarios.hasMany(models.Competencias, {
+        foreignKey: 'usuarios_id',
+        as: 'competencias',
+      }),
+      
+      // many to many
+      usuarios.belongsToMany(models.Linguagens, {
+        through: 'Usuarios_linguagens',
+        foreignKey: 'usuarios_id',
+        as: 'linguagens',
+      }),
+      usuarios.belongsToMany(models.Redes_sociais, {
+        through: 'Usuarios_redes',
+        foreignKey: 'usuarios_id',
+        as: 'redes_sociais',
+      })
   }
 
   return usuarios

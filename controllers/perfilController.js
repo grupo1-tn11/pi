@@ -15,6 +15,8 @@ const controller = {
       ],
     })
 
+    console.log(perfil.linguagens)
+
     res.render('perfil', { perfil })
   },
 
