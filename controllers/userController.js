@@ -45,28 +45,6 @@ const userController = {
 
     return res.json(usuario)
   },
-  
-  atualizar: async (req, res) => {
-    const { id } = req.params
-    const { nome } = req.body
-
-    const usuarioAtualizado = await Usuarios.update(
-      {
-        nome: nome,
-      },
-      {
-        where: {
-          id: id,
-        },
-      }
-    )
-
-    if (!usuarioAtualizado) {
-      return res.json({ message: 'Erro ao atualizar o usuário' })
-    }
-
-    return res.json({ message: 'Usuário atualizado com sucesso!' })
-  },
 
   deletar: async (req, res) => {
     const { id } = req.params

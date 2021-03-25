@@ -29,10 +29,6 @@ const authController = {
       nome: usuario.nome
     }
 
-    res.locals.usuario = {
-      nome: usuario.nome
-    }
-
     return res.redirect('/')  
   }
 

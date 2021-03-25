@@ -15,7 +15,7 @@ const controller = {
     })
 
     const portifolio = perfil.portifolio
-    console.log(portifolio)
+    
     res.render('portifolio', { perfil, portifolio })
   },
 

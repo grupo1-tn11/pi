@@ -2,104 +2,108 @@
 <html lang="en">
   <head>
     <%- include('./parts/head') %>
-    <link rel="stylesheet" href="/stylesheets/perfil.css">
+    <link rel="stylesheet" href="/stylesheets/perfil.css" />
     <title><%= perfil.nome %> - perfil</title>
   </head>
   <body>
     <% if(!usuario) { %> <%- include('./parts/header') %> <% } else { %> <%-
     include('./parts/header-logado') %> <% } %>
-
-    <div>
-      <h1>Perfil de <%= perfil.nome %></h1>
+    <main>
       <div>
-        <img
-          src="../foto_perfil/<%= perfil.foto %>"
-          alt="Foto do perfil"
-        />
-      </div>
-
-      <div>
-        <p><%= perfil.cidade %>/<%= perfil.estado %></p>
-      </div>
-
-      <div>
-        <b>Resumo:</b>
-        <div><%= perfil.resumo %></div>
-      </div>
-
-      <div>
-        <a href="../curriculo/<%= perfil.curriculo %>">Currículo</a>
-      </div>
-
-      <div>
-        <b>Experiência profissional:</b>
-        <% perfil.experiencia_pro.forEach((exp, index) => { %>
-        <ul>
-          <li><%= index+1 %></li>
-          <li>funcao: <%= exp.funcao %></li>
-          <li>cargo: <%= exp.cargo %></li>
-          <li>descricao: <%= exp.descricao %></li>
-          <li>início: <%= exp.inicio %></li>
-          <li>término: <%= exp.termino %></li>
-        </ul>
-        <% }) %>
-      </div>
-
-      <div>
-        <b>Formacao:</b>
-        <% perfil.formacao.forEach((formacao, index) => { %>
-        <ul>
-          <li><%= index+1 %></li>
-          <li>curso: <%= formacao.curso %></li>
-          <li>grau: <%= formacao.grau %></li>
-          <li>instituicao: <%= formacao.instituicao %></li>
-          <li>início: <%= formacao.inicio %></li>
-          <li>término: <%= formacao.termino %></li>
-        </ul>
-        <% }) %>
-      </div>
-
-      <div>
-        <b>Linguagens que domina:</b>
-        <ul>
-          <% perfil.linguagens.forEach(linguagem => { %>
-          <li><%= linguagem.nome %></li>
-          <% }) %>
-        </ul>
-      </div>
-
-      <div>
-        <b>Competências:</b>
-        <ul>
-          <% perfil.competencias.forEach(competencia => { %>
-          <li><%= competencia.nome %></li>
-          <% }) %>
-        </ul>
-      </div>
-
-      <div>
-        <b>Repositório:</b>
+        <h1>Perfil de <%= perfil.nome %></h1>
+        <% if(usuario && usuario.id == perfil.id) { %>
+        <a href="/perfil/editar">[editar]</a>
+        <% } %>
         <div>
-          <a href="<%= perfil.repositorio_link %>">
-            <%= perfil.repositorio_link %>
-          </a>
+          <img src="../foto_perfil/<%= perfil.foto %>" alt="Foto do perfil" />
+        </div>
+
+        <div>
+          <p><%= perfil.cidade %>/<%= perfil.estado %></p>
+        </div>
+
+        <div>
+          <b>Resumo:</b>
+          <div><%= perfil.resumo %></div>
+        </div>
+
+        <div>
+          <a href="../curriculo/<%= perfil.curriculo %>">Currículo</a>
+        </div>
+
+        <div>
+          <b>Experiência profissional:</b>
+          <% perfil.experiencia_pro.forEach((exp, index) => { %>
+          <ul>
+            <li><%= index+1 %></li>
+            <li>funcao: <%= exp.funcao %></li>
+            <li>cargo: <%= exp.cargo %></li>
+            <li>descricao: <%= exp.descricao %></li>
+            <li>início: <%= exp.inicio %></li>
+            <li>término: <%= exp.termino %></li>
+          </ul>
+          <% }) %>
+        </div>
+
+        <div>
+          <b>Formacao:</b>
+          <% perfil.formacao.forEach((formacao, index) => { %>
+          <ul>
+            <li><%= index+1 %></li>
+            <li>curso: <%= formacao.curso %></li>
+            <li>grau: <%= formacao.grau %></li>
+            <li>instituicao: <%= formacao.instituicao %></li>
+            <li>início: <%= formacao.inicio %></li>
+            <li>término: <%= formacao.termino %></li>
+          </ul>
+          <% }) %>
+        </div>
+
+        <div>
+          <b>Linguagens que domina:</b>
+          <ul>
+            <% perfil.linguagens.forEach(linguagem => { %>
+            <li><%= linguagem.nome %></li>
+            <% }) %>
+          </ul>
+        </div>
+
+        <div>
+          <b>Competências:</b>
+          <ul>
+            <% perfil.competencias.forEach(competencia => { %>
+            <li><%= competencia.nome %></li>
+            <% }) %>
+          </ul>
+        </div>
+
+        <div>
+          <b>Repositório:</b>
+          <div>
+            <a href="<%= perfil.repositorio_link %>">
+              <%= perfil.repositorio_link %>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <b>Redes sociais:</b>
+          <ul>
+            <% perfil.redes_sociais.forEach(rede => { %>
+            <li>
+              <a href="#"><%= rede.nome %></a>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
+
+        <div>
+          <a href="/perfil/<%= perfil.id %>/portifolio">
+            <b>Ver portifolio</b></a
+          >
         </div>
       </div>
-
-      <div>
-        <b>Redes sociais:</b>
-        <ul>
-          <% perfil.redes_sociais.forEach(rede => { %>
-          <li>
-            <a href="#"><%= rede.nome %></a>
-          </li>
-          <% }) %>
-        </ul>
-      </div>
-
-      <div>
-        <a href="/perfil/<%= perfil.id %>/portifolio"> <b>Ver portifolio</b></a>
-      </div>
-    </div>
+    </main>
+    <%- include('./parts/footer') %>
   </body>
 </html>
