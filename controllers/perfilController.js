@@ -39,7 +39,9 @@ const controller = {
     res.render('./areausuario/editar', { perfil })
   },
 
-  atualizar: async (req, res) => {},
+  atualizar: (req, res) => {
+    console.log(req.body)
+  },
 }
 
 module.exports = controller

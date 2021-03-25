@@ -8,7 +8,7 @@
   <body>
     <%- include('../parts/header-logado') %>
     <main>
-      <form action="" method="PUT" enctype="multipart/form-data">
+      <form action="/perfil/editar" method="POST" enctype="multipart/form-data">
         <div>
           <h1>Perfil de <%= perfil.nome %></h1>
           <div>
@@ -26,7 +26,7 @@
               id="cidade"
               value="<%= perfil.cidade %>"
             />
-            <br>
+            <br />
             <label for="estado">Estado:</label>
             <br />
             <input
@@ -40,7 +40,8 @@
           <div>
             <b>Resumo:</b>
             <br />
-            <textarea name="resumo" id="resumo" cols="100" rows="6"></textarea>
+            <textarea name="resumo" id="resumo" cols="100" rows="6">
+<%= perfil.resumo %></textarea>
           </div>
 
           <div>
@@ -53,44 +54,143 @@
             <b>Experiência profissional:</b>
             <% perfil.experiencia_pro.forEach((exp, index) => { %>
             <ul>
-              <li><%= index+1 %></li>
-              <li>funcao: <%= exp.funcao %></li>
-              <li>cargo: <%= exp.cargo %></li>
-              <li>descricao: <%= exp.descricao %></li>
-              <li>início: <%= exp.inicio %></li>
-              <li>término: <%= exp.termino %></li>
+              <li><%= index+1 %> <b id="remove">[remover]</b></li>
+              <li>
+                funcao:
+                <input
+                  type="text"
+                  name="xp_funcao<%= index %>"
+                  id="xp_funcao<%= index %>"
+                  value="<%= exp.funcao %>"
+                />
+              </li>
+              <li>
+                cargo:
+                <input
+                  type="text"
+                  name="xp_cargo<%= index %>"
+                  id="xp_cargo<%= index %>"
+                  value="<%= exp.cargo %>"
+                />
+              </li>
+              <li>
+                descricao:
+                <input
+                  type="text"
+                  name="xp_descricao<%= index %>"
+                  id="xp_descricao<%= index %>"
+                  value="<%= exp.descricao %>"
+                />
+              </li>
+              <li>
+                início:
+                <input
+                  type="text"
+                  name="xp_inicio<%= index %>"
+                  id="xp_inicio<%= index %>"
+                  value="<%= exp.inicio %>"
+                />
+              </li>
+              <li>
+                término:
+                <input
+                  type="text"
+                  name="xp_termino<%= index %>"
+                  id="xp_termino<%= index %>"
+                  value="<%= exp.termino %>"
+                />
+              </li>
             </ul>
             <% }) %>
+            <b id="add">[adicionar]</b>
           </div>
-
+          <br />
           <div>
             <b>Formacao:</b>
             <% perfil.formacao.forEach((formacao, index) => { %>
             <ul>
-              <li><%= index+1 %></li>
-              <li>curso: <%= formacao.curso %></li>
-              <li>grau: <%= formacao.grau %></li>
-              <li>instituicao: <%= formacao.instituicao %></li>
-              <li>início: <%= formacao.inicio %></li>
-              <li>término: <%= formacao.termino %></li>
+              <li><%= index+1 %> <b id="remove">[remover]</b></li>
+              <li>
+                curso:
+                <input
+                  type="text"
+                  name="f_curso<%= index %>"
+                  id="f_curso<%= index %>"
+                  value="<%= formacao.curso %>"
+                />
+              </li>
+              <li>
+                grau:
+                <input
+                  type="text"
+                  name="f_grau<%= index %>"
+                  id="f_grau<%= index %>"
+                  value="<%= formacao.grau %>"
+                />
+              </li>
+              <li>
+                instituicao:
+                <input
+                  type="text"
+                  name="f_instituicao<%= index %>"
+                  id="f_instituicao<%= index %>"
+                  value="<%= formacao.instituicao %>"
+                />
+              </li>
+              <li>
+                início:
+                <input
+                  type="text"
+                  name="f_inicio<%= index %>"
+                  id="f_inicio<%= index %>"
+                  value="<%= formacao.inicio %>"
+                />
+              </li>
+              <li>
+                término:
+                <input
+                  type="text"
+                  name="f_termino<%= index %>"
+                  id="f_termino<%= index %>"
+                  value="<%= formacao.termino %>"
+                />
+              </li>
             </ul>
             <% }) %>
+            <b id="add">[adicionar]</b>
           </div>
-
+          <br />
           <div>
             <b>Linguagens que domina:</b>
             <ul>
-              <% perfil.linguagens.forEach(linguagem => { %>
-              <li><%= linguagem.nome %></li>
+              <% perfil.linguagens.forEach((linguagem, index) => { %>
+              <li>
+                <input
+                  type="text"
+                  name="linguagem<%= index %>"
+                  id="linguagem<%= index %>"
+                  value="<%= linguagem.nome %>"
+                />
+                <b id="remove">[remover]</b>
+              </li>
               <% }) %>
             </ul>
+            <b id="add">[adicionar]</b>
           </div>
-
+          <br />
           <div>
             <b>Competências:</b>
             <ul>
-              <% perfil.competencias.forEach(competencia => { %>
-              <li><%= competencia.nome %></li>
+              <% perfil.competencias.forEach((competencia, index) => { %>
+              <li>
+                <input
+                  type="text"
+                  name="competencia<%= index %>"
+                  id="competencia<%= index %>"
+                  value="<%= competencia.nome %>"
+                />
+                <b id="remove">[remover]</b>
+              </li>
               <% }) %>
             </ul>
           </div>
@@ -98,31 +198,42 @@
           <div>
             <b>Repositório:</b>
             <div>
-              <a href="<%= perfil.repositorio_link %>">
-                <%= perfil.repositorio_link %>
-              </a>
+              <input
+                type="text"
+                name="repositorio"
+                id="repositorio"
+                value="<%= perfil.repositorio_link %>"
+              />
             </div>
           </div>
-
+          <br />
           <div>
             <b>Redes sociais:</b>
             <ul>
-              <% perfil.redes_sociais.forEach(rede => { %>
+              <% perfil.redes_sociais.forEach((rede, index) => { %>
               <li>
-                <a href="#"><%= rede.nome %></a>
+                <input
+                  type="text"
+                  name="rede-social<%= index %>"
+                  id="rede-social<%= index %>"
+                  value="<%= rede.nome %>"
+                />
+                <b id="remove">[remover]</b>
               </li>
               <% }) %>
             </ul>
+            <b id="add">[adicionar]</b>
           </div>
-
+          <br />
+          <input type="submit" value="Atualizar" />
+          <br />
           <div>
-            <a href="/perfil/<%= perfil.id %>/portifolio">
-              <b>Ver portifolio</b></a
-            >
+            <a href="/perfil/editar/portifolio"> <b>Editar portifolio</b></a>
           </div>
         </div>
       </form>
     </main>
+    <script src="/js/addElements.js"></script>
     <%- include('../parts/footer') %>
   </body>
 </html>

@@ -6,12 +6,13 @@ const locals = require('../middlewares/locals')
 const autenticar = require('../middlewares/autenticar')
 
 
+
 router.get('/editar', autenticar.seLogadoNext, perfilController.editar)
 router.get('/:id', locals, perfilController.exibir)
 router.get('/', autenticar.seLogadoNext, perfilController.exibir)
 router.get('/:id/portifolio', locals, portifolioController.exibir)
-
-// router.put('/editar', autenticar.seLogadoNext, perfilController.atualizar)
+// router.get('/editar/portifolio', autenticar.seLogadoNext, portifolioController.editar)
+router.post('/editar', perfilController.atualizar)
 
 
 module.exports = router
