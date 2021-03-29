@@ -7,7 +7,7 @@ const controller = {
   exibir: async (req, res) => {
     let { id } = req.params
 
-    if(!id){
+    if (!id) {
       id = req.session.usuario.id
     }
 
@@ -43,12 +43,11 @@ const controller = {
 
     fs.writeFileSync(path.resolve('./database', 'perfil.json'), perfilJSON)
 
-    res.render('./areausuario/editar', {perfil})
-    
+    res.render('./areausuario/editar', { perfil })
   },
 
   atualizar: (req, res) => {
-    console.log(req.body)
+    res.send(req.body)
   },
 }
 

@@ -9,11 +9,12 @@ const upload = require('../configs/uploads')
 
 
 router.get('/editar', autenticar.seLogadoNext, perfilController.editar)
+router.post('/editar', upload.curriculo.any(), perfilController.atualizar)
+
 router.get('/:id', locals, perfilController.exibir)
 router.get('/', autenticar.seLogadoNext, perfilController.exibir)
 router.get('/:id/portifolio', locals, portifolioController.exibir)
 // router.get('/editar/portifolio', autenticar.seLogadoNext, portifolioController.editar)
-router.post('/editar', perfilController.atualizar)
 
 
 module.exports = router

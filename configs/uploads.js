@@ -18,12 +18,12 @@ const storageFoto = createStorage('foto_perfil')
 const storageCurriculo = createStorage('curriculo')
 const storagePortifolio = createStorage('portifolio')
  
-const Foto = multer({ storage: storageFoto })
-const Curriculo = multer({ storage: storageCurriculo })
-const Portifolio = multer({ storage: storagePortifolio })
+const foto = multer({ storage: storageFoto })
+const curriculo = multer({ storage: storageCurriculo })
+const portifolio = multer({ storage: storagePortifolio })
 
 module.exports = {
-  Foto,
-  Curriculo,
-  Portifolio
+  foto,
+  curriculo,
+  portifolio
 }

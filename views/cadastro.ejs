@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/stylesheets/cadastro.css" />
     <main>
       <h1>Cadastro</h1>
-      <form action="/usuario/cadastrar" method="POST">
+      <form action="/usuario/cadastrar" method="POST" enctype="multipart/form-data">
         <div>
           <label for="nome">nome</label>
           <input type="text" name="nome" id="nome" />
@@ -42,6 +42,10 @@
         <div>
           <label for="estado">estado</label>
           <input type="text" name="estado" id="" />
+        </div>
+
+        <div>
+          <input type="file" name="foto" id="foto">
         </div>
 
         <div>

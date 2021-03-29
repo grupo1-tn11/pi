@@ -1,7 +1,5 @@
 const titulo = document.getElementById('titulo')
 const foto = document.getElementById('foto-perfil')
-const iCidade = document.getElementById('i-cidade')
-const iEstado = document.getElementById('i-estado')
 const resumo = document.getElementById('resumo')
 const divExp = document.getElementById('div-exp')
 const divFormacao = document.getElementById('div-formacao')
@@ -71,6 +69,7 @@ async function createLinguagensSelect(selected) {
   const response = await fetch('../linguagens.json')
   const linguagens = await response.json()
   const select = document.createElement('select')
+  select.name = 'linguagens'
 
   if(!selected){
     let option = document.createElement('option')
@@ -96,6 +95,7 @@ async function createRedesSelect(selected) {
   const response = await fetch('../redes.json')
   const redes = await response.json()
   const select = document.createElement('select')
+  select.name = 'redes'
 
   if(!selected){
     let option = document.createElement('option')
@@ -123,8 +123,7 @@ const getUsuario = async () => {
 
   titulo.textContent = 'Perfil de ' + usuario.nome
   foto.src = '../foto_perfil/' + usuario.foto
-  iCidade.value = usuario.cidade
-  iEstado.value = usuario.estado
+
   resumo.textContent = usuario.resumo
 
   usuario.experiencia_pro.forEach((exp, index) => {
@@ -148,7 +147,7 @@ const getUsuario = async () => {
       'Instituição : ',
       'text',
       formacao.instituicao,
-      'formacaoinstituicao ',
+      'formacaoInstituicao ',
       ''
     )
     makeLi(ulFormacao, 'Grau: ', 'text', formacao.grau, 'formacaoGrau', '')
@@ -178,7 +177,7 @@ const getUsuario = async () => {
       '',
       'text',
       competencia.nome,
-      'competencia',
+      'competencias',
       ''
     )
 
@@ -197,7 +196,7 @@ const getUsuario = async () => {
   usuario.redes_sociais.forEach(async (rede) => {
     let select = await createRedesSelect(rede.id)
     liNome = createAndAppend('li', ulRedes, select)
-    let liLink = makeLi(ulRedes, '', 'text', rede.Usuarios_redes.link, 'redeLink', '')
+    let liLink = makeLi(ulRedes, '', 'text', rede.Usuarios_redes.link, 'redesLinks', '')
     
     btnRemove(liNome, 'Excluir rede social?', liNome, liLink)
   })
