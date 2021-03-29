@@ -226,7 +226,7 @@ addFormacao.onclick = () => {
 }
 
 addCompetencia.onclick = () => {
-  let li = makeLi(ulCompetencias, '', 'text', '', 'competencia', '')
+  let li = makeLi(ulCompetencias, '', 'text', '', 'competencias', '')
   btnRemove(li, "Excluir esta competência?", li)
 }
 
@@ -239,7 +239,7 @@ addLinguagem.onclick = async () => {
 addRedes.onclick = async () => {
   let select = await createRedesSelect()
     let liNome = createAndAppend('li', ulRedes, select)
-    let liLink = makeLi(ulRedes, '', 'text', '', 'redeLink', '')
+    let liLink = makeLi(ulRedes, '', 'text', '', 'redesLinks', '')
     btnRemove(liNome, 'Remover rede social?', liNome, liLink)
 }
 

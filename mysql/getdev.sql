@@ -61,6 +61,7 @@ CREATE TABLE linguagens (
 );
 
 CREATE TABLE usuarios_linguagens (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT
     usuarios_id INT,
     linguagens_id INT,
     FOREIGN KEY (usuarios_id)
@@ -85,6 +86,7 @@ CREATE TABLE redes_sociais (
 );
 
 CREATE TABLE usuarios_redes (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     usuarios_id INT,
     redes_id INT,
     link VARCHAR(100),
