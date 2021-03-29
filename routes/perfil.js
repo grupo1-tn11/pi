@@ -4,6 +4,7 @@ const perfilController = require('../controllers/perfilController')
 const portifolioController = require('../controllers/portifolioController')
 const locals = require('../middlewares/locals')
 const autenticar = require('../middlewares/autenticar')
+const upload = require('../configs/uploads')
 
 
 

@@ -22,9 +22,6 @@ const controller = {
       ],
     })
 
-    
-    
-
     res.render('perfil', { perfil })
   },
 

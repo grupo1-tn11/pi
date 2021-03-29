@@ -34,9 +34,7 @@ const userController = {
     const { id } = req.params
 
     const usuario = await Usuarios.findOne({
-      where: {
-        id: id,
-      },
+      where: { id },
     })
 
     if (!usuario) {
@@ -50,9 +48,7 @@ const userController = {
     const { id } = req.params
 
     const usuarioDeletado = await Usuarios.destroy({
-      where: {
-        id: id,
-      },
+      where: { id },
     })
 
     if (!usuarioDeletado) {
