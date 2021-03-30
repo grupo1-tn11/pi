@@ -19,7 +19,7 @@ function makeUl(parent) {
   return ul
 }
 
-function createAndAppend(type, parent, child){
+function createAndAppend(type, parent, child) {
   let element = document.createElement(type)
   element.appendChild(child)
   parent.appendChild(element)
@@ -57,7 +57,7 @@ function btnRemove(parent, msg, ...remove) {
   btn.onclick = () => {
     let confirmar = confirm(msg)
     if (confirmar) {
-      remove.forEach(element => {
+      remove.forEach((element) => {
         element.remove()
       })
     }
@@ -68,13 +68,14 @@ function btnRemove(parent, msg, ...remove) {
 async function createLinguagensSelect(selected) {
   const response = await fetch('../linguagens.json')
   const linguagens = await response.json()
+
   const select = document.createElement('select')
   select.name = 'linguagens'
 
-  if(!selected){
+  if (!selected) {
     let option = document.createElement('option')
-    option.value=null
-    option.textContent=''
+    option.value = null
+    option.textContent = ''
     select.appendChild(option)
   }
 
@@ -87,7 +88,7 @@ async function createLinguagensSelect(selected) {
     }
     select.appendChild(option)
   })
-  
+
   return select
 }
 
@@ -97,10 +98,10 @@ async function createRedesSelect(selected) {
   const select = document.createElement('select')
   select.name = 'redes'
 
-  if(!selected){
+  if (!selected) {
     let option = document.createElement('option')
-    option.value=null
-    option.textContent=''
+    option.value = null
+    option.textContent = ''
     select.appendChild(option)
   }
 
@@ -113,7 +114,7 @@ async function createRedesSelect(selected) {
     }
     select.appendChild(option)
   })
-  
+
   return select
 }
 
@@ -196,22 +197,29 @@ const getUsuario = async () => {
   usuario.redes_sociais.forEach(async (rede) => {
     let select = await createRedesSelect(rede.id)
     liNome = createAndAppend('li', ulRedes, select)
-    let liLink = makeLi(ulRedes, '', 'text', rede.Usuarios_redes.link, 'redesLinks', '')
-    
+    let liLink = makeLi(
+      ulRedes,
+      '',
+      'text',
+      rede.Usuarios_redes.link,
+      'redesLinks',
+      ''
+    )
+
     btnRemove(liNome, 'Excluir rede social?', liNome, liLink)
   })
 }
 
 addExp.onclick = () => {
   let ulExp = makeUl(divExp)
-  let index = makeLi(ulExp, '','','','','')
+  let index = makeLi(ulExp, '', '', '', '', '')
   makeLi(ulExp, 'Cargo: ', 'text', '', 'expCargo', '')
   makeLi(ulExp, 'Funcao: ', 'text', '', 'expFuncao', '')
   makeLi(ulExp, 'Decscricao: ', 'text', '', 'expDecscricao', '')
   makeLi(ulExp, 'Início: ', 'text', '', 'expInicio', '')
   makeLi(ulExp, 'Término: ', 'text', '', 'expTermino', '')
-  btnRemove(index, "Excluir esta experiência profissional?", ulExp)
-
+  btnRemove(index, 'Excluir esta experiência profissional?', ulExp)
+}
 
 addFormacao.onclick = () => {
   let ulFormacao = makeUl(divFormacao)
@@ -221,26 +229,25 @@ addFormacao.onclick = () => {
   makeLi(ulFormacao, 'Grau: ', 'text', '', 'formacaoGrau', '')
   makeLi(ulFormacao, 'Início: ', 'text', '', 'formacaoInicio', '')
   makeLi(ulFormacao, 'Término: ', 'text', '', 'formacaoTermino', '')
-  btnRemove(index, "Excluir esta formação?", ulFormacao)
-  }
+  btnRemove(index, 'Excluir esta formação?', ulFormacao)
 }
 
 addCompetencia.onclick = () => {
   let li = makeLi(ulCompetencias, '', 'text', '', 'competencias', '')
-  btnRemove(li, "Excluir esta competência?", li)
+  btnRemove(li, 'Excluir esta competência?', li)
 }
 
 addLinguagem.onclick = async () => {
   let select = await createLinguagensSelect()
-    let liNome = createAndAppend('li', ulLinguagens, select)
-    btnRemove(liNome, 'Remover linguagem?', liNome)
+  let liNome = createAndAppend('li', ulLinguagens, select)
+  btnRemove(liNome, 'Remover linguagem?', liNome)
 }
 
 addRedes.onclick = async () => {
   let select = await createRedesSelect()
-    let liNome = createAndAppend('li', ulRedes, select)
-    let liLink = makeLi(ulRedes, '', 'text', '', 'redesLinks', '')
-    btnRemove(liNome, 'Remover rede social?', liNome, liLink)
+  let liNome = createAndAppend('li', ulRedes, select)
+  let liLink = makeLi(ulRedes, '', 'text', '', 'redesLinks', '')
+  btnRemove(liNome, 'Remover rede social?', liNome, liLink)
 }
 
 getUsuario()
