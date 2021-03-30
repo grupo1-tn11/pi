@@ -1,5 +1,5 @@
 //const path = require('path')
-const { Usuarios, Usuarios_redes } = require('../models')
+const { Usuarios, Usuarios_redes, Linguagens } = require('../models')
 const fs = require('fs')
 const path = require('path')
 
@@ -46,9 +46,25 @@ const controller = {
     res.render('./areausuario/editar', { perfil })
   },
 
-  atualizar: (req, res) => {
-    res.send(req.body)
-  },
+  atualizar: async (req, res) => {
+    let both = []
+    let {id} = req.session.usuario
+    const usuario = await Usuarios.findByPk(id, {
+      include: [
+        'formacao',
+        'experiencia_pro',
+        'portifolio',
+        'competencias',
+        'linguagens',
+        'redes_sociais',
+      ],
+    })
+    
+    both.push(usuario)
+    both.push(req.body)
+
+    res.send(both)
+  }
 }
 
 module.exports = controller

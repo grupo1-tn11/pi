@@ -9,7 +9,7 @@ const upload = require('../configs/uploads')
 
 
 router.get('/editar', autenticar.seLogadoNext, perfilController.editar)
-router.post('/editar', upload.curriculo.single('curriculo'), perfilController.atualizar)
+router.put('/editar', upload.curriculo.single('curriculo'), perfilController.atualizar)
 
 router.get('/:id', locals, perfilController.exibir)
 router.get('/', autenticar.seLogadoNext, perfilController.exibir)

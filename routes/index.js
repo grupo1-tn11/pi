@@ -9,5 +9,6 @@ const autenticar = require('../middlewares/autenticar')
 /* GET home page. */
 router.get("/", locals, indexController.index);
 router.get('/logout', autenticar.seLogadoNext, authController.logout)
+router.get('/search', indexController.busca)
 
 module.exports = router;
