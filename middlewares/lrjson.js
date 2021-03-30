@@ -11,8 +11,8 @@ module.exports = async (req, res, next) => {
   const linguagensJson = JSON.stringify(linguagens)
   const redesJson = JSON.stringify(redes)
 
-  fs.writeFileSync(path.resolve('./database', 'linguagens.json'), linguagensJson)
-  fs.writeFileSync(path.resolve('./database', 'redes.json'), redesJson)
+  fs.writeFileSync(path.resolve('./json', 'linguagens.json'), linguagensJson)
+  fs.writeFileSync(path.resolve('./json', 'redes.json'), redesJson)
 
   next()
 }

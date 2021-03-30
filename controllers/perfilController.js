@@ -39,9 +39,9 @@ const controller = {
     })
 
     const perfilJSON = JSON.stringify(perfil)
-    console.log(path.resolve('./database', 'perfil.json'))
+    console.log(path.resolve('./json', 'perfil.json'))
 
-    fs.writeFileSync(path.resolve('./database', 'perfil.json'), perfilJSON)
+    fs.writeFileSync(path.resolve('./json', 'perfil.json'), perfilJSON)
 
     res.render('./areausuario/editar', { perfil })
   },

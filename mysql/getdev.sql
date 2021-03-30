@@ -77,7 +77,7 @@ CREATE TABLE competencias (
     FOREIGN KEY (usuarios_id) references usuarios(id)
 );
 
-drop TABLE usuarios_competencias;
+/* drop TABLE usuarios_competencias; */
 
 
 CREATE TABLE redes_sociais (
