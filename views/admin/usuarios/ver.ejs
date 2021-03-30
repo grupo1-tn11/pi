@@ -1,0 +1,57 @@
+<html>
+  <%- include('../parts/head') %>
+
+  <body>
+    <%- include('../parts/header') %>
+
+    <div class="container">
+      <div class="infusuario">
+        <form action="/admin/usuarios/ver/<%= usuario.id %>" method="POST">
+            <div class="perfil">
+                <div class="infprincipais">
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome" value="<%= usuario.nome %>" />
+                <label for="email">Email: </label>
+                <input type="email" name="email" id="email" value="<%= usuario.email %>" />
+                <label for="cpf">CPF: </label>
+                <input type="text" name="cpf" id="cpf" value="<%= usuario.cpf %>" />
+                </div>
+                <div class="foto"></div>
+            </div>
+            <div class="infadicionais">
+                <label for="resumo">Resumo: </label>
+                <input type="text" name="resumo" id="resumo" value="<%= usuario.resumo %>" />
+                <label for="telefone">Telefone: </label>
+                <input type="text" name="telefone" id="telefone" value="<%= usuario.telefone %>" />
+                <label for="estado">Estado: </label>
+                <input type="text" name="estado" id="estado" value="<%= usuario.estado %>" />
+                <label for="cidade">Cidade: </label>
+                <input type="text" name="cidade" id="cidade" value="<%= usuario.cidade %>" />
+                <label for="curriculo">Currículo: </label>
+                <input type="text" name="curriculo" id="curriculo" value="<%= usuario.curriculo %>" />
+                <label for="repositorio">Repositório: </label>
+                <input type="text" name="repositorio" id="repositorio" value="<%= usuario.repositorio %>" />
+                <label for="admin">Admin: </label>
+                <% if(usuario.admin === false){ %>
+                <input type="checkbox" name="admin" id="admin" />
+                <% } else { %>
+                <input type="checkbox" name="admin" id="admin" checked />
+                <% } %>
+            </div>
+            <div class="linha"></div>
+            <div class="addremove">
+                <h2>Linguagens:</h2>
+                <div class="linguagens">
+                    <% usuario.linguagens.forEach(linguagem => { %>
+                        <p id="<%= linguagem.id %>"><%= linguagem.nome %> <button type="button" class='btnRemover'>X</button></p>
+                    <% }) %>
+                </div>
+            </div>
+        </form>
+      </div>
+    </div>
+
+    <%- include('../parts/footer') %>
+</body>
+
+</html>

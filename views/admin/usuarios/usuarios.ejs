@@ -1,0 +1,42 @@
+<html>
+  <%- include('../parts/head') %>
+
+  <body>
+    <%- include('../parts/header') %>
+
+    <div class="container">
+      <table class="grid">
+        <thead>
+          <tr class="titulos">
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th colspan="3">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% usuarios.forEach(usuario => { %>
+          <tr class="conteudo">
+            <td><%= usuario.id %></td>
+            <td><%= usuario.nome %></td>
+            <td><%= usuario.email %></td>
+            <td>
+              <a href="/admin/usuarios/ver/<%= usuario.id %>/"
+                ><button class="ver">Ver</button></a
+              >
+              <a href="/admin/usuarios/editar/<%= usuario.id %>"
+                ><button class="editar">Editar</button></a
+              >
+              <a href="/admin/usuarios/excluir/<%= usuario.id %>"
+                ><button class="excluir">Excluir</button></a
+              >
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
+    <%- include('../parts/footer') %> 
+  </body>
+</html>

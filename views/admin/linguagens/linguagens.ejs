@@ -1,31 +1,31 @@
 <html>
-  <%- include('./parts/head') %>
+  <%- include('../parts/head') %>
 
   <body>
-    <%- include('./parts/header') %>
+    <%- include('../parts/header') %>
 
     <div class="container">
       <table class="grid">
         <thead>
           <tr class="titulos">
+            <th>ID</th>
             <th>Nome</th>
-            <th>Email</th>
             <th colspan="3">Ações</th>
           </tr>
         </thead>
         <tbody>
-          <% usuarios.forEach(usuario => { %>
+          <% linguagens.forEach(linguagem => { %>
           <tr class="conteudo">
-            <td><%= usuario.nome %></td>
-            <td><%= usuario.email %></td>
+            <td><%= linguagem.id %></td>
+            <td><%= linguagem.nome %></td>
             <td>
-              <a href="/ver/<%= usuario.id %>/"
+              <a href="/admin/linguagens/ver/<%= linguagem.id %>/"
                 ><button class="ver">Ver</button></a
               >
-              <a href="/editar/<%= usuario.id %>"
+              <a href="/admin/linguagens/editar/<%= linguagem.id %>"
                 ><button class="editar">Editar</button></a
               >
-              <a href="/excluir/<%= usuario.id %>"
+              <a href="/admin/linguagens/excluir/<%= linguagem.id %>"
                 ><button class="excluir">Excluir</button></a
               >
             </td>
@@ -35,6 +35,6 @@
       </table>
     </div>
 
-    <%- include('./parts/footer') %> 
+    <%- include('../parts/footer') %> 
   </body>
 </html>
