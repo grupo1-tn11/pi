@@ -1,0 +1,40 @@
+<html>
+  <%- include('../parts/head') %>
+
+  <body>
+    <%- include('../parts/header') %>
+
+    <div class="container">
+      <table class="grid">
+        <thead>
+          <tr class="titulos">
+            <th>ID</th>
+            <th>Nome</th>
+            <th colspan="3">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% redessociais.forEach(redesocial => { %>
+          <tr class="conteudo">
+            <td><%= redesocial.id %></td>
+            <td><%= redesocial.nome %></td>
+            <td>
+              <a href="/admin/redessociais/ver/<%= redesocial.id %>/"
+                ><button class="ver">Ver</button></a
+              >
+              <a href="/admin/redessociais/editar/<%= redesocial.id %>"
+                ><button class="editar">Editar</button></a
+              >
+              <a href="/admin/redessociais/excluir/<%= redesocial.id %>"
+                ><button class="excluir">Excluir</button></a
+              >
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
+    <%- include('../parts/footer') %> 
+  </body>
+</html>
