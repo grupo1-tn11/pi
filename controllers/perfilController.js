@@ -1,11 +1,13 @@
 //const path = require('path')
 const { Usuarios, Usuarios_redes } = require('../models')
+const fs = require('fs')
+const path = require('path')
 
 const controller = {
   exibir: async (req, res) => {
     let { id } = req.params
 
-    if(!id){
+    if (!id) {
       id = req.session.usuario.id
     }
 
@@ -36,11 +38,16 @@ const controller = {
       ],
     })
 
+    const perfilJSON = JSON.stringify(perfil)
+    console.log(path.resolve('./database', 'perfil.json'))
+
+    fs.writeFileSync(path.resolve('./database', 'perfil.json'), perfilJSON)
+
     res.render('./areausuario/editar', { perfil })
   },
 
   atualizar: (req, res) => {
-    console.log(req.body)
+    res.send(req.body)
   },
 }
 

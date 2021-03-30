@@ -10,15 +10,10 @@ ul li {
  list-style: none;
 }
 
-input{
-  width: 500px;
+input[type="text"] {
+  width: 400px;
 }
 
-
-#add{
-  cursor:pointer;
-}
-
-#remove{
-  cursor:pointer;
+input[value="Remover"]{
+  margin-left: 10px;
 }

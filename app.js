@@ -12,6 +12,9 @@ const languagesRouter = require('./routes/languages')
 const authRouter = require('./routes/auth')
 const adminRouter = require('./routes/admin')
 const perfilRouter = require('./routes/perfil')
+const cookieAuthentication = require('./middlewares/cookieAuth')
+const dataToJson = require('./middlewares/lrjson')
+
 const { dirname } = require('path')
 
 const app = express()
@@ -27,10 +30,11 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 // eslint-disable-next-line no-undef
 
+
+
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'uploads')))
-
-
+app.use(express.static(path.join(__dirname, 'database')))
 
 app.use(
   session({
@@ -40,6 +44,10 @@ app.use(
   })
 )
 app.use(methodOverride('_method'))
+
+app.use(cookieAuthentication) // cookie login
+
+app.use(dataToJson) // faz json de linguagens e redes sociais 
 
 app.use('/', indexRouter)
 app.use('/usuario', usersRouter)
@@ -64,5 +72,6 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500)
   res.render('error')
 })
+
 
 module.exports = app
