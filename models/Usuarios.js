@@ -13,7 +13,10 @@ module.exports = (sequelize, DataTypes) => {
         unique: true,
       },
       resumo: DataTypes.STRING,
-      foto: DataTypes.STRING,
+      foto: {
+        type: DataTypes.STRING,
+        allowNull: true
+      },
       telefone: DataTypes.STRING,
       cidade: DataTypes.STRING,
       estado: DataTypes.STRING,
