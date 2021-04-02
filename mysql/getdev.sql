@@ -61,7 +61,7 @@ CREATE TABLE linguagens (
 );
 
 CREATE TABLE usuarios_linguagens (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     usuarios_id INT,
     linguagens_id INT,
     FOREIGN KEY (usuarios_id)

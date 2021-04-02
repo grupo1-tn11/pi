@@ -130,6 +130,7 @@ const getUsuario = async () => {
   usuario.experiencia_pro.forEach((exp, index) => {
     let ulExp = makeUl(divExp)
     let liIndex = makeLi(ulExp, index + 1, '', '', '', '')
+    makeLi(ulExp, 'Empresa: ', 'text', exp.empresa, 'expEmpresa')
     makeLi(ulExp, 'Cargo: ', 'text', exp.cargo, 'expCargo', '')
     makeLi(ulExp, 'Funcao: ', 'text', exp.funcao, 'expFuncao', '')
     makeLi(ulExp, 'Decscrição: ', 'text', exp.descricao, 'expDecscricao', '')
@@ -213,6 +214,7 @@ const getUsuario = async () => {
 addExp.onclick = () => {
   let ulExp = makeUl(divExp)
   let index = makeLi(ulExp, '', '', '', '', '')
+  makeLi(ulExp, 'Empresa: ', 'text', '', 'expEmpresa', '')
   makeLi(ulExp, 'Cargo: ', 'text', '', 'expCargo', '')
   makeLi(ulExp, 'Funcao: ', 'text', '', 'expFuncao', '')
   makeLi(ulExp, 'Decscricao: ', 'text', '', 'expDecscricao', '')

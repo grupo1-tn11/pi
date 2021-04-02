@@ -1,5 +1,12 @@
 //const path = require('path')
-const { Usuarios, Usuarios_redes, Linguagens } = require('../models')
+const {
+  Usuarios,
+  Usuarios_redes,
+  Usuarios_linguagens,
+  Competencias,
+  Formacao,
+  Experiencia_pro,
+} = require('../models')
 const fs = require('fs')
 const path = require('path')
 
@@ -47,23 +54,7 @@ const controller = {
   },
 
   atualizar: async (req, res) => {
-    let both = []
-    let {id} = req.session.usuario
-    const usuario = await Usuarios.findByPk(id, {
-      include: [
-        'formacao',
-        'experiencia_pro',
-        'portifolio',
-        'competencias',
-        'linguagens',
-        'redes_sociais',
-      ],
-    })
-    
-    both.push(usuario)
-    both.push(req.body)
-
-    res.send(both)
+    res.send(req.body)
   }
 }
 
