@@ -9,14 +9,18 @@ const userController = {
   armazenar: async (req, res) => {
     const { nome, email, senha, cpf, tel, cidade, estado } = req.body
     const { file } = req
-    console.log(file)
+    let foto = null
+
+    if(file){
+      foto = file.filename
+    }
 
     const usuario = await Usuarios.create({
       nome,
       email,
       senha: bcrypt.hashSync(senha, 10),
       cpf,
-      foto: file.filename,
+      foto,
       telefone: tel,
       cidade,
       estado
