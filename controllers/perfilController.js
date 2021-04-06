@@ -1,4 +1,3 @@
-//const path = require('path')
 const {
   Usuarios,
   Usuarios_redes,
@@ -54,8 +53,11 @@ const controller = {
   },
 
   atualizar: async (req, res) => {
-    res.send(req.body)
-  }
+    const {body} = req
+    res.send(body)
+    
+    fs.writeFileSync(path.resolve("./", 'log', 'body.json'), JSON.stringify(body))
+  },
 }
 
 module.exports = controller

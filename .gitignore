@@ -2,5 +2,7 @@
 desktop.ini
 yarn.lock
 1.js
-/json
-/uploads
+/json/*
+/uploads/*
+2.js
+/log
