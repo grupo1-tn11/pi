@@ -66,7 +66,7 @@ function btnRemove(parent, msg, ...remove) {
 }
 
 async function createLinguagensSelect(selected) {
-  const response = await fetch('../linguagens.json')
+  const response = await fetch('/admin/api/linguagens')
   const linguagens = await response.json()
 
   const select = document.createElement('select')
@@ -93,7 +93,7 @@ async function createLinguagensSelect(selected) {
 }
 
 async function createRedesSelect(selected) {
-  const response = await fetch('../redes.json')
+  const response = await fetch('/admin/api/redes')
   const redes = await response.json()
   const select = document.createElement('select')
   select.name = 'redes'
@@ -119,7 +119,7 @@ async function createRedesSelect(selected) {
 }
 
 const getUsuario = async () => {
-  const response = await fetch('../perfil.json')
+  const response = await fetch('/admin/api/usuario')
   const usuario = await response.json()
 
   titulo.textContent = 'Perfil de ' + usuario.nome
