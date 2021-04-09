@@ -133,7 +133,7 @@ const getUsuario = async () => {
     makeLi(ulExp, 'Empresa: ', 'text', exp.empresa, 'expEmpresa')
     makeLi(ulExp, 'Cargo: ', 'text', exp.cargo, 'expCargo', '')
     makeLi(ulExp, 'Funcao: ', 'text', exp.funcao, 'expFuncao', '')
-    makeLi(ulExp, 'Decscrição: ', 'text', exp.descricao, 'expDecscricao', '')
+    makeLi(ulExp, 'Decscrição: ', 'text', exp.descricao, 'expDescricao', '')
     makeLi(ulExp, 'Início: ', 'text', exp.inicio, 'expInicio', '')
     makeLi(ulExp, 'Término: ', 'text', exp.termino, 'expTermino', '')
 
@@ -149,7 +149,7 @@ const getUsuario = async () => {
       'Instituição : ',
       'text',
       formacao.instituicao,
-      'formacaoInstituicao ',
+      'formacaoInstituicao',
       ''
     )
     makeLi(ulFormacao, 'Grau: ', 'text', formacao.grau, 'formacaoGrau', '')
@@ -217,7 +217,7 @@ addExp.onclick = () => {
   makeLi(ulExp, 'Empresa: ', 'text', '', 'expEmpresa', '')
   makeLi(ulExp, 'Cargo: ', 'text', '', 'expCargo', '')
   makeLi(ulExp, 'Funcao: ', 'text', '', 'expFuncao', '')
-  makeLi(ulExp, 'Decscricao: ', 'text', '', 'expDecscricao', '')
+  makeLi(ulExp, 'Descricao: ', 'text', '', 'expDescricao', '')
   makeLi(ulExp, 'Início: ', 'text', '', 'expInicio', '')
   makeLi(ulExp, 'Término: ', 'text', '', 'expTermino', '')
   btnRemove(index, 'Excluir esta experiência profissional?', ulExp)
@@ -227,7 +227,7 @@ addFormacao.onclick = () => {
   let ulFormacao = makeUl(divFormacao)
   let index = makeLi(ulFormacao, '', '', '', '', '')
   makeLi(ulFormacao, 'Curso: ', 'text', '', 'formacaoCurso', '')
-  makeLi(ulFormacao, 'Instituição : ', 'text', '', 'formacaoinstituicao ', '')
+  makeLi(ulFormacao, 'Instituição : ', 'text', '', 'formacaoInstituicao', '')
   makeLi(ulFormacao, 'Grau: ', 'text', '', 'formacaoGrau', '')
   makeLi(ulFormacao, 'Início: ', 'text', '', 'formacaoInicio', '')
   makeLi(ulFormacao, 'Término: ', 'text', '', 'formacaoTermino', '')

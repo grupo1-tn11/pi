@@ -40,9 +40,123 @@ const controller = {
 
   atualizar: async (req, res) => {
     const { body } = req
+    const { id } = req.session.usuario
+    let file = req.file
 
-    
-  
+    try {
+      if (file) {
+        const updatedUsuario = await Usuarios.update(
+          {
+            resumo: body.resumo,
+            repositorio: body.repositorio,
+            curriculo: file.filename,
+          },
+          {
+            where: { id: id },
+          }
+        )
+      } else {
+        const updatedUsuario = await Usuarios.update(
+          {
+            resumo: body.resumo,
+            repositorio: body.repositorio,
+          },
+          {
+            where: { id: id },
+          }
+        )
+      }
+    } catch (error) {
+      console.log('usuario - ', error)
+    }
+
+    try {
+      await Competencias.destroy({
+        where: { usuarios_id: id },
+      })
+      for (let i = 0; i < body.competencias.length; i++) {
+        Competencias.create({
+          nome: body.competencias[i],
+          usuarios_id: id,
+        })
+      }
+    } catch (error) {
+      console.log('competencias - ', error)
+    }
+
+    try {
+      await Experiencia_pro.destroy({
+        where: { usuarios_id: id },
+      })
+      for (let i = 0; i < body.expCargo.length; i++) {
+        Experiencia_pro.create({
+          empresa: body.expEmpresa[i],
+          cargo: body.expCargo[i],
+          funcao: body.expFuncao[i],
+          descricao: body.expDescricao[i],
+          inicio: body.expInicio[i],
+          termino: body.expTermino[i],
+          usuarios_id: id,
+        })
+      }
+    } catch (error) {
+      console.log('experiencia_pro - ', error)
+    }
+
+    try {
+      await Formacao.destroy({
+        where: { usuarios_id: id },
+      })
+      for (let i = 0; i < body.formacaoCurso.length; i++) {
+        Formacao.create({
+          curso: body.formacaoCurso[i],
+          instituicao: body.formacaoInstituicao[i],
+          grau: body.formacaoGrau[i],
+          inicio: body.formacaoInicio[i],
+          termino: body.formacaoTermino[i],
+          usuarios_id: id,
+        })
+      }
+    } catch (error) {
+      console.log(body.formacaoCurso)
+      console.log(body.formacaoInstituicao)
+      console.log(body.formacaoGrau)
+      console.log(body.formacaoInicio)
+      console.log(body.formacaoTermino)
+      console.log('formacao - ', error)
+    }
+
+    try {
+      await Usuarios_redes.destroy({
+        where: { usuarios_id: id },
+      })
+      for (let i = 0; i < body.redes.length; i++) {
+        Usuarios_redes.create({
+          redes_id: body.redes[i],
+          link: body.redesLinks[i],
+          usuarios_id: id,
+        })
+      }
+    } catch (error) {
+      console.log('usuarios_redes - ', error)
+    }
+
+    try {
+      await Usuarios_linguagens.destroy({
+        where: { usuarios_id: id },
+      })
+      for (let i = 0; i < body.linguagens.length; i++) {
+        Usuarios_linguagens.create({
+          linguagens_id: body.linguagens[i],
+          usuarios_id: id,
+        })
+      }
+    } catch (error) {
+      console.log('usuarios_linguagens - ', error)
+    }
+
+    fs.writeFileSync(path.resolve('./log', 'body.json'), JSON.stringify(body))
+    res.redirect('/perfil')
   },
 }
 
