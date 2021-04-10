@@ -9,6 +9,13 @@ const {
 const fs = require('fs')
 const path = require('path')
 
+function verificaArray(variavel) {
+  if (typeof (variavel == 'string')) {
+    variavel = [variavel]
+  }
+  return variavel
+}
+
 const controller = {
   exibir: async (req, res) => {
     let { id } = req.params
@@ -43,12 +50,18 @@ const controller = {
     const { id } = req.session.usuario
     let file = req.file
 
+    for (let key in body) {
+      body[key] = verificaArray(body[key])
+    }
+
+    //console.log('body - ', body)
+
     try {
       if (file) {
         const updatedUsuario = await Usuarios.update(
           {
-            resumo: body.resumo,
-            repositorio: body.repositorio,
+            resumo: body.resumo[0],
+            repositorio: body.repositorio[0],
             curriculo: file.filename,
           },
           {
@@ -58,8 +71,8 @@ const controller = {
       } else {
         const updatedUsuario = await Usuarios.update(
           {
-            resumo: body.resumo,
-            repositorio: body.repositorio,
+            resumo: body.resumo[0],
+            repositorio: body.repositorio[0],
           },
           {
             where: { id: id },
@@ -118,11 +131,6 @@ const controller = {
         })
       }
     } catch (error) {
-      console.log(body.formacaoCurso)
-      console.log(body.formacaoInstituicao)
-      console.log(body.formacaoGrau)
-      console.log(body.formacaoInicio)
-      console.log(body.formacaoTermino)
       console.log('formacao - ', error)
     }
 
@@ -155,7 +163,7 @@ const controller = {
       console.log('usuarios_linguagens - ', error)
     }
 
-    fs.writeFileSync(path.resolve('./log', 'body.json'), JSON.stringify(body))
+    //fs.writeFileSync(path.resolve('./log', 'body.json'), JSON.stringify(body))
     res.redirect('/perfil')
   },
 }
