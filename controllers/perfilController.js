@@ -10,7 +10,7 @@ const fs = require('fs')
 const path = require('path')
 
 function verificaArray(variavel) {
-  if (typeof (variavel == 'string')) {
+  if (typeof (variavel) === 'string') {
     variavel = [variavel]
   }
   return variavel
@@ -88,7 +88,7 @@ const controller = {
         where: { usuarios_id: id },
       })
       for (let i = 0; i < body.competencias.length; i++) {
-        Competencias.create({
+        await Competencias.create({
           nome: body.competencias[i],
           usuarios_id: id,
         })
@@ -102,7 +102,7 @@ const controller = {
         where: { usuarios_id: id },
       })
       for (let i = 0; i < body.expCargo.length; i++) {
-        Experiencia_pro.create({
+        await Experiencia_pro.create({
           empresa: body.expEmpresa[i],
           cargo: body.expCargo[i],
           funcao: body.expFuncao[i],
@@ -121,7 +121,7 @@ const controller = {
         where: { usuarios_id: id },
       })
       for (let i = 0; i < body.formacaoCurso.length; i++) {
-        Formacao.create({
+        await Formacao.create({
           curso: body.formacaoCurso[i],
           instituicao: body.formacaoInstituicao[i],
           grau: body.formacaoGrau[i],
@@ -139,7 +139,7 @@ const controller = {
         where: { usuarios_id: id },
       })
       for (let i = 0; i < body.redes.length; i++) {
-        Usuarios_redes.create({
+        await Usuarios_redes.create({
           redes_id: body.redes[i],
           link: body.redesLinks[i],
           usuarios_id: id,
@@ -154,7 +154,7 @@ const controller = {
         where: { usuarios_id: id },
       })
       for (let i = 0; i < body.linguagens.length; i++) {
-        Usuarios_linguagens.create({
+        await Usuarios_linguagens.create({
           linguagens_id: body.linguagens[i],
           usuarios_id: id,
         })
@@ -163,7 +163,7 @@ const controller = {
       console.log('usuarios_linguagens - ', error)
     }
 
-    //fs.writeFileSync(path.resolve('./log', 'body.json'), JSON.stringify(body))
+    fs.writeFileSync(path.resolve('./log', 'body.json'), JSON.stringify(body))
     res.redirect('/perfil')
   },
 }
