@@ -84,7 +84,6 @@ const controller = {
       console.log('usuario - ', error)
     }
 
-    if(body.competencias){
       try {
         await Competencias.destroy({
           where: { usuarios_id: id },
@@ -98,9 +97,7 @@ const controller = {
       } catch (error) {
         console.log('competencias - ', error)
       }
-    }
 
-    if(body.expCargo){
       try {
         await Experiencia_pro.destroy({
           where: { usuarios_id: id },
@@ -119,9 +116,7 @@ const controller = {
       } catch (error) {
         console.log('experiencia_pro - ', error)
       }
-    }
 
-    if(body.formacaoCurso){
       try {
         await Formacao.destroy({
           where: { usuarios_id: id },
@@ -139,9 +134,7 @@ const controller = {
       } catch (error) {
         console.log('formacao - ', error)
       }
-    }
 
-    if(body.redes){
       try {
         await Usuarios_redes.destroy({
           where: { usuarios_id: id },
@@ -156,9 +149,7 @@ const controller = {
       } catch (error) {
         console.log('usuarios_redes - ', error)
       }
-    }
 
-    if(body.linguagens){
       try {
         await Usuarios_linguagens.destroy({
           where: { usuarios_id: id },
@@ -172,7 +163,7 @@ const controller = {
       } catch (error) {
         console.log('usuarios_linguagens - ', error)
       }
-    }
+      
     //fs.writeFileSync(path.resolve('./log', 'body.json'), JSON.stringify(body))
     res.redirect('/perfil')
   },

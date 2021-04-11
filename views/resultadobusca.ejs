@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <%- include('./parts/head') %>
+    <title>getdev - pesquisa</title>
+    <link rel="stylesheet" href="/stylesheets/busca.css" />
+  </head>
+  <body>
+    <%- include('./parts/header') %>
+    <main>
+        <% perfilEncontrado.forEach(perfil => { %>
+            <div class="containerpesquisa">
+                <div class="foto">
+                    <img src="https://www.pngkey.com/png/full/115-1150420_avatar-png-pic-male-avatar-icon-png.png" alt="" />
+                </div>
+                <div class="informacoes">
+                    <p class="titulo">Nome:</p>
+                    <p class="desc"><%= perfil.nome %></p>
+                    <p class="titulo">Resumo:</p>
+                    <p class="desc"><%= perfil.resumo %></p>
+                    <p class="titulo">Linguagens:</p>
+                    <% perfil.linguagens.forEach(linguagem => { %>
+                    <span class="linguagens"><%= linguagem.nome %></span>
+                    <% }) %>
+                    <p class="titulocp">Competências:</p>
+                    <ul class="listacompetencias">
+                        <% perfil.competencias.forEach(competencia => { %>
+                        <li><%= competencia.nome %></li>
+                        <% }) %>
+                    </ul>
+                </div>
+            </div>
+        <% }) %>
+    </main>
+
+    <%- include('./parts/footer.ejs') %>
+  </body>
+</html>

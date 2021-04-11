@@ -26,8 +26,10 @@
                   </div>
 
                   <div class="search col-12 d-flex flex-wrap justify-content-center">
-                    <input placeholder="O que você precisa?" />
-                    <button>Pesquisar</button>
+                    <form  action="/search" method="GET">
+                      <input name='linguagem' placeholder="O que você precisa?" />
+                      <button type="submit">Pesquisar</button>
+                    </form> 
                   </div>
                 </section>
               </div>

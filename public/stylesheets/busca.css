@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+.perfilbusca {
+    height:100%;
+    width:100px
+}
+
+.containerpesquisa {
+    display:flex;
+    width: 80vw;
+    min-height:100px;
+    position: relative;
+    background-color: #d4d4d4;
+    border-radius: 20px;
+    margin: 20px auto;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+}
+.foto {
+    width: 100px;
+    height:200px;
+    /* margin: 10px */
+}
+
+.foto img {
+    width: 130px;
+    height: 190px;
+}
+
+.foto {
+    margin-right: 50px;
+}
+
+main {
+    min-height: calc(100vh - 348px);
+}
+
+.linguagens {
+    padding: 5px;
+    background-color: rgb(246, 248, 123);
+}
+
+.listacompetencias li {
+    text-decoration: none;
+    list-style-position: inside;
+}
+
+.titulo {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.titulocp {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.desc {
+    font-size: .9rem;
+}
