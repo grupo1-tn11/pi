@@ -2,6 +2,7 @@ const { Usuarios } = require('../models/')
 const { Redes_sociais } = require('../models/')
 const { Linguagens } = require('../models/')
 const { Competencias } = require('../models/')
+const { Op } = require("sequelize");
 
 const adminController = {
   index: (_req,res) => {
@@ -35,26 +36,19 @@ const adminController = {
       res.send('Usuário não encontrado!')
     }
 
-    // let linguagens = []
-
-    // usuario.linguagens.forEach(linguagem => {
-    //   let linguagemObjeto = {
-    //     id: linguagem.id,
-    //     nome: linguagem.nome
-    //   }
-
-    //   linguagens.push(linguagemObjeto)
-    // })
-
-    //  console.log(usuario.linguagens.forEach(linguagem => {
-    //    console.log(linguagem.nome)
-    //  }))
-
     res.render('admin/usuarios/ver', { usuario })
   },
-  redessociais: async (_req,res) => {
+  atualizarusuario: async(req,res) => {
+    console.log(req.body)
+  },
+  redessociais: async (req,res) => {
+
+    let { nome } = req.query
 
     const redessociais = await Redes_sociais.findAll({
+      where: { 
+          nome: {[Op.like]: nome ? '%' + nome + '%' : '%'}
+        },
       order: [[
         'id', 'ASC'
       ]]

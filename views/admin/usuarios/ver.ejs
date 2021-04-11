@@ -43,10 +43,12 @@
                 <h2>Linguagens:</h2>
                 <div class="linguagens">
                     <% usuario.linguagens.forEach(linguagem => { %>
-                        <p id="<%= linguagem.id %>"><%= linguagem.nome %> <button type="button" class='btnRemover'>X</button></p>
+                        <input type="text" name="linguagem" id="<%= linguagem.id %>" value="<%= linguagem.nome %>" />
+                        <!-- <p name='linguagem' value='<%= linguagem.nome %>' id="<%= linguagem.id %>"><%= linguagem.nome %> <button type="button" class='btnRemover'>X</button></p> -->
                     <% }) %>
                 </div>
             </div>
+            <button type='submit'>Enviar</button>
         </form>
       </div>
     </div>
