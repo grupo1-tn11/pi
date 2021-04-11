@@ -6,11 +6,12 @@ const {
   Formacao,
   Experiencia_pro,
 } = require('../models')
+
 const fs = require('fs')
 const path = require('path')
 
 function verificaArray(variavel) {
-  if (typeof (variavel) === 'string') {
+  if (typeof(variavel) === 'string') {
     variavel = [variavel]
   }
   return variavel
@@ -61,7 +62,7 @@ const controller = {
         await Usuarios.update(
           {
             resumo: body.resumo[0],
-            repositorio: body.repositorio[0],
+            repositorio_link: body.repositorio[0],
             curriculo: file.filename,
           },
           {
@@ -72,7 +73,7 @@ const controller = {
         await Usuarios.update(
           {
             resumo: body.resumo[0],
-            repositorio: body.repositorio[0],
+            repositorio_link: body.repositorio[0],
           },
           {
             where: { id: id },
