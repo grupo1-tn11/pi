@@ -58,7 +58,7 @@ const controller = {
 
     try {
       if (file) {
-        const updatedUsuario = await Usuarios.update(
+        await Usuarios.update(
           {
             resumo: body.resumo[0],
             repositorio: body.repositorio[0],
@@ -69,7 +69,7 @@ const controller = {
           }
         )
       } else {
-        const updatedUsuario = await Usuarios.update(
+        await Usuarios.update(
           {
             resumo: body.resumo[0],
             repositorio: body.repositorio[0],
@@ -87,7 +87,7 @@ const controller = {
       await Competencias.destroy({
         where: { usuarios_id: id },
       })
-      for (let i = 0; i < body.competencias.length; i++) {
+      for (let i in body.competencias) {
         await Competencias.create({
           nome: body.competencias[i],
           usuarios_id: id,
@@ -101,7 +101,7 @@ const controller = {
       await Experiencia_pro.destroy({
         where: { usuarios_id: id },
       })
-      for (let i = 0; i < body.expCargo.length; i++) {
+      for (let i in body.expCargo) {
         await Experiencia_pro.create({
           empresa: body.expEmpresa[i],
           cargo: body.expCargo[i],
@@ -120,7 +120,7 @@ const controller = {
       await Formacao.destroy({
         where: { usuarios_id: id },
       })
-      for (let i = 0; i < body.formacaoCurso.length; i++) {
+      for (let i in body.formacaoCurso) {
         await Formacao.create({
           curso: body.formacaoCurso[i],
           instituicao: body.formacaoInstituicao[i],
@@ -138,7 +138,7 @@ const controller = {
       await Usuarios_redes.destroy({
         where: { usuarios_id: id },
       })
-      for (let i = 0; i < body.redes.length; i++) {
+      for (let i in body.redes) {
         await Usuarios_redes.create({
           redes_id: body.redes[i],
           link: body.redesLinks[i],
@@ -153,7 +153,7 @@ const controller = {
       await Usuarios_linguagens.destroy({
         where: { usuarios_id: id },
       })
-      for (let i = 0; i < body.linguagens.length; i++) {
+      for (let i in body.linguagens) {
         await Usuarios_linguagens.create({
           linguagens_id: body.linguagens[i],
           usuarios_id: id,
@@ -163,7 +163,7 @@ const controller = {
       console.log('usuarios_linguagens - ', error)
     }
 
-    fs.writeFileSync(path.resolve('./log', 'body.json'), JSON.stringify(body))
+    //fs.writeFileSync(path.resolve('./log', 'body.json'), JSON.stringify(body))
     res.redirect('/perfil')
   },
 }
