@@ -106,13 +106,13 @@
     <%- include('./parts/footer.ejs') %>
   </body>
   <script>
+    
     const inputPesquisa = document.querySelector('.pesquisa input')
     const filtro = document.querySelector('select')
 
     filtro.addEventListener('change', ()=> {
-      console.log(filtro.options[filtro.selectedIndex].value)
       inputPesquisa.name = filtro.options[filtro.selectedIndex].value
-
     })
+
   </script>
 </html>
