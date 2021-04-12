@@ -8,46 +8,55 @@ const {
   Linguagens
 } = require('../models')
 
+const { Op } = require('sequelize')
+
 const indexController = {
   index: (req, res) => res.render('index'),
 
   busca: async (req, res) => {
-    console.log(req.query)
+
+    const perfil = await Usuarios.findAll(
+      {
+      include: [
+        {
+          model: Linguagens ,
+          as: 'linguagens',
+          where: { 
+            nome: {
+              [Op.like]: '%' + req.query.linguagem + '%'
+            }
+          }
+        },
+      ]
+    })
+
+    let ids = []
+
+    perfil.forEach(user=>{
+      ids.push(user.id)
+    })
 
     const perfilEncontrado = await Usuarios.findAll(
       {
+      where: { 
+        id: ids
+      },
       include: [
         'formacao',
         'experiencia_pro',
         'portifolio',
         'competencias',
-        {
-          model: Linguagens ,
-          as: 'linguagens',
-          where: { 
-            nome: req.query.linguagem
-          }
-        },
+        'linguagens',
         'redes_sociais',
       ],
+      order: [[
+        'id', 'ASC'
+      ],
+      [
+        { model: Linguagens, as: 'linguagens' }, 'nome', 'ASC'
+      ]
+    ],
     })
-
-    console.log(perfilEncontrado)
-
-    // let perfilEncontrado = []
-
-    // perfil.forEach(user =>{
-    //   let temLinguagem = false
-    //   user.linguagens.forEach((linguagem) => {
-    //     if(linguagem.nome == req.query.linguagem){
-    //       temLinguagem = true
-    //     }
-    //   })
-    //   if(temLinguagem == true){
-    //    perfilEncontrado.push(user)
-       
-    //   }
-    // })
     
     res.render('resultadobusca', { perfilEncontrado })
 
