@@ -6,7 +6,11 @@
     <link rel="stylesheet" href="/stylesheets/busca.css" />
   </head>
   <body>
-    <%- include('./parts/header') %>
+    <% if(!usuario) { %>
+      <%- include('./parts/header') %>
+    <% } else { %>
+      <%- include('./parts/header-logado') %>
+    <% } %>
     <main>
         <% perfilEncontrado.forEach(perfil => { %>
             <div class="containerpesquisa">
