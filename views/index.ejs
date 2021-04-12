@@ -106,23 +106,13 @@
     <%- include('./parts/footer.ejs') %>
   </body>
   <script>
-    const filtro = document.querySelectorAll('.filtro option')
     const inputPesquisa = document.querySelector('.pesquisa input')
-    const um = document.querySelector('select')
-    // const linguagemFiltro = document.querySelector('#linguagem')
-    // const formacaoFiltro = document.querySelector('#formacao')
-    // const competenciaFiltro = document.querySelector('#competencia')
-    function trocaFiltro(event){
-      console.log(inputPesquisa)
-    }
-    um.addEventListener('change', ()=> {
-      console.log(um.options[um.selectedIndex].value)
-      inputPesquisa.name = um.options[um.selectedIndex].value
+    const filtro = document.querySelector('select')
 
-    })
-    
-    filtro.forEach(item => {
-      item.addEventListener('click', trocaFiltro)
+    filtro.addEventListener('change', ()=> {
+      console.log(filtro.options[filtro.selectedIndex].value)
+      inputPesquisa.name = filtro.options[filtro.selectedIndex].value
+
     })
   </script>
 </html>
