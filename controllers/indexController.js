@@ -5,7 +5,7 @@ const {
   Competencias,
   Formacao,
   Experiencia_pro,
-  Linguagens
+  Linguagens,
 } = require('../models')
 
 const { Op } = require('sequelize')
@@ -14,32 +14,29 @@ const indexController = {
   index: (req, res) => res.render('index'),
 
   busca: async (req, res) => {
-
-    const perfil = await Usuarios.findAll(
-      {
+    const perfisEncontrados = await Usuarios.findAll({
       include: [
         {
-          model: Linguagens ,
+          model: Linguagens,
           as: 'linguagens',
-          where: { 
+          where: {
             nome: {
-              [Op.like]: '%' + req.query.linguagem + '%'
-            }
-          }
+              [Op.like]: '%' + req.query.linguagem + '%',
+            },
+          },
         },
-      ]
+      ],
     })
 
     let ids = []
 
-    perfil.forEach(user=>{
-      ids.push(user.id)
+    perfisEncontrados.forEach(perfil => {
+      ids.push(perfil.id)
     })
 
-    const perfilEncontrado = await Usuarios.findAll(
-      {
-      where: { 
-        id: ids
+    const resultadoBusca = await Usuarios.findAll({
+      where: {
+        id: ids,
       },
       include: [
         'formacao',
@@ -49,18 +46,14 @@ const indexController = {
         'linguagens',
         'redes_sociais',
       ],
-      order: [[
-        'id', 'ASC'
+      order: [
+        ['id', 'ASC'],
+        [{ model: Linguagens, as: 'linguagens' }, 'nome', 'ASC'],
       ],
-      [
-        { model: Linguagens, as: 'linguagens' }, 'nome', 'ASC'
-      ]
-    ],
     })
-    
-    res.render('resultadobusca', { perfilEncontrado })
 
-  }
+    res.render('resultadobusca', { resultadoBusca })
+  },
 }
 
 module.exports = indexController

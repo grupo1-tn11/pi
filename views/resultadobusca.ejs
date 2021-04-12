@@ -12,15 +12,18 @@
       <%- include('./parts/header-logado') %>
     <% } %>
     <main>
-        <% perfilEncontrado.forEach(perfil => { %>
+        <% resultadoBusca.forEach(perfil => { %>
             <div class="containerpesquisa">
                 <div class="foto">
                     <img src="https://www.pngkey.com/png/full/115-1150420_avatar-png-pic-male-avatar-icon-png.png" alt="" />
                 </div>
                 <div class="informacoes">
-                    <p class="titulo">Nome:</p>
+                    <!-- <p class="titulo">Nome:</p>
                     <p class="desc"><%= perfil.nome %></p>
                     <p class="titulo">Resumo:</p>
+                    <p class="desc"><%= perfil.resumo %></p> -->
+
+                    <p class="titulo"><%= perfil.nome %></p>
                     <p class="desc"><%= perfil.resumo %></p>
                     <p class="titulo">Linguagens:</p>
                     <% perfil.linguagens.forEach(linguagem => { %>
