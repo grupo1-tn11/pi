@@ -14,6 +14,9 @@ const indexController = {
   index: (req, res) => res.render('index'),
 
   busca: async (req, res) => {
+
+    const { linguagem, curso, competencia } = req.query
+
     const perfisEncontrados = await Usuarios.findAll({
       include: [
         {
@@ -21,9 +24,30 @@ const indexController = {
           as: 'linguagens',
           where: {
             nome: {
-              [Op.like]: '%' + req.query.linguagem + '%',
+              [Op.like]: linguagem ? '%' + linguagem + '%' : '%',
             },
           },
+          required: linguagem ? true : false
+        },
+        {
+          model: Formacao,
+          as: 'formacao',
+          where: {
+            curso: {
+              [Op.like]: curso ? '%' + curso + '%' : '%',
+            },
+          },
+          required: curso ? true : false
+        },
+        {
+          model: Competencias,
+          as: 'competencias',
+          where: {
+            nome: {
+              [Op.like]: competencia ? '%' + competencia + '%' : '%',
+            },
+          },
+          required: competencia ? true : false
         },
       ],
     })

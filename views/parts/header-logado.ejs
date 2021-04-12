@@ -7,8 +7,22 @@
       </a>
     </div>
     <nav>
-      <span>Olá, <%= usuario.nome %>!</span>
+      <span id='btnShowMenu'>Olá, <%= usuario.nome %>!</span>
       <a href="/logout"> logout </a>
     </nav>
+    <div class="menulogado">
+      <ul>
+        <li><a href="/perfil/">Mostrar perfil</a></li>
+        <li><a href="/perfil/editar">Editar perfil</a></li>
+      </ul>
+    </div>
   </div>
 </header>
+<script>
+  const menuLogado = document.querySelector('.menulogado');
+  const btnShowMenu = document.querySelector('#btnShowMenu');
+
+  btnShowMenu.addEventListener('click', () => {
+    menuLogado.classList.toggle('active')
+  })
+</script>

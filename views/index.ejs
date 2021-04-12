@@ -22,7 +22,6 @@
                   <div class="col-12 d-flex flex-wrap justify-content-center">
                     <h1>Encontre um Dev para o seu projeto</h1>
                     <h3>Nosso sistema te ajuda a encontrar a melhor solução</h3>
-                    <a href="/perfil/editar">editar perfil</a>
                   </div>
 
                   <div class="search col-12 d-flex flex-wrap justify-content-center">
@@ -106,13 +105,13 @@
     <%- include('./parts/footer.ejs') %>
   </body>
   <script>
-    
+
     const inputPesquisa = document.querySelector('.pesquisa input')
     const filtro = document.querySelector('select')
 
     filtro.addEventListener('change', ()=> {
       inputPesquisa.name = filtro.options[filtro.selectedIndex].value
     })
-
+    
   </script>
 </html>

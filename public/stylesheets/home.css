@@ -70,14 +70,14 @@ input {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #acda98;
-  width: 50vw;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 30vw;
 }
 .search{
   margin-top:20px;
+}
+
+.busca {
+  width: 100%;
 }
 
 button {
