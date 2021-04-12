@@ -26,7 +26,12 @@
                   </div>
 
                   <div class="search col-12 d-flex flex-wrap justify-content-center">
-                    <form  action="/search" method="GET">
+                    <form class='pesquisa' action="/search" method="GET">
+                      <select id="filtro" class="filtro">
+                        <option id="linguagem" value="linguagem">Linguagem</option>
+                        <option id="competencia" value="competencia">Competencia</option>
+                        <option id="formacao" value="formacao">Formação</option>
+                      </select>
                       <input name='linguagem' placeholder="O que você precisa?" />
                       <button type="submit">Pesquisar</button>
                     </form> 
@@ -100,4 +105,24 @@
 
     <%- include('./parts/footer.ejs') %>
   </body>
+  <script>
+    const filtro = document.querySelectorAll('.filtro option')
+    const inputPesquisa = document.querySelector('.pesquisa input')
+    const um = document.querySelector('select')
+    // const linguagemFiltro = document.querySelector('#linguagem')
+    // const formacaoFiltro = document.querySelector('#formacao')
+    // const competenciaFiltro = document.querySelector('#competencia')
+    function trocaFiltro(event){
+      console.log(inputPesquisa)
+    }
+    um.addEventListener('change', ()=> {
+      console.log(um.options[um.selectedIndex].value)
+      inputPesquisa.name = um.options[um.selectedIndex].value
+
+    })
+    
+    filtro.forEach(item => {
+      item.addEventListener('click', trocaFiltro)
+    })
+  </script>
 </html>
