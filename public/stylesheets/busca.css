@@ -23,7 +23,7 @@
 }
 
 .foto img {
-    width: 130px;
+    width: 150px;
     height: 190px;
 }
 
@@ -59,4 +59,8 @@ main {
 
 .desc {
     font-size: .9rem;
+}
+
+.informacoes {
+    margin-left: 20px;
 }

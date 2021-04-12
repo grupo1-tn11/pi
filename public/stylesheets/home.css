@@ -130,6 +130,15 @@ button {
   font-size: 30px;
 }
 
+.pesquisa {
+  display: flex;
+}
+
+.filtro {
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 768px){
   .busca h1{
