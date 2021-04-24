@@ -6,7 +6,7 @@
 
     <div class="container">
       <div class="infusuario">
-        <form action="/admin/usuarios/ver/<%= usuario.id %>" method="POST">
+        <form action="/admin/usuarios/editar/<%= usuario.id %>" method="POST">
             <div class="perfil">
                 <div class="infprincipais">
                 <label for="nome">Nome: </label>
@@ -40,20 +40,33 @@
             </div>
             <div class="linha"></div>
             <div class="addremove">
-                <h2>Linguagens:</h2>
+                <h2>Linguagens:</h2> 
+                <div class="adicionarLinguagem">
+                    <p>Selecione uma linguagem para adicionar:</p>
+                    <select id="selecionarLinguagem">
+                        <% linguagens.forEach(linguagem =>{ %>
+                            <option id="<%= linguagem.id %>" value="<%= linguagem.nome %>"><%= linguagem.nome %></option>
+                        <% }) %>
+                    </select>
+                    <button type="button" class="btnAdicionarLinguagem">Adicionar</button>
+                </div>
+                
                 <div class="linguagens">
                     <% usuario.linguagens.forEach(linguagem => { %>
-                        <input type="text" name="linguagem" id="<%= linguagem.id %>" value="<%= linguagem.nome %>" />
-                        <!-- <p name='linguagem' value='<%= linguagem.nome %>' id="<%= linguagem.id %>"><%= linguagem.nome %> <button type="button" class='btnRemover'>X</button></p> -->
+                        <div class="inputreadonly">
+                            <input type="text" name="linguagem" id="<%= linguagem.id %>" value="<%= linguagem.nome %>" readonly />
+                            <button type="button" class='btnRemover' id="<%= linguagem.id %>">X</button>
+                        </div>
                     <% }) %>
                 </div>
             </div>
-            <button type='submit'>Enviar</button>
+            <button class="btnAdicionarLinguagem" type='submit'>Enviar</button>
         </form>
       </div>
     </div>
 
     <%- include('../parts/footer') %>
+    <script src="/js/scriptAdminUsuario.js"></script>
 </body>
 
 </html>

@@ -58,6 +58,8 @@ const indexController = {
       ids.push(perfil.id)
     })
 
+    console.log(ids)
+
     const resultadoBusca = await Usuarios.findAll({
       where: {
         id: ids,

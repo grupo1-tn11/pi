@@ -1,7 +1,7 @@
-const { Usuarios } = require('../models/')
-const { Redes_sociais } = require('../models/')
-const { Linguagens } = require('../models/')
-const { Competencias } = require('../models/')
+const { Usuarios, Redes_sociais, Linguagens, Competencias, Usuarios_linguagens } = require('../models/')
+// const { Redes_sociais } = require('../models/')
+// const { Linguagens } = require('../models/')
+// const { Competencias } = require('../models/')
 const { Op } = require("sequelize");
 
 const adminController = {
@@ -18,7 +18,7 @@ const adminController = {
 
     res.render('admin/usuarios/usuarios', { usuarios })
   },
-  verusuario: async (req,res) => {
+  editarUsuario: async (req,res) => {
     const { id } = req.params
 
     const usuario = await Usuarios.findByPk(id, {
@@ -36,10 +36,46 @@ const adminController = {
       res.send('Usuário não encontrado!')
     }
 
-    res.render('admin/usuarios/ver', { usuario })
+    const linguagens = await Linguagens.findAll({
+      order:[[
+        'nome', 'ASC'
+      ]]
+    })
+
+    res.render('admin/usuarios/editar', { usuario, linguagens })
   },
-  atualizarusuario: async(req,res) => {
-    console.log(req.body)
+  atualizarUsuario: async(req,res) => {
+    const { nome, email, cpf, resumo, telefone, estado, cidade, curriculo, 
+            repositorio, admin, linguagem } = req.body
+    const { id } = req.params
+    
+    const idLinguagens = []
+
+    let idL = await Linguagens.findAll({
+      where: {
+        nome: linguagem
+      }
+    })
+
+    idL.forEach(id => {
+      idLinguagens.push(id.id)
+    })
+
+    const deletarLinguagens = await Usuarios_linguagens.destroy({
+        where: { 
+        usuarios_id: id,
+      },
+    })
+
+    idLinguagens.forEach(async linguagem => {
+      await Usuarios_linguagens.create({
+        usuarios_id: id,
+        linguagens_id: linguagem
+      })
+    })
+
+    res.redirect('/admin/usuarios/editar/' + id)
+    
   },
   redessociais: async (req,res) => {
 
