@@ -27,12 +27,12 @@ function atualizarLinguagens() {
 
 btnAdicionar.addEventListener('click', () => {
     let result = atualizarLinguagens()
-    if(!result){
-    linguagensPai.innerHTML +=`
-        <div class="inputreadonly">
-            <input type="text" name="linguagem" id="${selectLinguagem.selectedOptions[0].id}" value="${selectLinguagem.selectedOptions[0].value}" readonly />
-            <button type="button" class='btnRemover' id="${selectLinguagem.selectedOptions[0].id}">X</button>
-        </div>`
+    if(!result){ 
+     linguagensPai.innerHTML +=`
+         <div class="inputreadonly">
+             <input type="text" name="linguagem" id="${selectLinguagem.selectedOptions[0].id}" value="${selectLinguagem.selectedOptions[0].value}" readonly />
+             <button type="button" class='btnRemover' id="${selectLinguagem.selectedOptions[0].id}">X</button>
+         </div>`
     }
     atualizarLinguagens()
 })

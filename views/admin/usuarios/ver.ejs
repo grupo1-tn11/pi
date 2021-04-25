@@ -1,0 +1,61 @@
+<html>
+  <%- include('../parts/head') %>
+
+  <body>
+    <%- include('../parts/header') %>
+
+    <div class="container">
+      <div class="infusuario">
+        <form action="/admin/usuarios/ver/<%= usuario.id %>" method="POST">
+            <div class="perfil">
+                <div class="infprincipais">
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome" value="<%= usuario.nome %>" disabled/>
+                <label for="email">Email: </label>
+                <input type="email" name="email" id="email" value="<%= usuario.email %>" disabled/>
+                <label for="cpf">CPF: </label>
+                <input type="text" name="cpf" id="cpf" value="<%= usuario.cpf %>" disabled/>
+                </div>
+                <div class="foto"></div>
+            </div>
+            <div class="infadicionais">
+                <label for="resumo">Resumo: </label>
+                <input type="text" name="resumo" id="resumo" value="<%= usuario.resumo %>" disabled/>
+                <label for="telefone">Telefone: </label>
+                <input type="text" name="telefone" id="telefone" value="<%= usuario.telefone %>" disabled/>
+                <label for="estado">Estado: </label>
+                <input type="text" name="estado" id="estado" value="<%= usuario.estado %>" disabled/>
+                <label for="cidade">Cidade: </label>
+                <input type="text" name="cidade" id="cidade" value="<%= usuario.cidade %>" disabled/>
+                <label for="curriculo">Currículo: </label>
+                <input type="text" name="curriculo" id="curriculo" value="<%= usuario.curriculo %>" disabled/>
+                <label for="repositorio">Repositório: </label>
+                <input type="text" name="repositorio" id="repositorio" value="<%= usuario.repositorio %>" disabled/>
+                <label for="admin">Admin: </label>
+                <% if(usuario.admin === false){ %>
+                <input type="checkbox" name="admin" id="admin" disabled/>
+                <% } else { %>
+                <input type="checkbox" name="admin" id="admin" checked disabled/>
+                <% } %>
+            </div>
+            <div class="linha"></div>
+            <div class="addremove">
+                <h2>Linguagens:</h2> 
+                
+                <div class="linguagens">
+                    <% usuario.linguagens.forEach(linguagem => { %>
+                        <div class="inputreadonly">
+                            <input type="text" name="linguagem" id="<%= linguagem.id %>" value="<%= linguagem.nome %>" disabled />
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+            <button class="btnAdicionarLinguagem" type='button'><a href="/admin/usuarios">Voltar</a></button>
+        </form>
+      </div>
+    </div>
+
+    <%- include('../parts/footer') %>
+</body>
+
+</html>

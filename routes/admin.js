@@ -6,7 +6,7 @@ const apiController = require('../controllers/apiController')
 
 router.get('/', adminController.index)
 router.get('/usuarios', adminController.usuarios)
-// router.get('/usuarios/ver/:id', adminController.verusuario)
+ router.get('/usuarios/ver/:id', adminController.verUsuario)
 router.get('/usuarios/editar/:id', adminController.editarUsuario)
 router.post('/usuarios/editar/:id', adminController.atualizarUsuario)
 router.get('/redessociais', adminController.redessociais)

@@ -18,6 +18,22 @@ const adminController = {
 
     res.render('admin/usuarios/usuarios', { usuarios })
   },
+  verUsuario: async (req, res) => {
+    const { id } = req.params
+
+    const usuario = await Usuarios.findByPk(id, {
+      include: [
+        'formacao',
+        'experiencia_pro',
+        'portifolio',
+        'competencias',
+        'linguagens',
+        'redes_sociais',
+      ],
+    })
+
+    res.render('admin/usuarios/ver', { usuario })
+  },
   editarUsuario: async (req,res) => {
     const { id } = req.params
 
@@ -74,7 +90,7 @@ const adminController = {
       })
     })
 
-    res.redirect('/admin/usuarios/editar/' + id)
+    res.redirect('/admin/usuarios/')
     
   },
   redessociais: async (req,res) => {
