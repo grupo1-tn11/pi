@@ -135,7 +135,7 @@ li {
   display:flex;
   margin: 2rem 0;
   justify-content: center;
-  min-height: calc(100vh - 160px);
+  min-height: calc(100vh - 192px);
 }
 
 .grid {
