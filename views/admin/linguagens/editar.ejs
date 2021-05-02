@@ -1,0 +1,20 @@
+<html>
+  <%- include('../parts/head') %>
+
+  <body>
+    <%- include('../parts/header') %>
+
+    <div class="container">
+      <div class="infredes">
+        <form action="/admin/linguagens/editar/<%= linguagem.id %>?_method=PUT" method="POST">
+            <label for="nome">Nome: </label>
+            <input type="text" name="nome" id="nome" value="<%= linguagem.nome %>" />
+            <button class="btnAdicionarLinguagem" type='submit' onClick="alert('Linguagem atualizada com sucesso!')">Enviar</button>
+        </form>
+      </div>
+    </div>
+
+    <%- include('../parts/footer') %>
+</body>
+
+</html>

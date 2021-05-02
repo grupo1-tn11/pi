@@ -1,0 +1,20 @@
+<html>
+  <%- include('../parts/head') %>
+
+  <body>
+    <%- include('../parts/header') %>
+
+    <div class="container">
+      <div class="infredes">
+        <form>
+            <label for="nome">Nome: </label>
+            <input type="text" name="nome" id="nome" value="<%= linguagem.nome %>" disabled />
+            <button class="btnAdicionarLinguagem" type='button'><a href="/admin/linguagens">Voltar</a></button>
+        </form>
+      </div>
+    </div>
+
+    <%- include('../parts/footer') %>
+</body>
+
+</html>

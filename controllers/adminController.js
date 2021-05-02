@@ -116,8 +116,6 @@ const adminController = {
 
     const formacoes = []  
 
-    console.log(Array.isArray(formacaoCurso));
-
     if(Array.isArray(formacaoCurso)) {
 
       for (let index = 0; index < formacaoCurso.length; index++) {
@@ -132,8 +130,6 @@ const adminController = {
         formacoes.push(formacao);
       }
     }
-
-    // console.log(formacoes);
 
     let idL = await Linguagens.findAll({
       where: {
@@ -186,7 +182,28 @@ const adminController = {
         usuarios_id: id
       })
     }
-    // console.log(req.body);
+
+    try {
+      const atUsuario = await Usuarios.update(
+      {
+        nome,
+        email,
+        cpf,
+        resumo,
+        telefone,
+        cidade,
+        estado,
+        curriculo,
+        repositorio_link: repositorio,
+        admin: admin ? true : false
+      },{
+        where: {
+          id
+        }
+      })
+    } catch(err) {
+      console.log(err);
+    }
 
     res.redirect('/admin/usuarios/')
     
@@ -206,6 +223,55 @@ const adminController = {
 
     res.render('admin/redessociais/redessociais', { redessociais })
   },
+  verRedesSociais: async (req, res) => {
+    const { id } = req.params
+
+    const rede = await Redes_sociais.findByPk(id)
+
+    res.render('admin/redessociais/ver', { rede })
+  },
+  editarRedesSociais: async (req, res) => {
+    const { id } = req.params
+
+    const rede = await Redes_sociais.findByPk(id)
+   
+    res.render('admin/redessociais/editar', { rede })
+  },
+  atualizarRedesSociais: async (req, res) => {
+    const { id } = req.params
+    const { nome } = req.body
+
+    try {
+      const rede = await Redes_sociais.update(
+        {
+          nome: nome
+        }
+        ,{
+        where: {
+          id
+        }
+      })
+    } catch(err){
+      console.log(err)
+    }
+
+    res.redirect('/admin/redessociais/')
+  },
+  excluirRedesSociais: async (req, res) => {
+    const {id} = req.params
+
+    try{
+      const rede = await Redes_sociais.destroy({
+        where: {
+          id
+        }
+      })
+    } catch(err) {
+      console.log(err);
+    }
+
+    res.redirect('/admin/redessociais/')
+  },
   linguagens: async (_req,res) => {
 
     const linguagens = await Linguagens.findAll({
@@ -216,15 +282,54 @@ const adminController = {
 
     res.render('admin/linguagens/linguagens', { linguagens })
   },
-  competencias: async (_req,res) => {
+  verLinguagem: async (req, res) => {
+    const { id } = req.params
 
-    const competencias = await Competencias.findAll({
-      order: [[
-        'id', 'ASC'
-      ]]
-    })
+    const linguagem = await Linguagens.findByPk(id)
 
-    res.render('admin/competencias/competencias', { competencias })
+    res.render('admin/linguagens/ver', { linguagem })
+  },
+  editarLinguagem: async (req, res) => {
+    const { id } = req.params
+
+    const linguagem = await Linguagens.findByPk(id)
+   
+    res.render('admin/linguagens/editar', { linguagem })
+  },
+  atualizarLinguagem: async (req, res) => {
+    const { id } = req.params
+    const { nome } = req.body
+
+    try {
+      const linguagem = await Linguagens.update(
+        {
+          nome: nome
+        }
+        ,{
+        where: {
+          id
+        }
+      })
+    } catch(err){
+      console.log(err)
+    }
+
+    res.redirect('/admin/linguagens/')
+  },
+  excluirLinguagem: async (req, res) => {
+    const {id} = req.params
+
+    try{
+      const linguagem = await Linguagens.destroy({
+        where: {
+          id
+        }
+      })
+    } catch(err) {
+      console.log(err);
+    }
+
+    res.redirect('/admin/linguagens/')
   },
 }
 

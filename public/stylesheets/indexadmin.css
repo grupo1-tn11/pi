@@ -431,3 +431,25 @@ form > button {
   margin: 20px 0;
   align-items: center;
 }
+
+/* Ver Rede Social */
+
+.infredes {
+  background-color: white;
+  border-radius: 6px;
+  position: relative;
+  height: 130px;
+  width: 300px
+}
+
+.infredes > form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  text-align: center;
+}
+
+.infredes form label {
+  font-weight: bold;
+  padding: 10px;
+}

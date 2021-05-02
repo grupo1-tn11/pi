@@ -1,0 +1,21 @@
+<html>
+  <%- include('../parts/head') %>
+
+  <body>
+    <%- include('../parts/header') %>
+
+    <div class="container">
+      <div class="infredes">
+        <form action="/admin/redessociais/editar/<%= rede.id %>?_method=PUT" method="POST">
+            <label for="nome">Nome: </label>
+            <input type="text" name="nome" id="nome" value="<%= rede.nome %>" />
+            <button class="btnAdicionarLinguagem" type='submit' onClick="alert('Rede social atualizado com sucesso!')">Enviar</button>
+        </form>
+      </div>
+    </div>
+
+    <%- include('../parts/footer') %>
+    <script src="/js/scriptAdminUsuario.js"></script>
+</body>
+
+</html>
