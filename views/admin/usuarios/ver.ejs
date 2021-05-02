@@ -50,6 +50,35 @@
                     <% }) %>
                 </div>
             </div>
+            <div class="linha"></div>
+            <div class="addremove" id="addRemoveFormacao">
+                <h2>Formações:</h2>
+                <% usuario.formacao.forEach(formacao => { %>
+                    <div class="inputFormacoes">
+                        <div>
+                            <label for="formacao">Curso: </label>
+                            <input type="text" name="formacaoCurso" id="<%= formacao.id %>" value="<%= formacao.curso %>" disabled />
+                        </div>
+                        <div>
+                            <label for="formacao">Instituição: </label>
+                            <input type="text" name="formacaoInstituicao" id="<%= formacao.id %>" value="<%= formacao.instituicao %>" disabled />
+                        </div>
+                        <div>
+                            <label for="formacao">Grau: </label>
+                            <input type="text" name="formacaoGrau" id="<%= formacao.id %>" value="<%= formacao.grau %>" disabled />
+                        </div>
+                        <div>
+                            <label for="formacao">Início: </label>
+                            <input type="text" name="formacaoInicio" id="<%= formacao.id %>" value="<%= formacao.inicio %>" disabled />
+                        </div>
+                        <div>
+                            <label for="formacao">Término: </label>
+                            <input type="text" name="formacaoTermino" id="<%= formacao.id %>" value="<%= formacao.termino %>" disabled />
+                        </div>
+                    </div>
+                    <hr />
+                <% }) %>    
+            </div>
             <button class="btnAdicionarLinguagem" type='button'><a href="/admin/usuarios">Voltar</a></button>
         </form>
       </div>

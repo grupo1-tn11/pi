@@ -1,7 +1,6 @@
-const { Usuarios, Redes_sociais, Linguagens, Competencias, Usuarios_linguagens } = require('../models/')
-// const { Redes_sociais } = require('../models/')
-// const { Linguagens } = require('../models/')
-// const { Competencias } = require('../models/')
+const { Usuarios, Redes_sociais, Linguagens, Competencias, 
+        Usuarios_linguagens, Formacao, Experiencia_pro, Portifolio, Usuarios_redes } = require('../models/')
+
 const { Op } = require("sequelize");
 
 const adminController = {
@@ -60,12 +59,81 @@ const adminController = {
 
     res.render('admin/usuarios/editar', { usuario, linguagens })
   },
+  excluirUsuario: async (req, res) => {
+    const { id } = req.params
+
+    const deleteFormacoes = await Formacao.destroy({
+      where: { 
+        usuarios_id: id 
+      }
+    })
+
+    const deleteExperienciaPro = await Experiencia_pro.destroy({
+      where: { 
+        usuarios_id: id 
+      }
+    })
+
+    const deletePortifolio = await Portifolio.destroy({
+      where: { 
+        usuarios_id: id 
+      }
+    })
+
+    const deleteCompetencias = await Competencias.destroy({
+      where: { 
+        usuarios_id: id 
+      }
+    })
+
+    const deleteLinguagens = await Usuarios_linguagens.destroy({
+      where: { 
+        usuarios_id: id 
+      }
+    })
+
+    const deleteRedes = await Usuarios_redes.destroy({
+      where: { 
+        usuarios_id: id 
+      }
+    })
+
+    const deleteUsuario = await Usuarios.destroy({
+      where: { 
+      id
+      },
+    })
+
+    res.redirect('/admin/usuarios/')
+  },
   atualizarUsuario: async(req,res) => {
     const { nome, email, cpf, resumo, telefone, estado, cidade, curriculo, 
-            repositorio, admin, linguagem } = req.body
+            repositorio, admin, linguagem, formacaoCurso, formacaoInstituicao, 
+            formacaoGrau, formacaoInicio, formacaoTermino } = req.body
     const { id } = req.params
-    
+
     const idLinguagens = []
+
+    const formacoes = []  
+
+    console.log(Array.isArray(formacaoCurso));
+
+    if(Array.isArray(formacaoCurso)) {
+
+      for (let index = 0; index < formacaoCurso.length; index++) {
+        const formacao = {
+          curso: formacaoCurso[index],
+          instituicao: formacaoInstituicao[index],
+          grau: formacaoGrau[index],
+          inicio: formacaoInicio[index],
+          termino: formacaoTermino[index]
+        }
+      
+        formacoes.push(formacao);
+      }
+    }
+
+    // console.log(formacoes);
 
     let idL = await Linguagens.findAll({
       where: {
@@ -89,6 +157,36 @@ const adminController = {
         linguagens_id: linguagem
       })
     })
+
+    const deletarFormacoes = await Formacao.destroy({
+      where: { 
+      usuarios_id: id,
+      },
+    })
+
+    if(formacoes.length > 0){
+      formacoes.forEach(async formacao => {
+        await Formacao.create({
+          curso: formacao.curso,
+          instituicao: formacao.instituicao,
+          grau: formacao.grau,
+          inicio: formacao.inicio,
+          termino: formacao.termino,
+          usuarios_id: id,
+        })
+      })
+    } 
+    if(formacaoCurso && !Array.isArray(formacaoCurso)) {
+      await Formacao.create({
+        curso: formacaoCurso,
+        instituicao: formacaoInstituicao,
+        grau: formacaoGrau,
+        inicio: formacaoInicio,
+        termino: formacaoTermino,
+        usuarios_id: id
+      })
+    }
+    // console.log(req.body);
 
     res.redirect('/admin/usuarios/')
     

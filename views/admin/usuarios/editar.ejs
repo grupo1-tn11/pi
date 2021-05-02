@@ -48,17 +48,50 @@
                             <option id="<%= linguagem.id %>" value="<%= linguagem.nome %>"><%= linguagem.nome %></option>
                         <% }) %>
                     </select>
-                    <button type="button" class="btnAdicionarLinguagem">Adicionar</button>
+                    <button type="button" id="addLinguagem" class="btnAdicionarLinguagem">Adicionar</button>
                 </div>
                 
                 <div class="linguagens">
                     <% usuario.linguagens.forEach(linguagem => { %>
                         <div class="inputreadonly">
                             <input type="text" name="linguagem" id="<%= linguagem.id %>" value="<%= linguagem.nome %>" readonly />
-                            <button type="button" class='btnRemover' id="<%= linguagem.id %>">X</button>
+                            <button type="button" id="removerLinguagem" class='btnRemover' id="<%= linguagem.id %>">X</button>
                         </div>
                     <% }) %>
                 </div>
+            </div>
+            <div class="linha"></div>
+            <div class="addremove" id="addRemoveFormacao">
+                <h2>Formações:</h2>
+                <div class="adicionarLinguagem">
+                    <button type="button" id="addFormacao" class="btnAdicionarLinguagem">Adicionar formação</button>
+                </div>
+                <% usuario.formacao.forEach(formacao => { %>
+                    <div class="inputFormacoes">
+                        <div>
+                            <label for="formacao">Curso: </label>
+                            <input type="text" name="formacaoCurso" id="<%= formacao.id %>" value="<%= formacao.curso %>" />
+                        </div>
+                        <div>
+                            <label for="formacao">Instituição: </label>
+                            <input type="text" name="formacaoInstituicao" id="<%= formacao.id %>" value="<%= formacao.instituicao %>" />
+                        </div>
+                        <div>
+                            <label for="formacao">Grau: </label>
+                            <input type="text" name="formacaoGrau" id="<%= formacao.id %>" value="<%= formacao.grau %>" />
+                        </div>
+                        <div>
+                            <label for="formacao">Início: </label>
+                            <input type="text" name="formacaoInicio" id="<%= formacao.id %>" value="<%= formacao.inicio %>" />
+                        </div>
+                        <div>
+                            <label for="formacao">Término: </label>
+                            <input type="text" name="formacaoTermino" id="<%= formacao.id %>" value="<%= formacao.termino %>" />
+                        </div>
+                        <button type="button" id="removerFormacao" class="btnAdicionarLinguagem" style="width: 100px">Remover</button>
+                    </div>
+                    <hr />
+                <% }) %>    
             </div>
             <button class="btnAdicionarLinguagem" type='submit' onClick="alert('Usuário atualizado com sucesso!')">Enviar</button>
         </form>

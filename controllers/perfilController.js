@@ -165,6 +165,7 @@ const controller = {
       }
       
     //fs.writeFileSync(path.resolve('./log', 'body.json'), JSON.stringify(body))
+    console.log(req.body)
     res.redirect('/perfil')
   },
 }
