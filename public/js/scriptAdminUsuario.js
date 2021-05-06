@@ -97,3 +97,4 @@ function adicionarFormacao() {
 btnAdicionarFormacao.addEventListener('click', adicionarFormacao)
 
 atualizarFormacao() 
+

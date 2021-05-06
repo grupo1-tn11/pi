@@ -1,0 +1,69 @@
+<html>
+  <%- include('../parts/head') %>
+
+  <body>
+    <%- include('../parts/header') %>
+
+    <div class="container">
+      <div class="infusuario">
+        <form action="/admin/usuarios/inserir" method="POST">
+            <div class="perfil">
+                <div class="infprincipais">
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome" />
+                <label for="email">Email: </label>
+                <input type="email" name="email" id="email" />
+                <label for="cpf">CPF: </label>
+                <input type="text" name="cpf" id="cpf" />
+                </div>
+                <div class="foto"></div>
+            </div>
+            <div class="infadicionais">
+                <label for="resumo">Resumo: </label>
+                <input type="text" name="resumo" id="resumo"/>
+                <label for="telefone">Telefone: </label>
+                <input type="text" name="telefone" id="telefone" />
+                <label for="estado">Estado: </label>
+                <input type="text" name="estado" id="estado" />
+                <label for="cidade">Cidade: </label>
+                <input type="text" name="cidade" id="cidade" />
+                <label for="curriculo">Currículo: </label>
+                <input type="text" name="curriculo" id="curriculo" />
+                <label for="repositorio">Repositório: </label>
+                <input type="text" name="repositorio" id="repositorio" />
+                <label for="admin">Admin: </label>
+                <input type="checkbox" name="admin" id="admin" />
+            </div>
+            <div class="linha"></div>
+            <div class="addremove">
+                <h2>Linguagens:</h2> 
+                <div class="adicionarLinguagem">
+                    <p>Selecione uma linguagem para adicionar:</p>
+                    <select id="selecionarLinguagem">
+                        <% linguagens.forEach(linguagem =>{ %>
+                            <option id="<%= linguagem.id %>" value="<%= linguagem.nome %>"><%= linguagem.nome %></option>
+                        <% }) %>
+                    </select>
+                    <button type="button" id="addLinguagem" class="btnAdicionarLinguagem">Adicionar</button>
+                </div>
+                
+                <div class="linguagens">
+                </div>
+            </div>
+            <div class="linha"></div>
+            <div class="addremove" id="addRemoveFormacao">
+                <h2>Formações:</h2>
+                <div class="adicionarLinguagem">
+                    <button type="button" id="addFormacao" class="btnAdicionarLinguagem">Adicionar formação</button>
+                </div>  
+            </div>
+            <button class="btnAdicionarLinguagem" type='submit' onClick="alert('Usuário criado com sucesso!')">Enviar</button>
+        </form>
+      </div>
+    </div>
+
+    <%- include('../parts/footer') %>
+    <script src="/js/scriptAdminUsuario.js"></script>
+</body>
+
+</html>

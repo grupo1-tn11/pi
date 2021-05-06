@@ -17,6 +17,96 @@ const adminController = {
 
     res.render('admin/usuarios/usuarios', { usuarios })
   },
+  viewUsuario: async (_req,res) => {
+
+    const linguagens = await Linguagens.findAll()
+    res.render('admin/usuarios/inserir', { linguagens })
+  },
+  inserirUsuario: async (req,res) => {
+    const { nome, email, cpf, resumo, telefone, estado, cidade, curriculo, 
+      repositorio, admin, linguagem, formacaoCurso, formacaoInstituicao, 
+      formacaoGrau, formacaoInicio, formacaoTermino } = req.body
+
+      const idLinguagens = []
+
+      const formacoes = []
+
+      const criarUsuario = await Usuarios.create(
+        {
+          nome,
+          email,
+          cpf,
+          resumo,
+          telefone,
+          cidade,
+          estado,
+          curriculo,
+          repositorio_link: repositorio,
+          admin: admin ? true : false
+        })
+      
+
+      if(Array.isArray(formacaoCurso)) {
+
+        for (let index = 0; index < formacaoCurso.length; index++) {
+          const formacao = {
+            curso: formacaoCurso[index],
+            instituicao: formacaoInstituicao[index],
+            grau: formacaoGrau[index],
+            inicio: formacaoInicio[index],
+            termino: formacaoTermino[index]
+          }
+        
+          formacoes.push(formacao);
+        }
+      }
+  
+      if(linguagem){
+        let idL = await Linguagens.findAll({
+          where: {
+            nome: linguagem
+          }
+        })
+  
+        idL.forEach(id => {
+          idLinguagens.push(id.id)
+        })
+  
+        idLinguagens.forEach(async linguagem => {
+          await Usuarios_linguagens.create({
+            usuarios_id: id,
+            linguagens_id: linguagem
+          })
+        })
+      }
+  
+      if(formacoes.length > 0){
+        formacoes.forEach(async formacao => {
+          await Formacao.create({
+            curso: formacao.curso,
+            instituicao: formacao.instituicao,
+            grau: formacao.grau,
+            inicio: formacao.inicio,
+            termino: formacao.termino,
+            usuarios_id: criarUsuario.id,
+          })
+        })
+      } 
+
+      if(formacaoCurso && !Array.isArray(formacaoCurso)) {
+        await Formacao.create({
+          curso: formacaoCurso,
+          instituicao: formacaoInstituicao,
+          grau: formacaoGrau,
+          inicio: formacaoInicio,
+          termino: formacaoTermino,
+          usuarios_id: criarUsuario.id
+        })
+      }
+  
+      res.redirect('/admin/usuarios/')
+
+  },
   verUsuario: async (req, res) => {
     const { id } = req.params
 
@@ -110,6 +200,9 @@ const adminController = {
     const { nome, email, cpf, resumo, telefone, estado, cidade, curriculo, 
             repositorio, admin, linguagem, formacaoCurso, formacaoInstituicao, 
             formacaoGrau, formacaoInicio, formacaoTermino } = req.body
+
+    console.log(linguagem)
+
     const { id } = req.params
 
     const idLinguagens = []
@@ -131,28 +224,36 @@ const adminController = {
       }
     }
 
-    let idL = await Linguagens.findAll({
-      where: {
-        nome: linguagem
-      }
-    })
+    if(linguagem){
+      let idL = await Linguagens.findAll({
+        where: {
+          nome: linguagem
+        }
+      })
 
-    idL.forEach(id => {
-      idLinguagens.push(id.id)
-    })
+      idL.forEach(id => {
+        idLinguagens.push(id.id)
+      })
+    
+      const deletarLinguagens = await Usuarios_linguagens.destroy({
+          where: { 
+          usuarios_id: id,
+        },
+      })
 
-    const deletarLinguagens = await Usuarios_linguagens.destroy({
+      idLinguagens.forEach(async linguagem => {
+        await Usuarios_linguagens.create({
+          usuarios_id: id,
+          linguagens_id: linguagem
+        })
+      })
+    } else {
+      const deletarLinguagens = await Usuarios_linguagens.destroy({
         where: { 
         usuarios_id: id,
       },
     })
-
-    idLinguagens.forEach(async linguagem => {
-      await Usuarios_linguagens.create({
-        usuarios_id: id,
-        linguagens_id: linguagem
-      })
-    })
+    }
 
     const deletarFormacoes = await Formacao.destroy({
       where: { 
@@ -223,6 +324,19 @@ const adminController = {
 
     res.render('admin/redessociais/redessociais', { redessociais })
   },
+  viewRedesSociais: (_req, res) => {
+    res.render('admin/redessociais/inserir')
+  },
+  inserirRedesSociais: async (req, res) => {
+    const { nome } = req.body
+
+    const rede = await Redes_sociais.create({
+      nome
+    })
+
+    res.redirect('/admin/redessociais')
+  },
+
   verRedesSociais: async (req, res) => {
     const { id } = req.params
 
@@ -281,6 +395,18 @@ const adminController = {
     })
 
     res.render('admin/linguagens/linguagens', { linguagens })
+  },
+  viewLinguagens: (_req, res) => {
+    res.render('admin/linguagens/inserir')
+  },
+  inserirLinguagens: async (req, res) => {
+    const { nome } = req.body
+
+    const linguagens = await Linguagens.create({
+      nome
+    })
+
+    res.redirect('/admin/linguagens')
   },
   verLinguagem: async (req, res) => {
     const { id } = req.params
