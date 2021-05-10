@@ -17,14 +17,15 @@
     padding: 20px;
 }
 .foto {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
     width: 100px;
-    height:200px;
-    /* margin: 10px */
 }
 
 .foto img {
+    display: flex;
     width: 150px;
-    height: 190px;
 }
 
 .foto {

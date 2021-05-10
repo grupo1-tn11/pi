@@ -31,11 +31,13 @@ nav a {
   color: white;
   margin-left: 20px;
   font-size: 1.3em;
+  transition: 200ms;
 }
 
 nav a:hover {
   color: #acda98;
   text-decoration: none;
+  transition: 200ms;
 }
 
 nav span {
@@ -88,10 +90,12 @@ nav span {
 
 #btnShowMenu {
   cursor: pointer;
+  transition: 200ms;
 }
 
 #btnShowMenu:hover {
   color: #008990;
+  transition: 200ms;
 }
 
 @keyframes showMenu {

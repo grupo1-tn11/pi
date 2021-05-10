@@ -39,12 +39,14 @@
           </div>
           <div class="form-row ">
             <div class="form-group col-md-6">
-              <label for="cidade">Cidade</label>
-              <input class="form-control" type="text" name="cidade" id="" >
+              <label for="estado">Estado</label>
+              <select class="form-control" name="estado" id="estado"></select>
             </div>
             <div class="form-group col-md-6">
-              <label for="estado">Estado</label>
-              <input class="form-control" type="text" name="estado" id=""  >
+              <label for="cidade">Cidade</label>
+              <select class="form-control" name="cidade" id="cidade">
+                <option value=null default>Selecione um estado</option>
+              </select>
             </div>
           </div>
           <div class="form-row">
@@ -59,4 +61,7 @@
         </form>
       </main>
     </div>
+    <script src="/js/localidadesApi.js"></script>
+  </body>
+</html>
 
