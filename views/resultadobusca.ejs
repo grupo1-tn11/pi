@@ -6,33 +6,30 @@
     <link rel="stylesheet" href="/stylesheets/busca.css" />
   </head>
   <body>
-    <% if(!usuario) { %>
-      <%- include('./parts/header') %>
-    <% } else { %>
-      <%- include('./parts/header-logado') %>
-    <% } %>
+    <% if(!usuario) { %> <%- include('./parts/header') %> <% } else { %> <%-
+    include('./parts/header-logado') %> <% } %>
     <main>
-        <% resultadoBusca.forEach(perfil => { %>
-            <div class="containerpesquisa">
-                <div class="foto">
-                    <img src="/foto_perfil/<%= perfil.foto %>" alt="" />
-                </div>
-                <div class="informacoes">
-                    <p class="titulo"><%= perfil.nome %></p>
-                    <p class="desc"><%= perfil.resumo %></p>
-                    <p class="titulo">Linguagens:</p>
-                    <% perfil.linguagens.forEach(linguagem => { %>
-                    <span class="linguagens"><%= linguagem.nome %></span>
-                    <% }) %>
-                    <p class="titulocp">Competências:</p>
-                    <ul class="listacompetencias">
-                        <% perfil.competencias.forEach(competencia => { %>
-                        <li><%= competencia.nome %></li>
-                        <% }) %>
-                    </ul>
-                </div>
-            </div>
-        <% }) %>
+      <% resultadoBusca.forEach(perfil => { %>
+      <div class="containerpesquisa">
+        <div class="foto">
+          <img src="/foto_perfil/<%= perfil.foto %>" alt="" />
+        </div>
+        <div class="informacoes">
+          <p class="titulo"><%= perfil.nome %></p>
+          <p class="desc"><%= perfil.resumo %></p>
+          <p class="titulo">Linguagens:</p>
+          <% perfil.linguagens.forEach(linguagem => { %>
+          <span class="linguagens"><%= linguagem.nome %></span>
+          <% }) %>
+          <p class="titulocp">Competências:</p>
+          <ul class="listacompetencias">
+            <% perfil.competencias.forEach(competencia => { %>
+            <li><%= competencia.nome %></li>
+            <% }) %>
+          </ul>
+        </div>
+      </div>
+      <% }) %>
     </main>
 
     <%- include('./parts/footer.ejs') %>

@@ -13,7 +13,6 @@ async function getEstados() {
   return estados
 }
 
-
 async function criarOptionsEstados() {
   let ufs = await getEstados()
   let html = "<option value=null default>Selecione um estado</option>"

@@ -1,67 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
 
 .perfilbusca {
-    height:100%;
-    width:100px
+  height: 100%;
+  width: 100px;
 }
 
 .containerpesquisa {
-    display:flex;
-    width: 80vw;
-    min-height:100px;
-    position: relative;
-    background-color: #d4d4d4;
-    border-radius: 20px;
-    margin: 20px auto;
-    font-family: 'Roboto', sans-serif;
-    padding: 20px;
+  display: flex;
+  width: 80vw;
+  min-height: 100px;
+  position: relative;
+  background-color: #dee6dc;
+  margin: 20px auto;
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
 }
+
 .foto {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    width: 100px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 100px;
 }
 
 .foto img {
-    display: flex;
-    width: 150px;
+  display: flex;
+  width: 150px;
 }
 
 .foto {
-    margin-right: 50px;
+  margin-right: 50px;
 }
 
 main {
-    min-height: calc(100vh - 348px);
+  min-height: calc(100vh - 348px);
 }
 
 .linguagens {
-    padding: 5px;
-    background-color: rgb(246, 248, 123);
+  padding: 5px;
+  background-color: #ACDA98;
 }
 
 .listacompetencias li {
-    text-decoration: none;
-    list-style-position: inside;
+  text-decoration: none;
+  list-style-position: inside;
 }
 
 .titulo {
-    font-weight: bold;
-    font-size: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 .titulocp {
-    font-weight: bold;
-    font-size: 1rem;
-    margin-top: 15px;
-    margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
 
 .desc {
-    font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .informacoes {
-    margin-left: 20px;
+  margin-left: 20px;
 }

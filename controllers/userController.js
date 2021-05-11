@@ -3,7 +3,8 @@ const bcrypt = require('bcrypt')
 
 const userController = {
   exibir: async (_req, res) => {
-    res.render('cadastro')
+    message = ""
+    res.render('cadastro', {message})
   },
 
   armazenar: async (req, res) => {
@@ -11,26 +12,28 @@ const userController = {
     const { file } = req
     let foto = null
 
-    if(file){
+    if (file) {
       foto = file.filename
     }
 
-    const usuario = await Usuarios.create({
-      nome,
-      email,
-      senha: bcrypt.hashSync(senha, 10),
-      cpf,
-      foto,
-      telefone: tel,
-      cidade,
-      estado
-    })
+    try {
+      const usuario = await Usuarios.create({
+        nome,
+        email,
+        senha: bcrypt.hashSync(senha, 10),
+        cpf,
+        foto,
+        telefone: tel,
+        cidade,
+        estado,
+      })
 
-    if (!usuario) {
-      return res.send('Falha ao criar usuário')
+      return res.redirect('/login')
+    } catch (error) {
+      console.log(error)
+      message = "Falha ao cadastrar!"
+      return res.render('cadastro', {message})
     }
-
-    return res.redirect('/login')
   },
 
   encontrar: async (req, res) => {

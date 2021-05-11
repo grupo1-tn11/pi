@@ -31,8 +31,11 @@
           </form>
         </main>
       </div>
-  
-    
+      <% if(message) { %>
+        <script>
+          alert("<%= message %>")
+        </script>
+      <% } %>
 
   </body>
 </html>

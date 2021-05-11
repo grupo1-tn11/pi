@@ -4,28 +4,34 @@ const cookiePass = require('../configs/cookiePassword')
 
 const authController = {
   login: (_req, res) => {
-    res.render('login')
+    let message = ''
+    res.render('login', {message})
   },
 
   autenticar: async (req, res) => {
     const { email, senha } = req.body;
 
-    const usuario = await Usuarios.findOne({
-      where: { 
-        email
+    let usuario
+    try{
+      usuario = await Usuarios.findOne({
+        where: { 
+          email
+        }
+      })
+
+      const senhaValidada = bcrypt.compareSync(senha, usuario.senha)
+  
+      if(!senhaValidada){
+        let message = 'Usuário ou senha não encontrados.'
+        return res.render('login', {message})
       }
-    })
 
-    if(!usuario){
-      return res.send('Usuário não encontrado.')
+    } catch (error) {
+      console.log(error)
+      let message = 'Usuário ou senha não encontrados.'
+      return res.render('login', {message})
     }
-
-    const resultado = bcrypt.compareSync(senha, usuario.senha)
-
-    if(!resultado){
-      return res.send('Senha incorreta')
-    }
-
+    
     req.session.usuario = {
       id: usuario.id,
       nome: usuario.nome,
