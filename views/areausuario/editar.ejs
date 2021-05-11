@@ -9,78 +9,165 @@
     <%- include('../parts/header-logado') %>
     <main>
       <form class="formPerfil" action="/perfil/editar?_method=PUT" method="POST" enctype="multipart/form-data">
-        <h1 id="titulo"></h1>
-
-        <div class="fotoPerfil">
-          <img id="foto-perfil" src="" alt="foto de perfil" />
+        <div class="foto">
+          <img class="fotoPerfil" src="<%= perfil.foto %>" alt="fotoperfil">
         </div>
-
-        <div>
-          <label for="resumo"></label>
-          <br />
-          <textarea name="resumo" id="resumo" cols="100" rows="5"></textarea>
-        </div>
-
-        <div class="curriculoPerfil">          
-          <label for="curriculo">Upload do Curriculum Vitae:</label>
-          <input type="file" name="curriculo" id="curriculo" />
-        </div>
-
-        <div class="areaInputs">
-          <b>Experiência profissional:</b>
-          <div id="div-exp"></div>
-          <input type="button" id="add-exp" value="Adicionar" />
-        </div>
-
-        <br />
-
-        <div class="areaInputs">
-          <b>Formação:</b>
-          <div id="div-formacao"></div>
-          <input type="button" id="add-formacao" value="Adicionar" />
-        </div>
-
-        <br />
-
-        <div class="areaInputs">
-          <b>Competências: </b>
-          <ul id="ul-competencias"></ul>
-          <input type="button" value="Adicionar" id="add-competencia" />
-        </div>
-
-        <br />
-
-        <div class="areaInputs">
-          <b>Linguagens que domina:</b>
-          <ul id="ul-linguagens"></ul>
-          <input type="button" value="Adicionar" id="add-linguagem" />
-        </div>
-        <br />
-
-        <div class="areaInputs">
-          <b>Repositório:</b>
-          <div>
-            <input type="text" name="repositorio" id="repositorio" />
+        <div class="infPessoais">
+          <div class="areaInf">
+            <label for="nome"><h4>Nome</h4></label>
+            <input type="text" name="nome" value="<%= perfil.nome %>"/>
+          </div>
+          <div class="areaInf">
+            <label for="email"><h4>E-mail</h4></label>
+            <input type="text" name="email" value="<%= perfil.email %>"/>
+          </div>
+          <div class="areaInf">
+            <label for="resumo"><h4>Resumo</h4></label>
+            <textarea name="resumo" cols="30" rows="5"><%= perfil.resumo %></textarea>
+          </div>
+          <div class="areaInf">
+            <label for="repositorio"><h4>Github</h4></label>
+            <input type="text" name="repositorio" value="<%= perfil.repositorio_link %>"/>
+          </div>
+          <div class="areaInf2">
+            <div class="areaInf">
+              <label for="telefone"><h4>Telefone</h4></label>
+              <input type="text" name="telefone" value="<%= perfil.telefone %>"/>
+            </div>
+            <div class="areaInf">
+              <label for="curriculo"><h4>Currículo</h4></label>
+              <input type="file" />
+            </div>
           </div>
         </div>
-
-        <br />
-
-        <div class="areaInputs">
-          <b>Redes sociais:</b>
-          <ul id="ul-redes"></ul>
-          <input type="button" value="Adicionar" id="add-redes" />
+        <div class="redessociais">
+          <h4>Redes Sociais</h4>
+          <select id="selectRedes">
+            <% RedesSociais.forEach(rede => { %>
+            <option value="<%= rede.nome %>"><%= rede.nome %></option>
+            <% }) %>
+          </select>
+          <button type="button" id="addRede">Adicionar</button>
+          <br />
+          <div class="gridRedes">
+            <% perfil.redes_sociais.forEach(rede => { %>
+            <div class="inputRedes">
+              <label for="<%= rede.nome %>"><%= rede.nome %></label>
+              <div>
+                <input type="text" name="<%= rede.nome %>" value="<%= rede.Usuarios_redes.link %>"/>
+                <div class="removerItem">
+                  <button type="button" id="btnRmv"><img src="../img/deleteicon.svg" /></button>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+        </div> 
+        <div class="linguagens">
+          <h4>Linguagens</h4>
+          <select id="selectLinguagens">
+            <% linguagens.forEach(linguagem => { %>
+              <option value="<%= linguagem.nome %>"><%= linguagem.nome %></option>
+            <% }) %>
+          </select>
+          <button type="button" id="addLinguagem">Adicionar</button>
+          <div class="gridLinguagens">
+            <% perfil.linguagens.forEach(linguagem => { %>
+              <div class="itemLinguagem">
+                  <input type="text" name="linguagens" value="<%= linguagem.nome %>" readonly>
+                  <p class="removerLinguagem">Remover</p>
+              </div>
+            <% }) %>
+          </div>
         </div>
-
-        <br />
-
-        <input type="submit" value="Atualizar" />
+        <div class="experienciaProfissional">
+          <h4>Experiência profissional</h4>
+          <button type="button" class="add" id="addExp">Adicionar</button>
+          <% perfil.experiencia_pro.forEach(exp => { %>
+          <div class="area areaExp">
+              <div class="gridInputs">
+                <div>
+                  <label for="expEmpresa"><p>Empresa</p></label>
+                  <input type="text" name="expEmpresa" value="<%= exp.empresa %>"/>
+                </div>
+                <div>
+                  <label for="expCargo"><p>Cargo</p></label>
+                  <input type="text" name="expCargo" value="<%= exp.cargo %>"/>
+                </div>
+                <div>
+                  <label for="expFuncao"><p>Função</p></label>
+                  <input type="text" name="expFuncao" value="<%= exp.funcao %>"/>
+                </div>
+                <div>
+                  <label for="expDescricao"><p>Descrição</p></label>
+                  <input type="text" name="expDescricao" value="<%= exp.descricao %>"/>
+                </div>
+                <div>
+                  <label for="expInicio"><p>Início</p></label>
+                  <input type="date" name="expInicio" value="<%= exp.inicio %>"/>
+                </div>
+                <div>
+                  <label for="expTermino"><p>Fim</p></label>
+                  <input type="date" name="expTermino" value="<%= exp.termino %>"/>
+                </div>
+              </div>
+              <div class="removerItem">
+                <button type="button" id="btnRmv"><img src="../img/deleteicon.svg" /></button>
+              </div>
+          </div>
+          <% }) %>
+        </div>
+        <div class="formacao">
+          <h4>Formação</h4>
+          <button type="button" class="add" id="addFormacao">Adicionar</button>
+          <% perfil.formacao.forEach(formacao => { %>
+            <div class="area areaFormacao">
+              <div class="gridInputs">
+                <div>
+                  <label for="formacaoCurso"><p>Curso</p></label>
+                  <input type="text" name="formacaoCurso" value="<%= formacao.curso %>"/>
+                </div>
+                <div>
+                  <label for="formacaoInstituicao"><p>Instituição</p></label>
+                  <input type="text" name="formacaoInstituicao" value="<%= formacao.instituicao %>"/>
+                </div>
+                <div>
+                  <label for="formacaoGrau"><p>Grau</p></label>
+                  <input type="text" name="formacaoGrau" value="<%= formacao.grau %>"/>
+                </div>
+                <div>
+                  <label for="formacaoInicio"><p>Início</p></label>
+                  <input type="date" name="formacaoInicio" value="<%= formacao.inicio %>"/>
+                </div>
+                <div>
+                  <label for="formacaoTermino"><p>Fim</p></label>
+                  <input type="date" name="formacaoTermino" value="<%= formacao.termino %>"/>
+                </div>
+              </div>
+              <div class="removerItem">
+                <button type="button" id="btnRmv"><img src="../img/deleteicon.svg" /></button>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+        <div class="competencias">
+          <h4>Competências</h4>
+          <button type="button" class="add" id="addCompetencia">Adicionar</button>
+          <% perfil.competencias.forEach(competencia => { %>
+            <div class="area areaCompetencia">
+              <div>
+                <input type="text" name="competencias" value="<%= competencia.nome %>"/>
+              </div>
+              <div class="removerItem">
+                <button type="button" id="btnRmv"><img src="../img/deleteicon.svg" /></button>
+              </div>
+            </div>
+          <% }) %>
+        </div>  
+        <button type='submit' class="btn btn-primary d-block mx-auto" onClick="alert('Usuário atualizado com sucesso!')">Atualizar</button>
       </form>
-      <div>
-        <a href="/perfil/editar/portifolio"> <b>Editar portifolio</b></a>
-      </div>
     </main>
-    <script src="/js/paginaEditar.js"></script>
+    <script src="/js/paginaEditarNovo.js"></script>
     <%- include('../parts/footer') %>
   </body>
 </html>

@@ -6,105 +6,139 @@
     <title><%= perfil.nome %> - perfil</title>
   </head>
   <body>
-    <% if(!usuario) { %> <%- include('./parts/header') %> <% } else { %> <%-
-    include('./parts/header-logado') %> <% } %>
+    <%- include('./parts/header-logado') %>
     <main>
-      <div>
-        <h1>Perfil de <%= perfil.nome %></h1>
-        <% if(usuario && usuario.id == perfil.id) { %>
-        <a href="/perfil/editar">[editar]</a>
-        <% } %>
-        <div>
-          <img src="../foto_perfil/<%= perfil.foto %>" alt="Foto do perfil" />
+      <form class="formPerfil" action="/perfil/editar?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div class="foto">
+          <img class="fotoPerfil" src="<%= perfil.foto %>" alt="fotoperfil">
         </div>
-
-        <div>
-          <p><%= perfil.cidade %>/<%= perfil.estado %></p>
-        </div>
-
-        <div>
-          <b>Resumo:</b>
-          <div><%= perfil.resumo %></div>
-        </div>
-
-        <div>
-          <a href="../curriculo/<%= perfil.curriculo %>">Currículo</a>
-        </div>
-
-        <div>
-          <b>Experiência profissional:</b>
-          <% perfil.experiencia_pro.forEach((exp, index) => { %>
-          <ul>
-            <li><%= index+1 %></li>
-            <li>empresa: <%= exp.empresa %></li>
-            <li>funcao: <%= exp.funcao %></li>
-            <li>cargo: <%= exp.cargo %></li>
-            <li>descricao: <%= exp.descricao %></li>
-            <li>início: <%= exp.inicio %></li>
-            <li>término: <%= exp.termino %></li>
-          </ul>
-          <% }) %>
-        </div>
-
-        <div>
-          <b>Formacao:</b>
-          <% perfil.formacao.forEach((formacao, index) => { %>
-          <ul>
-            <li><%= index+1 %></li>
-            <li>curso: <%= formacao.curso %></li>
-            <li>grau: <%= formacao.grau %></li>
-            <li>instituicao: <%= formacao.instituicao %></li>
-            <li>início: <%= formacao.inicio %></li>
-            <li>término: <%= formacao.termino %></li>
-          </ul>
-          <% }) %>
-        </div>
-
-        <div>
-          <b>Linguagens que domina:</b>
-          <ul>
-            <% perfil.linguagens.forEach(linguagem => { %>
-            <li><%= linguagem.nome %></li>
-            <% }) %>
-          </ul>
-        </div>
-
-        <div>
-          <b>Competências:</b>
-          <ul>
-            <% perfil.competencias.forEach(competencia => { %>
-            <li><%= competencia.nome %></li>
-            <% }) %>
-          </ul>
-        </div>
-
-        <div>
-          <b>Repositório:</b>
-          <div>
-            <a href="<%= perfil.repositorio_link %>">
-              <%= perfil.repositorio_link %>
-            </a>
+        <div class="infPessoais">
+          <div class="areaInf">
+            <label for="nome"><h4>Nome</h4></label>
+            <input type="text" name="nome" value="<%= perfil.nome %>" readonly/>
+          </div>
+          <div class="areaInf">
+            <label for="email"><h4>E-mail</h4></label>
+            <input type="text" name="email" value="<%= perfil.email %>" readonly/>
+          </div>
+          <div class="areaInf">
+            <label for="resumo"><h4>Resumo</h4></label>
+            <textarea name="resumo" cols="30" rows="5" readonly><%= perfil.resumo %></textarea>
+          </div>
+          <div class="areaInf">
+            <label for="repositorio"><h4>Github</h4></label>
+            <input type="text" name="repositorio" value="<%= perfil.repositorio_link %>" readonly/>
+          </div>
+          <div class="areaInf2">
+            <div class="areaInf">
+              <label for="telefone"><h4>Telefone</h4></label>
+              <input type="text" name="telefone" value="<%= perfil.telefone %>" readonly/>
+            </div>
+            <div class="areaInf">
+              <label for="curriculo"><h4>Currículo</h4></label>
+              <input type="file" disabled />
+            </div>
           </div>
         </div>
-
-        <div>
-          <b>Redes sociais:</b>
-          <ul>
+        <div class="redessociais">
+          <h4>Redes Sociais</h4>
+          <br />
+          <div class="gridRedes">
             <% perfil.redes_sociais.forEach(rede => { %>
-            <li>
-              <a href="<%= rede.Usuarios_redes.link %>"><%= rede.nome %></a>
-            </li>
+            <div class="inputRedes">
+              <label for="<%= rede.nome %>"><%= rede.nome %></label>
+              <div>
+                <input type="text" name="<%= rede.nome %>" value="<%= rede.Usuarios_redes.link %>" readonly/>
+              </div>
+            </div>
             <% }) %>
-          </ul>
+          </div>
+        </div> 
+        <div class="linguagens">
+          <h4 class="titulolinguagem">Linguagens</h4>
+          <div class="gridLinguagens">
+            <% perfil.linguagens.forEach(linguagem => { %>
+              <div class="itemLinguagem read">
+                  <input type="text" name="linguagens" value="<%= linguagem.nome %>" readonly>
+              </div>
+            <% }) %>
+          </div>
         </div>
-
-        <div>
-          <a href="/perfil/<%= perfil.id %>/portifolio">
-            <b>Ver portifolio</b></a
-          >
+        <div class="experienciaProfissional">
+          <h4>Experiência profissional</h4>
+          <% perfil.experiencia_pro.forEach(exp => { %>
+          <div class="area areaExp">
+              <div class="gridInputs">
+                <div>
+                  <label for="expEmpresa"><p>Empresa</p></label>
+                  <input type="text" name="expEmpresa" value="<%= exp.empresa %>" readonly/>
+                </div>
+                <div>
+                  <label for="expCargo"><p>Cargo</p></label>
+                  <input type="text" name="expCargo" value="<%= exp.cargo %>" readonly/>
+                </div>
+                <div>
+                  <label for="expFuncao"><p>Função</p></label>
+                  <input type="text" name="expFuncao" value="<%= exp.funcao %>" readonly/>
+                </div>
+                <div>
+                  <label for="expDescricao"><p>Descrição</p></label>
+                  <input type="text" name="expDescricao" value="<%= exp.descricao %>" readonly/>
+                </div>
+                <div>
+                  <label for="expInicio"><p>Início</p></label>
+                  <input type="date" name="expInicio" value="<%= exp.inicio %>" readonly/>
+                </div>
+                <div>
+                  <label for="expTermino"><p>Fim</p></label>
+                  <input type="date" name="expTermino" value="<%= exp.termino %>" readonly/>
+                </div>
+              </div>
+          </div>
+          <% }) %>
         </div>
-      </div>
+        <div class="formacao">
+          <h4>Formação</h4>
+          <% perfil.formacao.forEach(formacao => { %>
+            <div class="area areaFormacao">
+              <div class="gridInputs">
+                <div>
+                  <label for="formacaoCurso"><p>Curso</p></label>
+                  <input type="text" name="formacaoCurso" value="<%= formacao.curso %>" readonly/>
+                </div>
+                <div>
+                  <label for="formacaoInstituicao"><p>Instituição</p></label>
+                  <input type="text" name="formacaoInstituicao" value="<%= formacao.instituicao %>" readonly/>
+                </div>
+                <div>
+                  <label for="formacaoGrau"><p>Grau</p></label>
+                  <input type="text" name="formacaoGrau" value="<%= formacao.grau %>" readonly/>
+                </div>
+                <div>
+                  <label for="formacaoInicio"><p>Início</p></label>
+                  <input type="date" name="formacaoInicio" value="<%= formacao.inicio %>" readonly/>
+                </div>
+                <div>
+                  <label for="formacaoTermino"><p>Fim</p></label>
+                  <input type="date" name="formacaoTermino" value="<%= formacao.termino %>" readonly/>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+        <div class="competencias">
+          <h4>Competências</h4>
+          <% perfil.competencias.forEach(competencia => { %>
+            <div class="area areaCompetencia">
+              <div>
+                <input type="text" name="competencias" value="<%= competencia.nome %>" readonly/>
+              </div>
+            </div>
+          <% }) %>
+        </div> 
+      </form>
     </main>
+    <!-- <script src="/js/paginaEditarNovo.js"></script> -->
     <%- include('./parts/footer') %>
   </body>
 </html>

@@ -51,7 +51,7 @@ button[type="button"] {
   background-color: #F7F9FC;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   border-radius: 3px;
-  width: 50vw;
+  width: 70vw;
   margin: 2rem auto;
 }
 
@@ -142,28 +142,63 @@ button[type="button"] {
   display: inline;
 }
 
-.gridInputsFormacao {
+.gridInputs {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 30% 30% 30%;
   gap: 1rem;
+  width: 80%;
+  flex: 1;
 }
 
-.gridInputsFormacao > div {
+.gridInputs > div {
   display: flex;
   flex-direction: column;
 }
 
-.areaFormacao {
-  display: grid;
-  grid-template-columns: 80% 20%;
-  align-items: center;
-  justify-content: center;
+.area {
+  display: flex;
   background: #EEEEEE;
   padding: 20px;
   border-radius: 3px;
   border: 1px solid rgba(162, 162, 162, 0.2);
+  width: 100%;
+  margin-top: .625rem;
 }
 
 .add {
-  margin: 1rem 0;
+  margin-top: 1rem;
+}
+
+.removerItem {
+  margin: auto;
+}
+
+.areaCompetencia > div:nth-child(1) {
+  flex: 1
+}
+
+.areaCompetencia input {
+  width: 90%
+}
+
+#btnRmv {
+  padding: 3px 7px;
+  background-color: #B50000;
+}
+
+.inputRedes > div {
+  display: flex;
+}
+
+.inputRedes input {
+  width: 90%;
+}
+
+.read {
+  height: 35px;
+  width: 150px;
+}
+
+.titulolinguagem {
+  margin-bottom: 1rem;
 }

@@ -5,6 +5,8 @@ const {
   Competencias,
   Formacao,
   Experiencia_pro,
+  Linguagens,
+  Redes_sociais
 } = require('../models')
 
 const fs = require('fs')
@@ -41,9 +43,22 @@ const controller = {
 
   editar: async (req, res) => {
     const { id } = req.session.usuario
-    const perfil = await Usuarios.findByPk(id)
 
-    res.render('./areausuario/editarNovo', { perfil })
+    const perfil = await Usuarios.findByPk(id, {
+      include: [
+        'formacao',
+        'experiencia_pro',
+        'portifolio',
+        'competencias',
+        'linguagens',
+        'redes_sociais',
+      ],
+    })
+
+    const linguagens = await Linguagens.findAll()
+    const RedesSociais = await Redes_sociais.findAll()
+
+    res.render('./areausuario/editar', { perfil, linguagens, RedesSociais })
   },
 
   atualizar: async (req, res) => {
@@ -61,6 +76,8 @@ const controller = {
       if (file) {
         await Usuarios.update(
           {
+            nome: body.nome[0],
+            email: body.email[0],
             resumo: body.resumo[0],
             repositorio_link: body.repositorio[0],
             curriculo: file.filename,
@@ -72,6 +89,8 @@ const controller = {
       } else {
         await Usuarios.update(
           {
+            nome: body.nome[0],
+            email: body.email[0],
             resumo: body.resumo[0],
             repositorio_link: body.repositorio[0],
           },
