@@ -8,10 +8,10 @@
   <body>
     <%- include('../parts/header-logado') %>
     <main>
-      <form action="/perfil/editar?_method=PUT" method="POST" enctype="multipart/form-data">
+      <form class="formPerfil" action="/perfil/editar?_method=PUT" method="POST" enctype="multipart/form-data">
         <h1 id="titulo"></h1>
 
-        <div>
+        <div class="fotoPerfil">
           <img id="foto-perfil" src="" alt="foto de perfil" />
         </div>
 
@@ -21,12 +21,12 @@
           <textarea name="resumo" id="resumo" cols="100" rows="5"></textarea>
         </div>
 
-        <div>          
+        <div class="curriculoPerfil">          
           <label for="curriculo">Upload do Curriculum Vitae:</label>
           <input type="file" name="curriculo" id="curriculo" />
         </div>
 
-        <div>
+        <div class="areaInputs">
           <b>Experiência profissional:</b>
           <div id="div-exp"></div>
           <input type="button" id="add-exp" value="Adicionar" />
@@ -34,7 +34,7 @@
 
         <br />
 
-        <div>
+        <div class="areaInputs">
           <b>Formação:</b>
           <div id="div-formacao"></div>
           <input type="button" id="add-formacao" value="Adicionar" />
@@ -42,7 +42,7 @@
 
         <br />
 
-        <div>
+        <div class="areaInputs">
           <b>Competências: </b>
           <ul id="ul-competencias"></ul>
           <input type="button" value="Adicionar" id="add-competencia" />
@@ -50,14 +50,14 @@
 
         <br />
 
-        <div>
+        <div class="areaInputs">
           <b>Linguagens que domina:</b>
           <ul id="ul-linguagens"></ul>
           <input type="button" value="Adicionar" id="add-linguagem" />
         </div>
         <br />
 
-        <div>
+        <div class="areaInputs">
           <b>Repositório:</b>
           <div>
             <input type="text" name="repositorio" id="repositorio" />
@@ -66,7 +66,7 @@
 
         <br />
 
-        <div>
+        <div class="areaInputs">
           <b>Redes sociais:</b>
           <ul id="ul-redes"></ul>
           <input type="button" value="Adicionar" id="add-redes" />

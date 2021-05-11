@@ -1,19 +1,169 @@
-img {
-  width: 300px;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
 }
 
-main {
-  margin-left: 30px;
+h4, p {
+  margin: 0;
 }
 
-ul li {
- list-style: none;
+h4 {
+  font-weight: bold;
+  font-size: 1.3rem;
 }
 
-input[type="text"] {
-  width: 400px;
+input {
+  outline: none;
 }
 
-input[value="Remover"]{
-  margin-left: 10px;
+select {
+  margin: 10px 10px 10px 0;
+  width: 200px
+}
+
+input:not(input[type="file"]), select {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.17);
+  border-radius: 3px;
+  height: 32px;
+  padding: 0px 10px;
+}
+
+textarea {
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.17);
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+button[type="button"] {
+  background-color: #0F6FDE;
+  border: 1px solid rgba(182, 182, 182, 0.24);
+  border-radius: 3px;
+  color: #f9f9f9;
+  padding: 4px 5px 2px 5px;
+}
+
+.formPerfil {
+  padding: 2rem;
+  background-color: #F7F9FC;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  width: 50vw;
+  margin: 2rem auto;
+}
+
+.formPerfil p {
+  font-size: 1rem;
+}
+
+.foto {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  border: 4px solid #ACDA98;
+}
+
+.fotoPerfil {
+  width: 200px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.areaInf {
+  margin-top: 1rem;
+}
+
+.areaInf input {
+  width: 100%
+}
+
+.areaInf2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.redessociais, .linguagens, .formacao, .experienciaProfisional, .competencias {
+  margin: 20px 0;
+}
+
+.itemLinguagem > input {
+  border: none !important;
+  outline: none !important;
+  background-color: transparent !important;
+  text-align: center;
+  width: 100% !important;
+}
+
+.gridRedes {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.inputRedes {
+  display: flex;
+  flex-direction: column;
+  width: 100%
+}
+
+.inputRedes label {
+  font-weight: 600;
+}
+
+.gridLinguagens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.itemLinguagem {
+  width: 130px;
+  height: 60px;
+  background: #EEEEEE;
+  border: 1px solid rgba(170, 170, 170, 0.36);
+  border-radius: 3px;
+  text-align: center;
+}
+
+.itemLinguagem p {
+  font-size: .8rem;
+  color: #B50000;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline;
+}
+
+.gridInputsFormacao {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.gridInputsFormacao > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.areaFormacao {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  align-items: center;
+  justify-content: center;
+  background: #EEEEEE;
+  padding: 20px;
+  border-radius: 3px;
+  border: 1px solid rgba(162, 162, 162, 0.2);
+}
+
+.add {
+  margin: 1rem 0;
 }

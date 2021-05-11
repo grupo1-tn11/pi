@@ -43,7 +43,7 @@ const controller = {
     const { id } = req.session.usuario
     const perfil = await Usuarios.findByPk(id)
 
-    res.render('./areausuario/editar', { perfil })
+    res.render('./areausuario/editarNovo', { perfil })
   },
 
   atualizar: async (req, res) => {

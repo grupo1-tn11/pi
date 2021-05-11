@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../parts/head') %>
+    <link rel="stylesheet" href="/stylesheets/perfil.css" />
+    <title><%= perfil.nome %> - perfil</title>
+  </head>
+  <body>
+    <%- include('../parts/header-logado') %>
+    <main>
+      <form class="formPerfil" action="/perfil/editar?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div class="foto">
+          <img class="fotoPerfil" src="../img/foto.jpg" alt="fotoperfil">
+        </div>
+        <div class="infPessoais">
+          <div class="areaInf">
+            <label for="nome"><h4>Nome</h4></label>
+            <input type="text" name="nome" value="Lucas Rodrigues Paixão"/>
+          </div>
+          <div class="areaInf">
+            <label for="email"><h4>E-mail</h4></label>
+            <input type="text" name="email" value="luucaspaixao1997@yahoo.com"/>
+          </div>
+          <div class="areaInf">
+            <label for="resumo"><h4>Resumo</h4></label>
+            <!-- <input type="text" name="resumo" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen."/>   -->
+            <textarea cols="30" rows="5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</textarea>
+          </div>
+          <div class="areaInf2">
+            <div class="areaInf">
+              <label for="telefone"><h4>Telefone</h4></label>
+              <input type="text" name="telefone" value="(11) 12345-6789"/>
+            </div>
+            <div class="areaInf">
+              <label for="curriculo"><h4>Currículo</h4></label>
+              <input type="file" />
+            </div>
+          </div>
+        </div>
+        <div class="redessociais">
+          <h4>Redes Sociais</h4>
+          <select name="redessociais" id="selectRedes">
+            <option value="Twitter">Twitter</option>
+            <option value="Facebook">Facebook</option>
+            <option value="Instagram">Instagram</option>
+          </select>
+          <button type="button">Adicionar</button>
+          <br />
+          <div class="gridRedes">
+            <div class="inputRedes">
+              <label for="Twitter">Twitter</label>
+              <input type="text" name="Twitter" value="www.twitter.com"/>
+            </div>
+            <div class="inputRedes">
+              <label for="Facebook">Facebook</label>
+              <input type="text" name="Facebook" value="www.facebook.com"/>
+            </div>
+          </div>
+        </div> 
+        <div class="linguagens">
+          <h4>Linguagens</h4>
+          <select name="linguagens" id="selectLinguagens">
+            <option value="Javascript">Javascript</option>
+            <option value="C#">C#</option>
+            <option value="React">React</option>
+          </select>
+          <button type="button">Adicionar</button>
+          <div class="gridLinguagens">
+            <div class="itemLinguagem">
+              <input type="text" name="linguagens" value="React" readonly>
+              <p class="removerLinguagem">Remover</p>
+            </div>
+            <div class="itemLinguagem">
+              <input type="text" name="linguagens" value="C#" readonly>
+              <p class="removerLinguagem">Remover</p>
+            </div>
+            <div class="itemLinguagem">
+              <input type="text" name="linguagens" value="Javascript" readonly>
+              <p class="removerLinguagem">Remover</p>
+            </div>
+          </div>
+        </div>
+        <div class="formacao">
+          <h4>Formação</h4>
+          <button type="button" class="add">Adicionar</button>
+          <div class="areaFormacao">
+            <div class="gridInputsFormacao">
+              <div>
+                <label for="empresa"><p>Empresa</p></label>
+                <input type="text" name="empresa" value="4R Tecnologia"/>
+              </div>
+              <div>
+                <label for="cargo"><p>Cargo</p></label>
+                <input type="text" name="cargo" value="Programador Jr."/>
+              </div>
+              <div>
+                <label for="funcao"><p>Função</p></label>
+                <input type="text" name="funcao" value="Cuidar do back end"/>
+              </div>
+              <div>
+                <label for="descricao"><p>Descrição</p></label>
+                <input type="text" name="descricao" value="Realizar procedimentos no back end"/>
+              </div>
+              <div>
+                <label for="inicio"><p>Início</p></label>
+                <input type="date" name="inicio"/>
+              </div>
+              <div>
+                <label for="fim"><p>Fim</p></label>
+                <input type="date" name="fim"/>
+              </div>
+            </div>
+            <div class="removerItem">
+              <button type="button">Excluir</button>
+            </div>
+          </div>
+        </div>
+        <div class="experienciaProfissional">
+          <h4>Experiência profissional</h4>
+          <button type="button" class="add">Adicionar</button>
+          <div class="areaExpProf">
+            <div class="gridInputsFormacao">
+              <div>
+                <label for="cursoexp"><p>Curso</p></label>
+                <input type="text" name="cursoexp" value="4R Tecnologia"/>
+              </div>
+              <div>
+                <label for="instituicao"><p>Instituição</p></label>
+                <input type="text" name="instituicao" value="Programador Jr."/>
+              </div>
+              <div>
+                <label for="grau"><p>Grau</p></label>
+                <input type="text" name="grau" value="Cuidar do back end"/>
+              </div>
+              <div>
+                <label for="inicioexp"><p>Início</p></label>
+                <input type="date" name="inicioexp"/>
+              </div>
+              <div>
+                <label for="fimexp"><p>Fim</p></label>
+                <input type="date" name="fimexp"/>
+              </div>
+            </div>
+            <div class="removerItem">
+              <button type="button">Excluir</button>
+            </div>
+          </div>
+        </div>
+        <div class="competencias">
+          <h4>Competências</h4>
+          <button type="button" class="add">Adicionar</button>
+          <div class="areaCompetencia">
+            <div>
+              <input type="text" name="competencias" value="Inglês intermediário"/>
+            </div>
+            <div class="removerItem">
+              <button type="button">Excluir</button>
+            </div>
+          </div>
+        </div>  
+      </form>
+    </main>
+    <!-- <script src="/js/paginaEditar.js"></script> -->
+    <%- include('../parts/footer') %>
+  </body>
+</html>
