@@ -84,36 +84,32 @@ function adicionarRemoverFormacao() {
         const div = document.createElement('div')
         div.className = 'area areaFormacao'
         div.innerHTML = `
-            <div class="gridInputs">
-                <div>
-                <label for="empresa"><p>Empresa</p></label>
-                <input type="text" name="empresa" />
-                </div>
-                <div>
-                <label for="cargo"><p>Cargo</p></label>
-                <input type="text" name="cargo" />
-                </div>
-                <div>
-                <label for="funcao"><p>Função</p></label>
-                <input type="text" name="funcao" />
-                </div>
-                <div>
-                <label for="descricao"><p>Descrição</p></label>
-                <input type="text" name="descricao" />
-                </div>
-                <div>
-                <label for="inicio"><p>Início</p></label>
-                <input type="date" name="inicio"/>
-                </div>
-                <div>
-                <label for="fim"><p>Fim</p></label>
-                <input type="date" name="fim"/>
-                </div>
+        <div class="gridInputs">
+            <div>
+            <label for="formacaoCurso"><p>Curso</p></label>
+            <input type="text" name="formacaoCurso" />
             </div>
-            <div class="removerItem">
-                <button type="button" id="btnRmv"><img src="../img/deleteicon.svg" /></button>
+            <div>
+            <label for="formacaoInstituicao"><p>Instituição</p></label>
+            <input type="text" name="formacaoInstituicao" />
             </div>
+            <div>
+            <label for="formacaoGrau"><p>Grau</p></label>
+            <input type="text" name="formacaoGrau" />
+            </div>
+            <div>
+            <label for="formacaoInicio"><p>Início</p></label>
+            <input type="date" name="formacaoInicio" />
+            </div>
+            <div>
+            <label for="formacaoTermino"><p>Fim</p></label>
+            <input type="date" name="formacaoTermino" />
+            </div>
+        </div>
+        <div class="removerItem">
+            <button type="button" id="btnRmv"><img src="../img/deleteicon.svg" /></button>
         </div>`
+
         formacao.appendChild(div)
         updateFormacao()
     })
@@ -138,30 +134,35 @@ function adicionarRemoverExp() {
         const div = document.createElement('div')
         div.className = 'area areaExp'
         div.innerHTML = `
-        <div class="gridInputs">
-            <div>
-            <label for="cursoexp"><p>Curso</p></label>
-            <input type="text" name="cursoexp" />
+            <div class="gridInputs">
+                <div>
+                <label for="expEmpresa"><p>Empresa</p></label>
+                <input type="text" name="expEmpresa" />
+                </div>
+                <div>
+                <label for="expCargo"><p>Cargo</p></label>
+                <input type="text" name="expCargo" />
+                </div>
+                <div>
+                <label for="expFuncao"><p>Função</p></label>
+                <input type="text" name="expFuncao" />
+                </div>
+                <div>
+                <label for="expDescricao"><p>Descrição</p></label>
+                <input type="text" name="expDescricao" />
+                </div>
+                <div>
+                <label for="expInicio"><p>Início</p></label>
+                <input type="date" name="expInicio"/>
+                </div>
+                <div>
+                <label for="expTermino"><p>Fim</p></label>
+                <input type="date" name="expTermino"/>
+                </div>
             </div>
-            <div>
-            <label for="instituicao"><p>Instituição</p></label>
-            <input type="text" name="instituicao" />
+            <div class="removerItem">
+                <button type="button" id="btnRmv"><img src="../img/deleteicon.svg" /></button>
             </div>
-            <div>
-            <label for="grau"><p>Grau</p></label>
-            <input type="text" name="grau" />
-            </div>
-            <div>
-            <label for="inicioexp"><p>Início</p></label>
-            <input type="date" name="inicioexp" />
-            </div>
-            <div>
-            <label for="fimexp"><p>Fim</p></label>
-            <input type="date" name="fimexp" />
-            </div>
-        </div>
-        <div class="removerItem">
-            <button type="button" id="btnRmv"><img src="../img/deleteicon.svg" /></button>
         </div>`
         experienciaProfissional.appendChild(div)
     
