@@ -44,7 +44,7 @@
           <h4>Redes Sociais</h4>
           <select id="selectRedes">
             <% RedesSociais.forEach(rede => { %>
-            <option value="<%= rede.nome %>"><%= rede.nome %></option>
+            <option value="<%= rede.id %>"><%= rede.nome %></option>
             <% }) %>
           </select>
           <button type="button" id="addRede">Adicionar</button>
@@ -52,9 +52,10 @@
           <div class="gridRedes">
             <% perfil.redes_sociais.forEach(rede => { %>
             <div class="inputRedes">
-              <label for="<%= rede.nome %>"><%= rede.nome %></label>
+              <label for="redesLinks"><%= rede.nome %></label>
               <div>
-                <input type="text" name="<%= rede.nome %>" value="<%= rede.Usuarios_redes.link %>"/>
+                <input type="text" name="redes" value="<%= rede.Usuarios_redes.redes_id %>" hidden />
+                <input type="text" name="redesLinks" value="<%= rede.Usuarios_redes.link %>"/>
                 <div class="removerItem">
                   <button type="button" id="btnRmv"><img src="../img/deleteicon.svg" /></button>
                 </div>
@@ -67,14 +68,15 @@
           <h4>Linguagens</h4>
           <select id="selectLinguagens">
             <% linguagens.forEach(linguagem => { %>
-              <option value="<%= linguagem.nome %>"><%= linguagem.nome %></option>
+              <option value="<%= linguagem.id %>"><%= linguagem.nome %></option>
             <% }) %>
           </select>
           <button type="button" id="addLinguagem">Adicionar</button>
           <div class="gridLinguagens">
             <% perfil.linguagens.forEach(linguagem => { %>
               <div class="itemLinguagem">
-                  <input type="text" name="linguagens" value="<%= linguagem.nome %>" readonly>
+                  <input type="text" name="linguagens" value="<%= linguagem.id %>" readonly hidden>
+                  <input type="text" value="<%= linguagem.nome %>" readonly>
                   <p class="removerLinguagem">Remover</p>
               </div>
             <% }) %>

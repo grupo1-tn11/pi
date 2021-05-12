@@ -26,7 +26,8 @@ function adicionarRemoverLinguagens() {
     addLinguagem.addEventListener('click', ()=>{
         let div = document.createElement('div');
         div.className = 'itemLinguagem'
-        div.innerHTML = `<input type="text" name="linguagens" value="${selectLinguagens.value}" readonly>
+        div.innerHTML = `<input type="text" name="linguagens" value="${selectLinguagens.value}" readonly hidden>`
+        div.innerHTML += `<input type="text" value="${selectLinguagens[selectLinguagens.selectedIndex].textContent}" readonly>
                         <p class="removerLinguagem">Remover</p>`
         gridLinguagens.appendChild(div)
         updateLinguagens()
@@ -52,9 +53,10 @@ function adicionarRemoverRedes() {
         const div = document.createElement('div')
         div.className = 'inputRedes'
         div.innerHTML = `
-        <label for="${selectRedes.value}">${selectRedes.value}</label>
+        <label for="redesLinks">${selectRedes[selectRedes.selectedIndex].textContent}</label>
         <div>
-          <input type="text" name="${selectRedes.value}" />
+        <input type="text" name="redes" value="${selectRedes.value}" hidden />
+        <input type="text" name="redesLinks" />
           <div class="removerItem">
             <button type="button" id="btnRmv"><img src="../img/deleteicon.svg" /></button>
           </div>
