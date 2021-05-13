@@ -14,7 +14,7 @@ function createStorage(dir) {
   })
 }
 
-const storageFoto = createStorage('foto_perfil')
+const storageFoto = createStorage('arquivos')
 const storageCurriculo = createStorage('curriculo')
 const storagePortifolio = createStorage('portifolio')
  

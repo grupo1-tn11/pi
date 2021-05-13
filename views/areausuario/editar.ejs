@@ -10,7 +10,12 @@
     <main>
       <form class="formPerfil" action="/perfil/editar?_method=PUT" method="POST" enctype="multipart/form-data">
         <div class="foto">
-          <img class="fotoPerfil" src="/foto_perfil/<%= perfil.foto %>" alt="fotoperfil">
+          <% if(perfil.foto){ %>
+            <img class="fotoPerfil" src="/arquivos/<%= perfil.foto %>" alt="fotoperfil">
+          <% } else { %>
+            <p class="descFoto">Clique aqui para inserir uma foto</p>
+          <% } %>
+          <input type="file" name="foto" id="uploadFoto"/>
         </div>
         <div class="infPessoais">
           <div class="areaInf">

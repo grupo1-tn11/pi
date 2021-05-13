@@ -64,7 +64,12 @@ const controller = {
   atualizar: async (req, res) => {
     const { body } = req
     const { id } = req.session.usuario
-    let file = req.file
+    let files = req.files
+
+    // console.log(files.foto[0].filename);
+    // console.log(files.curriculo[0].filename);
+    // console.log(files.foto);
+    // console.log(files.curriculo);
 
     for (let key in body) {
       body[key] = verificaArray(body[key])
@@ -72,15 +77,19 @@ const controller = {
 
     //console.log('body - ', body)
 
+    const usuario = await Usuarios.findByPk(id)
+
     try {
-      if (file) {
+      if (files) {
         await Usuarios.update(
           {
             nome: body.nome[0],
             email: body.email[0],
             resumo: body.resumo[0],
+            telefone: body.telefone[0],
             repositorio_link: body.repositorio[0],
-            curriculo: file.filename,
+            foto: files.foto ? files.foto[0].filename : usuario.foto,
+            curriculo: files.curriculo ? files.curriculo[0].filename : usuario.curriculo
           },
           {
             where: { id: id },
@@ -184,7 +193,7 @@ const controller = {
       }
       
     //fs.writeFileSync(path.resolve('./log', 'body.json'), JSON.stringify(body))
-    console.log(req.body)
+    // console.log(req.body)
     res.redirect('/perfil')
   },
 }

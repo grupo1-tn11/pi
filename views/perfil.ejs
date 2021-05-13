@@ -14,7 +14,7 @@
     <main>
       <form class="formPerfil" action="/perfil/editar?_method=PUT" method="POST" enctype="multipart/form-data">
         <div class="foto">
-          <img class="fotoPerfil" src="/foto_perfil/<%= perfil.foto %>" alt="fotoperfil">
+          <img class="fotoPerfil" src="/arquivos/<%= perfil.foto %>" alt="fotoperfil" />
         </div>
         <div class="infPessoais">
           <div class="areaInf">
@@ -40,7 +40,7 @@
             </div>
             <div class="areaInf">
               <label for="curriculo"><h4>Currículo</h4></label>
-              <a class="btn btn-primary" href="/curriculo/<%= perfil.curriculo %>" id="curriculo">Download</a>
+              <a class="btn btn-primary" href="/arquivos/<%= perfil.curriculo %>" id="curriculo" target="_blank">Download</a>
             </div>
           </div>
         </div>
