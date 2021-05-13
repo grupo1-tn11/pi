@@ -6,7 +6,11 @@
     <title><%= perfil.nome %> - perfil</title>
   </head>
   <body>
-    <%- include('./parts/header-logado') %>
+    <% if(!usuario) { %>
+      <%- include('./parts/header') %>
+    <% } else { %>
+      <%- include('./parts/header-logado') %>
+    <% } %>
     <main>
       <form class="formPerfil" action="/perfil/editar?_method=PUT" method="POST" enctype="multipart/form-data">
         <div class="foto">
@@ -36,7 +40,7 @@
             </div>
             <div class="areaInf">
               <label for="curriculo"><h4>Currículo</h4></label>
-              <a href="/curriculo/<%= perfil.curriculo %>">Download</a>
+              <a class="btn btn-primary" href="/curriculo/<%= perfil.curriculo %>" id="curriculo">Download</a>
             </div>
           </div>
         </div>
